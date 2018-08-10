@@ -11,4 +11,4 @@
 |
 */
 
-Route::any('/', "VotingController@index");
+include_once('routes_config/routes_voting.php');
