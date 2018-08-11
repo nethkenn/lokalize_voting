@@ -11,4 +11,8 @@ class VotingController extends Controller
     {
     	return view('index');
     }
+    public function admin()
+    {
+    	return view('admin');
+    }
 }
