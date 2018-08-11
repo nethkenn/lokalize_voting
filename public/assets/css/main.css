@@ -49,3 +49,63 @@
 	background-color: transparent;
 	border: 1px solid #654DFF;
 }
+.nav-tabs {
+    border-bottom: 1px solid transparent !important;
+    width: inherit;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background-color: #654DFF;
+    border-color: #654DFF;
+
+}
+.nav-tabs .nav-link {
+	border-radius: 75px 75px 75px 75px;
+    border-color: #654DFF;
+    margin-bottom:  10px;
+    font-size: 12px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.globaltitle {
+	background-color: #654DFF;
+	width: 100%;
+	margin: 10px 0;
+	height: 50px;
+}
+
+.globaltitle h5{
+	color:white;
+	padding: 15px;
+	font-size: 16px;
+}
+
+.globalcontent {
+	background-color: transparent;
+	height: 100%;
+	padding: 20px;
+}
+.globalpicture {
+	width: 200px;
+	height: 300px;
+	background-color: transparent;
+	display: inline-block;
+	margin: 5px 13px;
+	padding: 0;
+}
+.globalpicture img {
+	width: inherit;
+	height: 50%;
+	margin: 0;
+	padding: 0;
+}
+.textvote {
+	padding: 15px 20px !important;
+	font-size: 14px;
+}
+.textvote button {
+	height: 30px;
+	text-align: center;
+}
