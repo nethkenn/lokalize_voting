@@ -30,8 +30,8 @@
         <img class="img-responsive" src="{{$global->user_picture}}">
         <div class="textvote">
           <center>{{$global->user_display_name}}</center>
-          <center><button type="button" class="btn btn-primary" id="{{$global->user_id}}vote" onclick="vote({{$global->user_id}},'votedglobalcontentcontainer','globaldirec')">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary" id="{{$global->user_id}}cancel" onclick="cancel_vote({{$global->user_id}},'globaldirec')" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}vote">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -52,8 +52,8 @@
         <img class="img-responsive" src="{{$regional->user_picture}}">
         <div class="textvote">
           <center>{{$regional->user_display_name}}</center>
-          <center><button type="button" class="btn btn-primary" id="{{$regional->user_id}}vote" onclick="vote({{$regional->user_id}},'votedregionalcontentcontainer','regionaldirec')">VOTE NOW!</button></center>
-          <center><button type="button" class="btn btn-primary" id="{{$regional->user_id}}cancel" onclick="cancel_vote({{$regional->user_id}},'regionaldirec')" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}vote">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -74,8 +74,8 @@
         <img class="img-responsive" src="{{$ambassador->user_picture}}">
         <div class="textvote">
           <center>{{$ambassador->user_display_name}}</center>
-          <center><button type="button" class="btn btn-primary" id="{{$ambassador->user_id}}vote" onclick="vote({{$ambassador->user_id}},'votedregionalcontentcontainer','ambass')">VOTE NOW!</button></center>
-          <center><button type="button" class="btn btn-primary" id="{{$ambassador->user_id}}cancel" onclick="cancel_vote({{$ambassador->user_id}},'ambass')" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}vote">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -94,8 +94,8 @@
         <img class="img-responsive" src="{{$advisor->user_picture}}">
         <div class="textvote">
           <center>{{$advisor->user_display_name}}</center>
-          <center><button type="button" class="btn btn-primary" id="{{$advisor->user_id}}vote" onclick="vote({{$advisor->user_id}},'votedregionalcontentcontainer','advis')">VOTE NOW!</button></center>
-          <center><button type="button" class="btn btn-primary" id="{{$advisor->user_id}}cancel" onclick="cancel_vote({{$advisor->user_id}},'advis')" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}vote">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -108,8 +108,6 @@
 <div class="col-lg-4">
 <!--voted-->
   <div class="col-lg-12 votedlist">
-  <form method="POST" role="form" action="/employee/submit_votes" method="post">
-   {{ csrf_field() }}
     <div class="votedtitle">
         Voted List
     </div>
@@ -148,10 +146,11 @@
   </div>
 
   <div class="col-lg-12 submitdiv">
-  <button type="submit" class="btn btn-primary">SUBMIT</button>
+  <button type="button" id="submit" class="btn btn-primary">SUBMIT</button>
   </div>
-</form>
+
 </div>
 
 @endsection
+<script src="/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/employee.js"></script>
