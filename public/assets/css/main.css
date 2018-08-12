@@ -67,6 +67,7 @@
     height: 50px;
     width: 100%;
     text-align: center;
+    color:#654DFF;
 }
 
 .globaltitle {
@@ -94,6 +95,7 @@
 	display: inline-block;
 	margin: 5px 13px;
 	padding: 0;
+	border:1px solid #A9A9A9;
 }
 .globalpicture img {
 	width: inherit;
@@ -102,7 +104,7 @@
 	padding: 0;
 }
 .textvote {
-	padding: 15px 20px !important;
+	padding: 15px 30px !important;
 	font-size: 14px;
 }
 
@@ -110,22 +112,60 @@
 	text-align: center;
 	margin-top: 10px !important;
 	background-color: #654DFF;
+	font-size: 10px;
 }
 .votedlist {
 	width: 100%;
-	height: 850px;
 	background-color: #654DFF;
-	box-shadow: 0 12px 20px black;
+	box-shadow: 0 0px 20px black;
+	padding: 0;
 }
 .votedtitle {
 	padding: 20px;
 	font-size: 13px;
 	color:white;
 }
-.votedglobaltitle{
+.votedglobaltitle, .votedregionaltitle, .votedambassadortitle, .votedadvisertitle{
 	padding: 20px;
-	font-size: 15px;
+	font-size: 12px;
 	background-color: white;
-	box-shadow: 0 12px 20px black;
+	box-shadow: 0 0px 20px black;
 	width: inherit;
+}
+.votedcontent {
+	width:100%;
+	padding: 30px;
+}
+.votedcontent img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 20px black;
+    float: left;
+    margin-right: 20px;
+}
+.votedcontent p {
+	font-weight: bold;
+	display: inline-block;
+	color:white;
+	font-size: 10px;
+}
+.votedcontent button {
+	float:right;
+	background-color: #654DFF;
+	border: 1px solid white;
+}
+.submitdiv {
+	padding: 0;
+	margin-top: 25px;
+}
+.submitdiv button {
+	width:100%;
+	background-color: transparent;
+	border-color: #654DFF;
+	box-shadow: 0 0px 20px black;
+	color:#654DFF;
+}
+.submitdiv button:hover {
+	background-color: #654DFF;
 }

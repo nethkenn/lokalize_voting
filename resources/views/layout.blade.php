@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 
@@ -59,6 +60,7 @@
 
 
 <script src="/assets/js/jquery.min.js"></script>
+@yield('script')
 <script src="/assets/js/bootstrap.min.js"></script>
 </body>
 </html>

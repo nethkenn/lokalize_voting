@@ -1,0 +1,157 @@
+@extends('layout')
+@section('content')
+<!--BUTTON-->
+
+<ul class="nav nav-tabs col-lg-8" id="myTab" role="tablist">
+  <li class="nav-item col-md-4 col-lg-3 col-sm-4">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#global" role="tab" aria-controls="home" aria-selected="true">Global Board of Director</a>
+  </li>
+  <li class="nav-item col-md-4 col-lg-3 col-sm-4">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#regional" role="tab" aria-controls="profile" aria-selected="false">Regional Board of Director</a>
+  </li>
+  <li class="nav-item col-md-4 col-lg-3 col-sm-4">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ambassador" role="tab" aria-controls="contact" aria-selected="false">Ambassador</a>
+  </li>
+  <li class="nav-item col-md-4 col-lg-3 col-sm-4">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#advisor" role="tab" aria-controls="contact" aria-selected="false">Advisor</a>
+  </li>
+</ul>
+<div class="tab-content col-lg-8" id="myTabContent">
+  <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="home-tab">
+    <div class="col-lg-12 globaltitle">
+      <h5>
+      Global Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      </h5>
+    </div>
+    <div class="col-lg-12 globalcontent">
+
+    @foreach($global_candidate as $key => $global)
+      <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
+        <img class="img-responsive" src="{{$global->user_picture}}">
+        <div class="textvote">
+          <center>{{$global->user_display_name}}</center>
+          <center><button type="button" class="btn btn-primary" id="{{$global->user_id}}vote" onclick="vote({{$global->user_id}},'votedglobalcontentcontainer','globaldirec')">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary" id="{{$global->user_id}}cancel" onclick="cancel_vote({{$global->user_id}},'globaldirec')" style="display:none">CANCEL VOTE</button></center>
+        </div>
+      </div>
+    @endforeach
+
+    </div>
+  </div>
+
+  <!--regional-->
+  <div class="tab-pane fade" id="regional" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="col-lg-12 globaltitle">
+      <h5>
+      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      </h5>
+    </div>
+    <div class="col-lg-12 globalcontent">
+    @foreach($regional_candidate as $key => $regional)
+      <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
+        <img class="img-responsive" src="{{$regional->user_picture}}">
+        <div class="textvote">
+          <center>{{$regional->user_display_name}}</center>
+          <center><button type="button" class="btn btn-primary" id="{{$regional->user_id}}vote" onclick="vote({{$regional->user_id}},'votedregionalcontentcontainer','regionaldirec')">VOTE NOW!</button></center>
+          <center><button type="button" class="btn btn-primary" id="{{$regional->user_id}}cancel" onclick="cancel_vote({{$regional->user_id}},'regionaldirec')" style="display:none">CANCEL VOTE</button></center>
+        </div>
+      </div>
+    @endforeach
+    </div>
+  </div>
+
+  <!--ambassador-->
+  <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="col-lg-12 globaltitle">
+      <h5>
+      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      </h5>
+    </div>
+
+    <div class="col-lg-12 globalcontent">
+    @foreach($ambassador_candidate as $key => $ambassador)
+      <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
+        <img class="img-responsive" src="{{$ambassador->user_picture}}">
+        <div class="textvote">
+          <center>{{$ambassador->user_display_name}}</center>
+          <center><button type="button" class="btn btn-primary" id="{{$ambassador->user_id}}vote" onclick="vote({{$ambassador->user_id}},'votedregionalcontentcontainer','ambass')">VOTE NOW!</button></center>
+          <center><button type="button" class="btn btn-primary" id="{{$ambassador->user_id}}cancel" onclick="cancel_vote({{$ambassador->user_id}},'ambass')" style="display:none">CANCEL VOTE</button></center>
+        </div>
+      </div>
+    @endforeach
+    </div>
+  </div>
+  <!--advisor-->
+  <div class="tab-pane fade" id="advisor" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="col-lg-12 globaltitle">
+      <h5>
+      Advisor    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      </h5>
+    </div>
+    <div class="col-lg-12 globalcontent">
+    @foreach($advisor_candidate as $key => $advisor)
+      <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
+        <img class="img-responsive" src="{{$advisor->user_picture}}">
+        <div class="textvote">
+          <center>{{$advisor->user_display_name}}</center>
+          <center><button type="button" class="btn btn-primary" id="{{$advisor->user_id}}vote" onclick="vote({{$advisor->user_id}},'votedregionalcontentcontainer','advis')">VOTE NOW!</button></center>
+          <center><button type="button" class="btn btn-primary" id="{{$advisor->user_id}}cancel" onclick="cancel_vote({{$advisor->user_id}},'advis')" style="display:none">CANCEL VOTE</button></center>
+        </div>
+      </div>
+    @endforeach
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-lg-4">
+<!--voted-->
+  <div class="col-lg-12 votedlist">
+  <form method="POST" role="form" action="/employee/submit_votes" method="post">
+   {{ csrf_field() }}
+    <div class="votedtitle">
+        Voted List
+    </div>
+
+    <!--GLOBAL VOTES-->
+    <div class="votedglobaltitle">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right globalnumber">0/3</span>
+    </div>
+    <!--GLOBAL CONTENTS-->
+    <div class="votedglobalcontentcontainer">
+    </div>
+
+    <!--REGIONAL VOTES-->
+    <div class="votedregionaltitle">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/10</span>
+    </div>
+    <!--REGIONAL CONTENTS-->
+    <div class="votedregionalcontentcontainer">
+    </div>
+
+      <!--AMBASSADOR VOTES-->
+    <div class="votedambassadortitle">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADOR<span class="pull-right ambassadornumber">0/5</span>
+    </div>
+    <!--AMBASSADOR CONTENTS-->
+    <div class="votedambassadorcontentcontainer">
+    </div>
+
+    <!--ADVISER VOTES-->
+    <div class="votedadvisertitle">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;ADVISER<span class="pull-right advisernumber">0/20</span>
+    </div>
+    <!--ADVISER CONTENTS-->
+    <div class="votedadvisercontentcontainer">
+    </div>
+  </div>
+
+  <div class="col-lg-12 submitdiv">
+  <button type="submit" class="btn btn-primary">SUBMIT</button>
+  </div>
+</form>
+</div>
+
+@endsection
+<script type="text/javascript" src="/assets/js/employee.js"></script>
