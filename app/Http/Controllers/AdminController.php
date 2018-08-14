@@ -29,7 +29,7 @@ class AdminController extends Controller
     	$data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("user_applied_position",3)->orderBy('user_country','ASC')->get();
     	$data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("user_applied_position",4)->get();
 
-    	  dd($data);
+    	  // dd($data);
 
     	// foreach($data['global_candidate'] as $key => $val)
     	// {
@@ -50,7 +50,36 @@ class AdminController extends Controller
     }
 
     public function submit_votes()
-    {
+    {   // dito irerequest mo ung mga input = $_post
+        $globaldirectors   = Request::Input('globaldirectors');
+        $regionaldirectors = Request::Input('regionaldirectors');
+        $ambassadors       = Request::Input('ambassadors');
+        $advisors          = Request::Input('advisors');
+        //dahil array ang kinukuha mo kailngan mong iloop
+        //         
+        foreach ($globaldirectors as $global) 
+        {
+           $insert['user_id'] = $global;
+           Tbl_approved_candidates::insert($insert);
+        }
+
+           foreach ($regionaldirectors as $regional) 
+        {
+           $insert['user_id'] = $regional;
+           Tbl_approved_candidates::insert($insert);
+        }
+
+           foreach ($ambassadors as $ambass) 
+        {
+           $insert['user_id'] = $ambass;
+           Tbl_approved_candidates::insert($insert);
+        }
+
+           foreach ($advisors as $advisors) 
+        {
+           $insert['user_id'] = $advisors;
+           Tbl_approved_candidates::insert($insert);
+        }
         dd(Request::all());
     }
 }

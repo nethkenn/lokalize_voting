@@ -29,7 +29,7 @@ class EmployeeController extends Controller
     	$data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("user_applied_position",2)->get();
     	$data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("user_applied_position",3)->get();
     	$data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("user_applied_position",4)->get();
-
+        // dd($data);
     	return view('employee.index',$data);
     }
 

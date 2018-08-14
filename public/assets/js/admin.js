@@ -53,19 +53,19 @@ function admin()
 			{
 				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
-			else if(globaldirectors.length < 15)
+			else if(globaldirectors.length < 2)
 			{
 				alert("Please Approve 15 Candidate for Board of Trustees.");
 			}
-			else if(regionaldirectors.length < 30)
+			else if(regionaldirectors.length < 3)
 			{
 				alert("Please Approve 30 Candidate for Global Board of Directors.");
 			}
-			else if(ambassadors.length < 150)
+			else if(ambassadors.length < 3)
 			{
 				alert("Please Choose 150 Candidate and 5 per Region for Regional Board of Directors.");
 			}
-			else if(advisors < 195)
+			else if(advisors < 4)
 			{
 				alert("Please Choose 195 Candidate for Ambassadors.");
 			}
@@ -83,7 +83,7 @@ function admin()
 				data: {globaldirectors:globaldirectors,
 					   regionaldirectors:regionaldirectors,
 					   ambassadors:ambassadors,
-					   advisors:advisors
+					   advisors:advisors	
 						},
 				success: function(data)
 				{
@@ -100,7 +100,7 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 15)
+				if($('div.globaldirec').length == 2)
 				{
 					$(".approvedglobaltitle").css("box-shadow","0 0px 20px green");
 				}
@@ -110,7 +110,7 @@ function admin()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 30)
+				if($('div.regionaldirec').length == 3)
 				{
 					$(".approvedregionaltitle").css("box-shadow","0 0px 20px green");
 				}
@@ -120,7 +120,7 @@ function admin()
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 15)
+				if($('div.ambass').length == 3)
 				{
 					$(".approvedambassadortitle").css("box-shadow","0 0px 20px green");
 				}
@@ -130,7 +130,7 @@ function admin()
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 20)
+				if($('div.advis').length == 4)
 				{
 					$(".approvedadvisertitle").css("box-shadow","0 0px 20px green");
 				}
@@ -161,7 +161,13 @@ function admin()
 				data: {candidate_id:candidate_id,position:position},
 				success: function(data)
 				{
-					$("."+container).append(data);
+					var exist = $("."+container).find("#"+candidate_id).length;
+					
+					if(exist == 0)
+					{
+						$("."+container).append(data);
+					}
+
 					$("#"+candidate_id+"remove").css("display","");
 					$("#"+candidate_id+"approve").css("display","none");
 
@@ -185,25 +191,25 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 15)
+				if($('div.globaldirec').length == 2)
 				{
 					maxed = true;
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 10)
+				if($('div.regionaldirec').length == 3)
 				{
 					maxed = true;
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 5)
+				if($('div.ambass').length == 3)
 				{
 					maxed = true;
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 20)
+				if($('div.advis').length == 4)
 				{
 					maxed = true;
 				}
@@ -233,16 +239,16 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				$(".globalnumber").text($('div.globaldirec').length+"/15");
+				$(".globalnumber").text($('div.globaldirec').length+"/2");
 				break;
 			case "regionaldirec":
-				$(".regionalnumber").text($('div.regionaldirec').length+"/30");
+				$(".regionalnumber").text($('div.regionaldirec').length+"/3");
 				break;
 			case "ambass":
-				$(".ambassadornumber").text($('div.ambass').length+"/15");
+				$(".ambassadornumber").text($('div.ambass').length+"/3");
 				break;
 			case "advis":
-				$(".advisernumber").text($('div.advis').length+"/20");
+				$(".advisernumber").text($('div.advis').length+"/4");
 				break;
 		}
 	}

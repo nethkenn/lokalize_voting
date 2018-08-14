@@ -26,9 +26,9 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">First Name</th>
+								<th scope="col">Full Name</th>
 								<th scope="col">Country</th>
-								<th scope="col">Email</th>
+								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -39,7 +39,7 @@
 								@foreach($global_candidate as $key => $val)
 								<tr>
 									<th scope="row">{{$count++}}</th>
-									<td>{{$val->user_display_name}}</td>
+									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
 									<td>{{$val->user_country}}</td>
 									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="globaldirec" data-container="approvedglobalcontentcontainer" id="{{$val->user_id}}approve">Approve</button>
@@ -56,9 +56,9 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">First Name</th>
+								<th scope="col">Full Name</th>
 								<th scope="col">Country</th>
-								<th scope="col">Email</th>
+								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -70,7 +70,7 @@
 									@foreach($regional_candidate as $key => $val)
 									<tr>
 										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_display_name}}</td>
+										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
 										<td>{{$val->user_country}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="regionaldirec" data-container="approvedregionalcontentcontainer" id="{{$val->user_id}}approve">Approve</button>
@@ -86,9 +86,9 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">First Name</th>
+								<th scope="col">Full Name</th>
 								<th scope="col">Country</th>
-								<th scope="col">Email</th>
+								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -100,7 +100,7 @@
 									@foreach($ambassador_candidate as $key => $val)
 									<tr>
 										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_display_name}}</td>
+										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
 										<td>{{$val->user_country}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="ambass" data-container="approvedambassadorcontentcontainer" id="{{$val->user_id}}approve">Approve</button>
@@ -117,9 +117,9 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">First Name</th>
+								<th scope="col">Full Name</th>
 								<th scope="col">Country</th>
-								<th scope="col">Email</th>
+								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
@@ -131,7 +131,7 @@
 									@foreach($advisor_candidate as $key => $val)
 									<tr>
 										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_display_name}}</td>
+										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
 										<td>{{$val->user_country}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="advis" data-container="approvedadvisercontentcontainer" id="{{$val->user_id}}approve">Approve</button>
@@ -192,35 +192,8 @@
   <button type="button" id="submit" class="btn btn-primary approvedCandidates">SUBMIT</button>
   </div>
     	</div>
-		{{-- <div class="col-lg-3 mawawala">
-			<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">Name</th>
-								<th scope="col">Country</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Paul Errol Añago</td>
-								<td>Philippines</td>
-							</tr>
-						</tbody>
-			</table>
-		</div> --}}
 	</div>
 </div>
-
-{{-- @foreach($global_candidate as $key => $global)
-      <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
-        <img class="img-responsive" src="{{$global->user_picture}}">
-        <div class="textvote">
-          <center>{{$global->user_display_name}}</center>
-          <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}vote">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary removed" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
-        </div>
-      </div>
-    @endforeach --}}
 @endsection
 <script src="/assets/js/jquery.min.js"></script>
 {{-- <script src="/assets/js/admin.js"></script> --}}

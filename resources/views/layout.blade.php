@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>VOTING BEYBEH</title>
+	<title>GABC VOTING</title>
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css">
@@ -19,7 +19,6 @@
       <li class="nav-item active">
       	<a class="nav-link" href="#"><i class="fa fa-crosshairs whitefa" aria-hidden="true"></i></a>
       </li>
-       <li class="nav-item active">
         <a class="nav-link" href="#"><i class="fa fa-comments whitefa" aria-hidden="true"></i></a>
       </li>
       <li class="nav-item active">

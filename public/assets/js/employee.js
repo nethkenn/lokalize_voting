@@ -161,7 +161,13 @@ function employee()
 				data: {candidate_id:candidate_id,position:position},
 				success: function(data)
 				{
-					$("."+container).append(data);
+					var exist = $("."+container).find("#"+candidate_id).length;
+					
+					if(exist == 0)
+					{
+						$("."+container).append(data);
+					}
+					
 					$("#"+candidate_id+"cancel").css("display","");
 					$("#"+candidate_id+"vote").css("display","none");
 

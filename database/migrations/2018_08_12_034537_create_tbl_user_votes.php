@@ -14,6 +14,11 @@ class CreateTblUserVotes extends Migration
     public function up()
     {
         //
+                Schema::create('tbl_user_votes', function (Blueprint $table) {
+            $table->increments('user_votes_id');
+            $table->integer('user_id');
+
+        });
     }
 
     /**
