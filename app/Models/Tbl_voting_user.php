@@ -11,4 +11,10 @@ class Tbl_voting_user extends Model
 	protected $primaryKey = "user_id";
     public $timestamps = false;
 
+	public function scopeJoinUser($query)
+	{
+		$query->leftjoin('tbl_positions','tbl_voting_user.user_applied_position','=','tbl_positions.position_id');
+		return $query;
+	}
+
 }

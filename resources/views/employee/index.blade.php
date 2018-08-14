@@ -4,23 +4,23 @@
 
 <ul class="nav nav-tabs col-lg-8" id="myTab" role="tablist">
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#global" role="tab" aria-controls="home" aria-selected="true">Global Board of Director</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#global" role="tab" aria-controls="home" aria-selected="true">Board of Trustees</a>
   </li>
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#regional" role="tab" aria-controls="profile" aria-selected="false">Regional Board of Director</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#regional" role="tab" aria-controls="profile" aria-selected="false">Global Board of Director</a>
   </li>
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ambassador" role="tab" aria-controls="contact" aria-selected="false">Ambassador</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#ambassador" role="tab" aria-controls="contact" aria-selected="false">Regional Board of Director</a>
   </li>
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#advisor" role="tab" aria-controls="contact" aria-selected="false">Advisor</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#advisor" role="tab" aria-controls="contact" aria-selected="false">Ambassador</a>
   </li>
 </ul>
 <div class="tab-content col-lg-8" id="myTabContent">
   <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="home-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Global Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      Board of Trustees    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -43,7 +43,7 @@
   <div class="tab-pane fade" id="regional" role="tabpanel" aria-labelledby="profile-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      Global Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 10 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -64,7 +64,7 @@
   <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 5 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
 
@@ -85,7 +85,7 @@
   <div class="tab-pane fade" id="advisor" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Advisor    <span style="color:white;margin-left: 30px;font-size: 11px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</span>
+      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 195 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -114,7 +114,7 @@
 
     <!--GLOBAL VOTES-->
     <div class="votedglobaltitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right globalnumber">0/3</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;BOARD OF TRUSTEES<span class="pull-right globalnumber">0/1</span>
     </div>
     <!--GLOBAL CONTENTS-->
     <div class="votedglobalcontentcontainer">
@@ -122,7 +122,7 @@
 
     <!--REGIONAL VOTES-->
     <div class="votedregionaltitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/10</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/10</span>
     </div>
     <!--REGIONAL CONTENTS-->
     <div class="votedregionalcontentcontainer">
@@ -130,7 +130,7 @@
 
       <!--AMBASSADOR VOTES-->
     <div class="votedambassadortitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADOR<span class="pull-right ambassadornumber">0/5</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right ambassadornumber">0/5</span>
     </div>
     <!--AMBASSADOR CONTENTS-->
     <div class="votedambassadorcontentcontainer">
@@ -138,7 +138,7 @@
 
     <!--ADVISER VOTES-->
     <div class="votedadvisertitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;ADVISER<span class="pull-right advisernumber">0/20</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/20</span>
     </div>
     <!--ADVISER CONTENTS-->
     <div class="votedadvisercontentcontainer">

@@ -169,3 +169,63 @@
 .submitdiv button:hover {
 	background-color: #654DFF;
 }
+.approvedlist {
+	width: 100%;
+	background-color: #007bff;
+	box-shadow: 0 0px 20px;
+	padding: 0;
+}
+.approvedtitle {
+	padding: 15px;
+	font-size: 13px;
+	color:white;
+}
+.approvedglobaltitle, .approvedregionaltitle, .approvedambassadortitle, .approvedadvisertitle{
+	padding: 20px;
+	font-size: 12px;
+	background-color: white;
+	box-shadow: 0 0px 20px;
+	width: inherit;
+}
+.approvediv {
+	padding: 0;
+	margin-top: 25px;
+}
+.approvediv button {
+	width:100%;
+	background-color: transparent;
+	border-color: #654DFF;
+	box-shadow: 0 0px 20px black;
+	color:#654DFF;
+}
+.approvediv button:hover {
+	background-color: #654DFF;
+}
+.approvedcontent {
+	width:100%;
+	padding: 15px;
+}
+.approvedcontent img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 2px 20px black;
+    float: left;
+    margin-right: 30px;
+}
+.approvedcontent p {
+	font-weight: bold;
+	display: inline-block;
+	color:white;
+	font-size: 10px;
+}
+.approvedcontent button {
+	float:right;
+	background-color: #ff0000;
+	border: 1px solid white;
+}
+.approvedcontent button:hover {
+	float:right;
+	background-color: #cc0000;
+	border: 1px solid white;
+}

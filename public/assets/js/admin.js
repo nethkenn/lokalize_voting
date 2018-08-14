@@ -1,6 +1,6 @@
-var employee = new employee();
+var admin = new admin();
 
-function employee()
+function admin()
 {
 	init();
 
@@ -8,11 +8,11 @@ function employee()
 	{
 		$(document).ready(function()
 		{
-			vote();
-			chectotalvotes();
-			cancel_vote();
+			approve();
+			checktotalapprove();
+			cancel_approve();
 			totalpersonvotes();
-			cancelonvote();
+			removeonapprove();
 			submit_vote();
 		})
 	}
@@ -39,33 +39,33 @@ function employee()
 
 			if(hasDuplicates(globaldirectors) == true)
 			{
-				alert("Duplication of Vote Detected. Please check your votes.");
+				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
 			else if(hasDuplicates(regionaldirectors) == true)
 			{
-				alert("Duplication of Vote Detected. Please check your votes.");
+				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
 			else if(hasDuplicates(ambassadors) == true)
 			{
-				alert("Duplication of Vote Detected. Please check your votes.");
+				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
 			else if(hasDuplicates(advisors) == true)
 			{
-				alert("Duplication of Vote Detected. Please check your votes.");
+				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
-			else if(globaldirectors.length < 1)
+			else if(globaldirectors.length < 15)
 			{
-				alert("Please Choose 1 Candidate for Board of Trustees.");
+				alert("Please Approve 15 Candidate for Board of Trustees.");
 			}
-			else if(regionaldirectors.length < 10)
+			else if(regionaldirectors.length < 30)
 			{
-				alert("Please Choose 10 Candidate for Global Board of Directors.");
+				alert("Please Approve 30 Candidate for Global Board of Directors.");
 			}
-			else if(ambassadors.length < 5)
+			else if(ambassadors.length < 150)
 			{
-				alert("Please Choose 5 Candidate for Regional Board of Directors.");
+				alert("Please Choose 150 Candidate and 5 per Region for Regional Board of Directors.");
 			}
-			else if(advisors < 20)
+			else if(advisors < 195)
 			{
 				alert("Please Choose 195 Candidate for Ambassadors.");
 			}
@@ -78,7 +78,7 @@ function employee()
 			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			    },
 				type: 'POST',
-				url: '/employee/submit_votes',
+				url: '/admin/submit_votes',
 				dataType: 'text',
 				data: {globaldirectors:globaldirectors,
 					   regionaldirectors:regionaldirectors,
@@ -100,70 +100,70 @@ function employee()
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 1)
+				if($('div.globaldirec').length == 15)
 				{
-					$(".votedglobaltitle").css("box-shadow","0 0px 20px green");
+					$(".approvedglobaltitle").css("box-shadow","0 0px 20px green");
 				}
 				else
 				{
-					$(".votedglobaltitle").css("box-shadow","0 0px 20px red");
+					$(".approvedglobaltitle").css("box-shadow","0 0px 20px red");
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 10)
+				if($('div.regionaldirec').length == 30)
 				{
-					$(".votedregionaltitle").css("box-shadow","0 0px 20px green");
+					$(".approvedregionaltitle").css("box-shadow","0 0px 20px green");
 				}
 				else
 				{
-					$(".votedregionaltitle").css("box-shadow","0 0px 20px red");
+					$(".approveedregionaltitle").css("box-shadow","0 0px 20px red");
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 5)
+				if($('div.ambass').length == 15)
 				{
-					$(".votedambassadortitle").css("box-shadow","0 0px 20px green");
+					$(".approvedambassadortitle").css("box-shadow","0 0px 20px green");
 				}
 				else
 				{
-					$(".votedambassadortitle").css("box-shadow","0 0px 20px red");
+					$(".approvedambassadortitle").css("box-shadow","0 0px 20px red");
 				}
 				break;
 			case "advis":
 				if($('div.advis').length == 20)
 				{
-					$(".votedadvisertitle").css("box-shadow","0 0px 20px green");
+					$(".approvedadvisertitle").css("box-shadow","0 0px 20px green");
 				}
 				else
 				{
-					$(".votedadvisertitle").css("box-shadow","0 0px 20px red");
+					$(".approvedadvisertitle").css("box-shadow","0 0px 20px red");
 				}
 				break;
 		}
 	}
 
-	function vote()
+	function approve()
 	{
 
-		$(".voted").click(function()
+		$(".approved").click(function()
 		{
 			var position     = $(this).attr("data-position");
 			var candidate_id = $(this).attr("data-id");
-		    var maxed        = chectotalvotes(position);
+		    var maxed        = checktotalapprove(position);
 		    var container    = $(this).attr("data-container");
 
 			if(maxed == false)
 			{
 				$.ajax({
 				type: 'GET',
-				url: '/employee/vote/getcandidateinfo',
+				url: '/admin/approve/getcandidateinfo',
 				dataType: 'text',
 				data: {candidate_id:candidate_id,position:position},
 				success: function(data)
 				{
 					$("."+container).append(data);
-					$("#"+candidate_id+"cancel").css("display","");
-					$("#"+candidate_id+"vote").css("display","none");
+					$("#"+candidate_id+"remove").css("display","");
+					$("#"+candidate_id+"approve").css("display","none");
 
 					changecolor(position);
 					totalpersonvotes(position);
@@ -179,13 +179,13 @@ function employee()
 
 	}
 
-	function chectotalvotes(position)
+	function checktotalapprove(position)
 	{
 		var maxed = false;
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 1)
+				if($('div.globaldirec').length == 15)
 				{
 					maxed = true;
 				}
@@ -213,16 +213,16 @@ function employee()
 		return maxed;
 	}
 
-	function cancel_vote()
+	function cancel_approve()
 	{
-		$(".cancelled").click(function()
+		$(".removed").click(function()
 		{
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"approve").css("display","");
+			$("#"+user_id+"remove").css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
@@ -233,13 +233,13 @@ function employee()
 		switch(position)
 		{
 			case "globaldirec":
-				$(".globalnumber").text($('div.globaldirec').length+"/1");
+				$(".globalnumber").text($('div.globaldirec').length+"/15");
 				break;
 			case "regionaldirec":
-				$(".regionalnumber").text($('div.regionaldirec').length+"/10");
+				$(".regionalnumber").text($('div.regionaldirec').length+"/30");
 				break;
 			case "ambass":
-				$(".ambassadornumber").text($('div.ambass').length+"/5");
+				$(".ambassadornumber").text($('div.ambass').length+"/15");
 				break;
 			case "advis":
 				$(".advisernumber").text($('div.advis').length+"/20");
@@ -247,48 +247,48 @@ function employee()
 		}
 	}
 
-	function cancelonvote()
+	function removeonapprove()
 	{
-		$(".votedglobalcontentcontainer").on("click", "button.cancelledvotedlist", function(){
+		$(".approvedglobalcontentcontainer").on("click", "button.removedapprovedlist", function(){
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"approve").css("display","");
+			$("#"+user_id+"remove").css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
 
-		$(".votedregionalcontentcontainer").on("click", "button.cancelledvotedlist", function(){
+		$(".approvedregionalcontentcontainer").on("click", "button.removedapprovedlist", function(){
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"approve").css("display","");
+			$("#"+user_id+"remove").css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
 
-		$(".votedambassadorcontentcontainer").on("click", "button.cancelledvotedlist", function(){
+		$(".approvedambassadorcontentcontainer").on("click", "button.removedapprovedlist", function(){
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"approve").css("display","");
+			$("#"+user_id+"remove").css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
 
-		$(".votedadvisercontentcontainer").on("click", "button.cancelledvotedlist", function(){
+		$(".approvedadvisercontentcontainer").on("click", "button.removedapprovedlist", function(){
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"approve").css("display","");
+			$("#"+user_id+"remove").css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
