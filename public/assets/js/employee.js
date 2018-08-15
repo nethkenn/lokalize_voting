@@ -32,10 +32,12 @@ function employee()
 
 		$("#submit").click(function()
 		{
-			var globaldirectors   = $("input[name='globaldirec[]']").map(function(){return $(this).val();}).get();
-			var regionaldirectors = $("input[name='regionaldirec[]']").map(function(){return $(this).val();}).get();
-			var ambassadors       = $("input[name='ambass[]']").map(function(){return $(this).val();}).get();
-			var advisors          = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
+			var globaldirectors   	  = $("input[name='globaldirec[]']").map(function(){return $(this).val();}).get();
+			var regionaldirectors 	  = $("input[name='regionaldirec[]']").map(function(){return $(this).val();}).get();
+			var ambassadors      	  = $("input[name='ambass[]']").map(function(){return $(this).val();}).get();
+			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
+			var user_id          	  = $('.statis_user_id').val();
+			var approved_candidate_id = $('.approved_candidate_id').val();
 
 			if(hasDuplicates(globaldirectors) == true)
 			{
@@ -57,17 +59,17 @@ function employee()
 			{
 				alert("Please Choose 1 Candidate for Board of Trustees.");
 			}
-			else if(regionaldirectors.length < 10)
+			else if(regionaldirectors.length < 3)
 			{
-				alert("Please Choose 10 Candidate for Global Board of Directors.");
+				alert("Please Choose 3 Candidate for Global Board of Directors.");
 			}
-			else if(ambassadors.length < 5)
+			else if(ambassadors.length < 3)
 			{
-				alert("Please Choose 5 Candidate for Regional Board of Directors.");
+				alert("Please Choose 3 Candidate for Regional Board of Directors.");
 			}
-			else if(advisors < 20)
+			else if(advisors < 4)
 			{
-				alert("Please Choose 195 Candidate for Ambassadors.");
+				alert("Please Choose 4 Candidate for Ambassadors.");
 			}
 			else
 			{
@@ -83,7 +85,10 @@ function employee()
 				data: {globaldirectors:globaldirectors,
 					   regionaldirectors:regionaldirectors,
 					   ambassadors:ambassadors,
-					   advisors:advisors
+					   advisors:advisors,
+					   //name : value
+					   user_id:user_id,
+					   approved_candidate_id:approved_candidate_id
 						},
 				success: function(data)
 				{
@@ -110,7 +115,7 @@ function employee()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 10)
+				if($('div.regionaldirec').length == 3)
 				{
 					$(".votedregionaltitle").css("box-shadow","0 0px 20px green");
 				}
@@ -120,7 +125,7 @@ function employee()
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 5)
+				if($('div.ambass').length == 3)
 				{
 					$(".votedambassadortitle").css("box-shadow","0 0px 20px green");
 				}
@@ -130,7 +135,7 @@ function employee()
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 20)
+				if($('div.advis').length == 4)
 				{
 					$(".votedadvisertitle").css("box-shadow","0 0px 20px green");
 				}
@@ -197,19 +202,19 @@ function employee()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 10)
+				if($('div.regionaldirec').length == 3)
 				{
 					maxed = true;
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 5)
+				if($('div.ambass').length == 3)
 				{
 					maxed = true;
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 20)
+				if($('div.advis').length == 4)
 				{
 					maxed = true;
 				}
@@ -242,13 +247,13 @@ function employee()
 				$(".globalnumber").text($('div.globaldirec').length+"/1");
 				break;
 			case "regionaldirec":
-				$(".regionalnumber").text($('div.regionaldirec').length+"/10");
+				$(".regionalnumber").text($('div.regionaldirec').length+"/3");
 				break;
 			case "ambass":
-				$(".ambassadornumber").text($('div.ambass').length+"/5");
+				$(".ambassadornumber").text($('div.ambass').length+"/3");
 				break;
 			case "advis":
-				$(".advisernumber").text($('div.advis').length+"/20");
+				$(".advisernumber").text($('div.advis').length+"/4");
 				break;
 		}
 	}

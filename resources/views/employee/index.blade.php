@@ -37,7 +37,7 @@
         <center><button type="button" class="btn btn-outline-info btn-sm">View more Info</button></center>
       </div>
     @endforeach
-
+<input type="hidden" value="100" class="statis_user_id" name="">
     </div>
   </div>
 

@@ -21,6 +21,12 @@ use App\Models\Tbl_voting_user;
 
 class AdminController extends Controller
 {
+
+      public function index()
+      {
+        return view('index');
+      }
+
     //
       public function admin()
     {													//scope(functionName)
