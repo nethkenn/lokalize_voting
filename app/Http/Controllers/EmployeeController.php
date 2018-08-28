@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-
 use Request;
 use stdClass;
 use Input;
 use DateTime;
+use Session;
 use Carbon\Carbon;
+use Redirect;
 
 use App\Models\Tbl_advisor_votes;
 use App\Models\Tbl_ambassador_votes;
@@ -20,18 +21,58 @@ use App\Models\Tbl_regional_board_of_directors_votes;
 use App\Models\Tbl_user_voting_status;
 use App\Models\Tbl_voting_user;
 use App\Models\Tbl_user_votes;
+use App\Globals\Login;
+
+
 
 class EmployeeController extends Controller
 {
-    //
+    
+    // public static function active($sess)
+    // {
+
+    //   $user = Tbl_voting_user::where("user_id", $sess)->first();
+      
+    //     if($user->user_type == 0)
+    //     {
+    //         return Redirect::to('/employee')->send();
+    //     }
+    //     else if($user->user_type == 1)
+    //     {
+    //         return Redirect::to('/admin')->send();
+    //     }
+    //     else
+    //     {
+    //         return Redirect::to('/login')->send();
+    //     }
+    // }
+
     public function index()
-    {	
-    	$data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("user_applied_position",1)->get();
-    	$data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("user_applied_position",2)->get();
-    	$data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("user_applied_position",3)->get();
-    	$data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("user_applied_position",4)->get();
-        // dd($data);
-    	return view('employee.index',$data);
+    {
+        $user = Tbl_voting_user::where("user_id", Session::get('session'))->first();
+
+        if(isset($user))
+        {
+              if($user->user_type != 0)
+              {
+                  return Redirect::to('/login')->send();
+              }
+              else
+              {
+                  $data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("user_applied_position",1)->get();
+                  $data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("user_applied_position",2)->get();
+                  $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("user_applied_position",3)->get();
+                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("user_applied_position",4)->get();
+                    // dd($data);
+                  return view('employee.index',$data);
+              }
+        }
+        else
+        {
+           return Redirect::to('/login')->send();
+        }
+    
+
     }
 
     public function getcandidateinfo()

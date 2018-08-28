@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
       </li>
 
        <li class="nav-item active">
-         <a class="nav-link whitefa" href="#">John Doe</a>
+         <a class="nav-link whitefa" href="#">Jane Doe</a>
       </li>
       
       <li class="nav-item dropdown dropdownli">
@@ -41,7 +42,7 @@
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="buttoon" href='/login'>Logout</a>
         </div>
       </li>
 
@@ -60,5 +61,8 @@
 
 
 <script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+{{-- <script src="/assets/js/admin.js"></script> --}}
+<script type="text/javascript" src="/assets/js/admin.js"></script>
 </body>
 </html>

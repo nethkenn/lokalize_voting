@@ -46,7 +46,6 @@
            							<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="globaldirec" id="{{$val->user_id}}remove" style="display:none">Remove</button>
 									</td>
 								</tr>
-								{{-- <button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}vote">VOTE NOW!</button> --}}
 								@endforeach
 						</tbody>
 					</table>
