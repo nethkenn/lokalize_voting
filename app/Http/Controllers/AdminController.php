@@ -21,6 +21,7 @@ use App\Models\Tbl_regional_board_of_directors_votes;
 use App\Models\Tbl_user_voting_status;
 use App\Models\Tbl_voting_user;
 use App\Globals\Login;
+use Excel;
 
 class AdminController extends Controller
 {
@@ -32,6 +33,7 @@ class AdminController extends Controller
       
         if(isset($user))
         {
+          
           if($user->user_type != 1)
           {
               return Redirect::to('/login')->send();
@@ -44,7 +46,11 @@ class AdminController extends Controller
               $data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("user_applied_position",3)->orderBy('user_country','ASC')->get();
               $data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("user_applied_position",4)->get();
 
-
+                    //yung nsa loob ng bracket yan ang variable name na ttwagin mo dun sa html page mo.
+               $data["usertype"]= $user->user_type;
+               $data["fname"] = $user->user_first_name;
+               $data["lname"] = $user->user_last_name;
+               $data["pic"] = $user->user_picture;
              return view('admin.admin',$data);
           }
         }
@@ -96,5 +102,21 @@ class AdminController extends Controller
            Tbl_approved_candidates::insert($insert);
         }
         dd(Request::all());
+    }
+
+    public function import_data_modal()
+    {
+
+      
+    }
+
+    public function import_template()
+    {
+
+      return view ('import_data_modal');
+
+
+
+
     }
 }

@@ -229,3 +229,15 @@
 	background-color: #cc0000;
 	border: 1px solid white;
 }
+.removed {
+	background-color:#ea4335;
+}
+.removed:hover {
+	background-color:#bf1121;
+}
+.cancelled{
+	background-color:#ea4335 !important;
+}
+.cancelledvotedlist{
+	background-color:#ea4335 !important;
+}

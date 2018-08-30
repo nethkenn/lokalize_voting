@@ -177,8 +177,9 @@ function admin()
 				});
 			}
 			else
-			{
-				alert("You already voted a maxximum candidate for the position!");
+			{	
+		
+				alert("You already approved a maxximum candidates for the position!");
 			}
 
 		});

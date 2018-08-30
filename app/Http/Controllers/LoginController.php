@@ -62,9 +62,12 @@ class LoginController extends Controller
     {
     	if(Request::isMethod("post")) {
     	$email 		= Request::input('UserNameInput');
+    	$username   = Request::input('UserNameInput');
 		$password 	= Request::input('PasswordNameInput');
+		
 
 		$user       = Tbl_voting_user::where('user_email',$email)->where('user_password',$password)->first();
+		$user       = Tbl_voting_user::where('user_name',$username)->where('user_password',$password)->first();
 			
 		if($user) 
 		{	
@@ -75,7 +78,7 @@ class LoginController extends Controller
 			{
 				return Redirect::to("/employee");
 			}
-			else
+			else if($user->user_type == 1)
 			{
 				return Redirect::to("/admin");
 			}
