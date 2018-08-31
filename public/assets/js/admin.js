@@ -78,7 +78,7 @@ function admin()
 			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			    },
 				type: 'POST',
-				url: '/admin/submit_votes',
+				url: '/admin/submit_votes',	
 				dataType: 'text',
 				data: {globaldirectors:globaldirectors,
 					   regionaldirectors:regionaldirectors,
@@ -87,7 +87,7 @@ function admin()
 						},
 				success: function(data)
 				{
-			
+					
 				}
 				});
 			}
@@ -168,8 +168,8 @@ function admin()
 						$("."+container).append(data);
 					}
 
-					$("#"+candidate_id+"remove").css("display","");
-					$("#"+candidate_id+"approve").css("display","none");
+					$("#"+candidate_id+"remove"+position).css("display","");
+					$("#"+candidate_id+"approve"+position).css("display","none");
 
 					changecolor(position);
 					totalpersonvotes(position);
@@ -228,8 +228,8 @@ function admin()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"approve").css("display","");
-			$("#"+user_id+"remove").css("display","none");
+			$("#"+user_id+"approve"+position).css("display","");
+			$("#"+user_id+"remove"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});

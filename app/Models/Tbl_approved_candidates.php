@@ -13,7 +13,7 @@ class Tbl_approved_candidates extends Model
 
     public function scopeJoinUser($query)
 	{
-		$query->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id');
+		$query->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->leftjoin('tbl_applied_position','tbl_voting_user.user_id','=','tbl_applied_position.user_id');
 		return $query;
 	}
 }

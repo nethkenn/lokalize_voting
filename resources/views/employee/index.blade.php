@@ -31,8 +31,8 @@
         <div class="textvote">
           <center>{{$global->user_first_name}} {{$global->user_last_name}}</center>
           <center>{{$global->user_country}}</center>
-          <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}vote">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>           
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>           
         </div>
         <center><button type="button" class="btn btn-outline-info btn-sm">View more Info</button></center>
       </div>
@@ -55,8 +55,8 @@
         <div class="textvote">
           <center>{{$regional->user_first_name}} {{$regional->user_last_name}}</center>
           <center>{{$regional->user_country}}</center>
-          <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}vote">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}voteregionaldirec">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -78,8 +78,8 @@
         <div class="textvote">
           <center>{{$ambassador->user_first_name}} {{$ambassador->user_last_name}}</center>
           <center>{{$ambassador->user_country}}</center>
-          <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}vote">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach
@@ -99,8 +99,8 @@
         <div class="textvote">
           <center>{{$advisor->user_first_name}} {{$advisor->user_last_name}}</center>
           <center>{{$advisor->user_country}}</center>
-          <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}vote">VOTE NOW!</button></center>
-           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}cancel" style="display:none">CANCEL VOTE</button></center>
+          <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
+           <center><button type="button" class="btn btn-primary cancelled" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
       </div>
     @endforeach

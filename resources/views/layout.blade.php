@@ -57,8 +57,11 @@
       @yield('content')
     </div>
   </div>
+
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/import" enctype="multipart/form-data">
+         {{ csrf_field() }}
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Import Data</h5>
@@ -68,20 +71,18 @@
         </div>
         <div class="modal-body">
         {{--upload file--}}
-        <input type="file" class="choosefile"></input>
+        <input type="file" class="choosefile" name="file">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" name="uploadfile">Upload</button>
+          <button type="submit" class="btn btn-primary" name="uploadfile">Upload</button>
         </div>
       </div>
+    </form>
     </div>
   </div>
+
   <script src="/assets/js/bootstrap.min.js"></script>
-  <script src="/assets/js/jquery.min.js"></script>
-  {{-- <script src="/assets/js/admin.js"></script> --}}
-  <script type="text/javascript" src="/assets/js/admin.js"></script>
-  <script src="/assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/employee.js"></script>
+
 </body>
 </html>

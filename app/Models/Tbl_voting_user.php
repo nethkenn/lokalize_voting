@@ -13,7 +13,7 @@ class Tbl_voting_user extends Model
 
 	public function scopeJoinUser($query)
 	{
-		$query->leftjoin('tbl_positions','tbl_voting_user.user_applied_position','=','tbl_positions.position_id');
+		$query->leftjoin('tbl_applied_position','tbl_voting_user.user_id','=','tbl_applied_position.user_id');
 		return $query;
 	}
 

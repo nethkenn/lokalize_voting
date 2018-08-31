@@ -173,8 +173,8 @@ function employee()
 						$("."+container).append(data);
 					}
 					
-					$("#"+candidate_id+"cancel").css("display","");
-					$("#"+candidate_id+"vote").css("display","none");
+					$("#"+candidate_id+"cancel"+position).css("display","");
+					$("#"+candidate_id+"vote"+position).css("display","none");
 
 					changecolor(position);
 					totalpersonvotes(position);
@@ -232,8 +232,8 @@ function employee()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"vote").css("display","");
-			$("#"+user_id+"cancel").css("display","none");
+			$("#"+user_id+"vote"+position).css("display","");
+			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});

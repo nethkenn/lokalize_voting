@@ -59,10 +59,10 @@ class EmployeeController extends Controller
               }
               else
               {   
-                  $data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("user_applied_position",1)->get();
-                  $data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("user_applied_position",2)->get();
-                  $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("user_applied_position",3)->where("user_region",$user->user_region)->get();
-                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("user_applied_position",4)->get();
+                  $data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("position_id",1)->get();
+                  $data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("position_id",2)->get();
+                  $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("position_id",3)->where("user_region",$user->user_region)->get();
+                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->get();
                     // dd($data);
                   $data["fname"] = $user->user_first_name;
                   $data["lname"] = $user->user_last_name;

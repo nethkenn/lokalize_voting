@@ -20,6 +20,7 @@ use App\Models\Tbl_positions;
 use App\Models\Tbl_regional_board_of_directors_votes;
 use App\Models\Tbl_user_voting_status;
 use App\Models\Tbl_voting_user;
+use App\Models\Tbl_applied_position;
 use App\Globals\Login;
 use Excel;
 
@@ -41,10 +42,10 @@ class AdminController extends Controller
           else
           {
               
-              $data['global_candidate']     = Tbl_voting_user::JoinUser()->where("user_applied_position",1)->get();
-              $data['regional_candidate']   = Tbl_voting_user::JoinUser()->where("user_applied_position",2)->get();
-              $data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("user_applied_position",3)->orderBy('user_country','ASC')->get();
-              $data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("user_applied_position",4)->get();
+              $data['global_candidate']     = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",1)->get();
+              $data['regional_candidate']   = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",2)->get();
+              $data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_country','ASC')->get();
+              $data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",4)->get();
 
                     //yung nsa loob ng bracket yan ang variable name na ttwagin mo dun sa html page mo.
                $data["usertype"]= $user->user_type;
@@ -101,7 +102,9 @@ class AdminController extends Controller
            $insert['user_id'] = $advisors;
            Tbl_approved_candidates::insert($insert);
         }
-        dd(Request::all());
+
+        return "sucess";
+
     }
 
     public function import_data_modal()
@@ -113,10 +116,48 @@ class AdminController extends Controller
     public function import_template()
     {
 
-      return view ('import_data_modal');
+      $file = Request::file('file');
+          // die(var_dump(Request::all()));
+      $_data = Excel::selectSheetsByIndex(0)->load($file, function($reader){})->all();
 
+      foreach($_data as $data)
+      {
 
+        $positions = explode(",", $data["what_positions_are_you_applying_for"]);
+        $insert["user_name"] = $data["preferred_username"];
+        $insert["user_email"] = $data["email_address"];
+        $insert["user_password"] = $data["last_name"];
+        $insert["user_picture"] = $data["upload_professional_picture"];
+        $insert["user_linked_in"] = $data["linkedin_profile_link"];
+        $insert["user_media_linked"] = $data["media_links_that_youre_featured_in"];
+        $insert["user_resume"] = $data["upload_resume_or_biography"];
+        $insert["user_country"] = $data["choose_your_country"];
+        $insert["user_region"] = $data["region"];
+        $insert["user_first_name"] = $data["first_name"];
+        $insert["user_middle_name"] = $data['middle_name'];
+        $insert["user_last_name"] = $data["last_name"];
+        $insert["user_company_name"] = $data["your_companys_name"];
+        $user_id = Tbl_voting_user::insertGetId($insert);
 
+        $count = 1;
+        foreach ($positions as $pos) 
+        {
+          $pos = $count == 2 ? ltrim($pos) : $pos;
+
+          $position_id = Tbl_positions::where('position_name',$pos)->value('position_id');
+          $insert_pos["user_id"] = $user_id;
+          $insert_pos["position_id"] = $position_id;
+          Tbl_applied_position::insert($insert_pos);
+          $count++;
+        }
+
+        $insert_status["user_id"]       = $user_id;
+        $insert_status["voting_status"] = "Pending";
+          
+        Tbl_user_voting_status::insert($insert_status);
+      }
+      return Redirect::to("/admin");
 
     }
+
 }

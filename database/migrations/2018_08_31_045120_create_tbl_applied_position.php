@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblUserVotingStatus extends Migration
+class CreateTblAppliedPosition extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,11 @@ class CreateTblUserVotingStatus extends Migration
     public function up()
     {
         //
-        Schema::create('tbl_user_voting_status', function (Blueprint $table) {
-            $table->increments('user_voting_status_id');
+        Schema::create('tbl_applied_position', function (Blueprint $table) {
+            $table->increments('applied_position_id');
             $table->integer('user_id');
-            $table->string('voting_status')->default("Pending");
+            $table->integer('position_id');
+
         });
     }
 
