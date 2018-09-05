@@ -58,8 +58,14 @@ class LoginController extends Controller
 		// 	return view('login');
 		// }
     }	
+    public function logout()
+    {
+   		
+    	return view('index');
+    }
     public function login_submit()
     {
+    	Session::start('session');
     	if(Request::isMethod("post")) {
     	$email 		= Request::input('UserNameInput');
     	$username   = Request::input('UserNameInput');

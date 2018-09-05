@@ -45,7 +45,7 @@
             <!-- Button trigger modal -->
             <!-- Modal -->
             <div class="dropdown-divider"></div>
-            <a class="button" href='/login'>Logout</a>
+            <a class="button" href='/logout'>Logout</a>
             @endif
           </div>
         </li>

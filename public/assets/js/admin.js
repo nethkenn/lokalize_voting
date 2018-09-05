@@ -53,19 +53,19 @@ function admin()
 			{
 				alert("Duplication of Approved Candidate Detected. Please the approved Candidates.");
 			}
-			else if(globaldirectors.length < 2)
+			else if(globaldirectors.length < 10)
 			{
 				alert("Please Approve 15 Candidate for Board of Trustees.");
 			}
-			else if(regionaldirectors.length < 3)
+			else if(regionaldirectors.length < 15)
 			{
 				alert("Please Approve 30 Candidate for Global Board of Directors.");
 			}
-			else if(ambassadors.length < 3)
+			else if(ambassadors.length < 15)
 			{
 				alert("Please Choose 150 Candidate and 5 per Region for Regional Board of Directors.");
 			}
-			else if(advisors < 4)
+			else if(advisors < 10)
 			{
 				alert("Please Choose 195 Candidate for Ambassadors.");
 			}
@@ -100,7 +100,7 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 2)
+				if($('div.globaldirec').length == 10)
 				{
 					$(".approvedglobaltitle").css("box-shadow","0 0px 20px green");
 				}
@@ -110,7 +110,7 @@ function admin()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 3)
+				if($('div.regionaldirec').length == 15)
 				{
 					$(".approvedregionaltitle").css("box-shadow","0 0px 20px green");
 				}
@@ -120,7 +120,7 @@ function admin()
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 3)
+				if($('div.ambass').length == 15)
 				{
 					$(".approvedambassadortitle").css("box-shadow","0 0px 20px green");
 				}
@@ -130,7 +130,7 @@ function admin()
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 4)
+				if($('div.advis').length == 10)
 				{
 					$(".approvedadvisertitle").css("box-shadow","0 0px 20px green");
 				}
@@ -192,25 +192,25 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				if($('div.globaldirec').length == 2)
+				if($('div.globaldirec').length == 10)
 				{
 					maxed = true;
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 3)
+				if($('div.regionaldirec').length == 15)
 				{
 					maxed = true;
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 3)
+				if($('div.ambass').length == 15)
 				{
 					maxed = true;
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 4)
+				if($('div.advis').length == 10)
 				{
 					maxed = true;
 				}
@@ -240,16 +240,16 @@ function admin()
 		switch(position)
 		{
 			case "globaldirec":
-				$(".globalnumber").text($('div.globaldirec').length+"/2");
+				$(".globalnumber").text($('div.globaldirec').length+"/10");
 				break;
 			case "regionaldirec":
-				$(".regionalnumber").text($('div.regionaldirec').length+"/3");
+				$(".regionalnumber").text($('div.regionaldirec').length+"/15");
 				break;
 			case "ambass":
-				$(".ambassadornumber").text($('div.ambass').length+"/3");
+				$(".ambassadornumber").text($('div.ambass').length+"/15");
 				break;
 			case "advis":
-				$(".advisernumber").text($('div.advis').length+"/4");
+				$(".advisernumber").text($('div.advis').length+"/10");
 				break;
 		}
 	}
