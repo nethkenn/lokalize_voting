@@ -21,6 +21,8 @@ use App\Models\Tbl_regional_board_of_directors_votes;
 use App\Models\Tbl_user_voting_status;
 use App\Models\Tbl_voting_user;
 use App\Models\Tbl_user_votes;
+use App\Models\Tbl_applied_position;
+
 use App\Globals\Login;
 
 
@@ -85,7 +87,7 @@ class EmployeeController extends Controller
     	$data['candidate'] = Tbl_voting_user::leftjoin('tbl_approved_candidates','tbl_voting_user.user_id','=','tbl_approved_candidates.user_id')->where('tbl_voting_user.user_id',$user_id)->first();
    		$data['divname']   = Request::Input('position');
         // dd($data);
-    	return view('employee.voted_candidate',$data);
+    	return view('voters.voted_candidate',$data);
     }
 
     public function submit_votes()

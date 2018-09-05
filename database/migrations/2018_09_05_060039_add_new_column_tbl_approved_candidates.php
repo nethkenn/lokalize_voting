@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNewColumnPositionIdTblApprovedCandidates extends Migration
+class AddNewColumnTblApprovedCandidates extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddNewColumnPositionIdTblApprovedCandidates extends Migration
     public function up()
     {
         //
-        Schema::table('tbl_approved_candidates', function (Blueprint $table) {
+                 Schema::table('tbl_approved_candidates', function (Blueprint $table) {
             $table->integer('position_id');
         });
     }

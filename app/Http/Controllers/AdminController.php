@@ -44,7 +44,7 @@ class AdminController extends Controller
               
               $data['global_candidate']     = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",1)->get();
               $data['regional_candidate']   = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",2)->get();
-              $data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_country','ASC')->get();
+              $data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_region','ASC')->get();
               $data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",4)->get();
 
                     //yung nsa loob ng bracket yan ang variable name na ttwagin mo dun sa html page mo.
@@ -82,24 +82,28 @@ class AdminController extends Controller
         foreach ($globaldirectors as $global) 
         {
            $insert['user_id'] = $global;
+           $insert['position_id'] = 1;
            Tbl_approved_candidates::insert($insert);
         }
 
            foreach ($regionaldirectors as $regional) 
         {
            $insert['user_id'] = $regional;
+           $insert['position_id'] = 2;
            Tbl_approved_candidates::insert($insert);
         }
 
            foreach ($ambassadors as $ambass) 
         {
            $insert['user_id'] = $ambass;
+           $insert['position_id'] = 3;
            Tbl_approved_candidates::insert($insert);
         }
 
            foreach ($advisors as $advisors) 
         {
            $insert['user_id'] = $advisors;
+           $insert['position_id'] = 4;
            Tbl_approved_candidates::insert($insert);
         }
 

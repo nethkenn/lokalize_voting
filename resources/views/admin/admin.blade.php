@@ -27,7 +27,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Full Name</th>
-								<th scope="col">Country</th>
+								<th scope="col">Region</th>
 								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -40,7 +40,7 @@
 								<tr>
 									<th scope="row">{{$count++}}</th>
 									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-									<td>{{$val->user_country}}</td>
+									<td>{{$val->user_region}}</td>
 									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="globaldirec" data-container="approvedglobalcontentcontainer" id="{{$val->user_id}}approveglobaldirec">Approve</button>
            							<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="globaldirec" id="{{$val->user_id}}removeglobaldirec" style="display:none">Remove</button>
@@ -56,7 +56,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Full Name</th>
-								<th scope="col">Country</th>
+								<th scope="col">Region</th>
 								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -70,7 +70,7 @@
 									<tr>
 										<th scope="row">{{$count++}}</th>
 										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_country}}</td>
+										<td>{{$val->user_region}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="regionaldirec" data-container="approvedregionalcontentcontainer" id="{{$val->user_id}}approveregionaldirec">Approve</button>
            								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="regionaldirec" id="{{$val->user_id}}removeregionaldirec" style="display:none">Remove</button></td>
@@ -86,7 +86,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Full Name</th>
-								<th scope="col">Country</th>
+								<th scope="col">Region</th>
 								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -100,7 +100,7 @@
 									<tr>
 										<th scope="row">{{$count++}}</th>
 										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_country}}</td>
+										<td>{{$val->user_region}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="ambass" data-container="approvedambassadorcontentcontainer" id="{{$val->user_id}}approveambass">Approve</button>
            								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="ambass" id="{{$val->user_id}}removeambass" style="display:none">Remove</button>
@@ -117,7 +117,7 @@
 							<tr>
 								<th scope="col">#</th>
 								<th scope="col">Full Name</th>
-								<th scope="col">Country</th>
+								<th scope="col">Region</th>
 								<th scope="col">LinkedIn Address</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -131,7 +131,7 @@
 									<tr>
 										<th scope="row">{{$count++}}</th>
 										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_country}}</td>
+										<td>{{$val->user_region}}</td>
 										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
 										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="advis" data-container="approvedadvisercontentcontainer" id="{{$val->user_id}}approveadvis">Approve</button>
            								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="advis" id="{{$val->user_id}}removeadvis" style="display:none ">Remove</button>

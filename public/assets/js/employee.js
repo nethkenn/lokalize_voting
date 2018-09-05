@@ -80,7 +80,7 @@ function employee()
 			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			    },
 				type: 'POST',
-				url: '/employee/submit_votes',
+				url: '/voters/submit_votes',
 				dataType: 'text',
 				data: {globaldirectors:globaldirectors,
 					   regionaldirectors:regionaldirectors,
@@ -161,7 +161,7 @@ function employee()
 			{
 				$.ajax({
 				type: 'GET',
-				url: '/employee/vote/getcandidateinfo',
+				url: '/voters/vote/getcandidateinfo',
 				dataType: 'text',
 				data: {candidate_id:candidate_id,position:position},
 				success: function(data)
