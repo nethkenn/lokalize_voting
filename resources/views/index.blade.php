@@ -9,7 +9,7 @@
     <meta name="author" content="">
   <link rel ="icon" href="logo.png" size="40x40" >
     <title>Global Associations of Blockchains and Cryptocurrency</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 

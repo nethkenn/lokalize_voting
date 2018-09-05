@@ -2,9 +2,9 @@
 Route::any('/',"LoginController@index");
 Route::any('/layout',"AdminController@");
 
-Route::any('/employee', "EmployeeController@index");
-Route::any('/employee/vote/getcandidateinfo', "EmployeeController@getcandidateinfo");
-Route::any('/employee/submit_votes', "EmployeeController@submit_votes");
+Route::any('/voters', "EmployeeController@index");
+Route::any('/voters/vote/getcandidateinfo', "EmployeeController@getcandidateinfo");
+Route::any('/voters/submit_votes', "EmployeeController@submit_votes");
 
 Route::any('/admin', "AdminController@admin");
 Route::any('/admin/approve/getcandidateinfo', "AdminController@getcandidateinfo");
