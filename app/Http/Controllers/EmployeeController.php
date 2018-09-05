@@ -68,7 +68,7 @@ class EmployeeController extends Controller
                   $data["lname"] = $user->user_last_name;
                   $data["pic"] = $user->user_picture;
                   $data["usertype"]= $user->user_type;
-                  return view('employee.index',$data);
+                  return view('voters.index',$data);
               }
         }
         else

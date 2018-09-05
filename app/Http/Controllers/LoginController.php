@@ -76,7 +76,7 @@ class LoginController extends Controller
 
 			if($user->user_type == 0)
 			{
-				return Redirect::to("/employee");
+				return Redirect::to("/voters");
 			}
 			else if($user->user_type == 1)
 			{
