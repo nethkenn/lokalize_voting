@@ -20,6 +20,7 @@
   <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="home-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
+        <input type="hidden" value="{{$user_id}}" class="user_id" name="">
       Board of Trustees    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
@@ -37,7 +38,6 @@
         <center><button type="button" class="btn btn-outline-info btn-sm">View more Info</button></center>
       </div>
     @endforeach
-<input type="hidden" value="100" class="statis_user_id" name="">
     </div>
   </div>
 

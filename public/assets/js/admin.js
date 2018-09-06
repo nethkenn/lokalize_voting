@@ -87,8 +87,7 @@ function admin()
 						},
 				success: function(data)
 				{
-					
-				}
+								}
 				});
 			}
 

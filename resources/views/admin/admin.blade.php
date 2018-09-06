@@ -36,17 +36,17 @@
 							@php
 							$count = 1;
 							@endphp
-								@foreach($global_candidate as $key => $val)
-								<tr>
-									<th scope="row">{{$count++}}</th>
-									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-									<td>{{$val->user_region}}</td>
-									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
-									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="globaldirec" data-container="approvedglobalcontentcontainer" id="{{$val->user_id}}approveglobaldirec">Approve</button>
-           							<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="globaldirec" id="{{$val->user_id}}removeglobaldirec" style="display:none">Remove</button>
-									</td>
-								</tr>
-								@endforeach
+							@foreach($global_candidate as $key => $val)
+							<tr>
+								<th scope="row">{{$count++}}</th>
+								<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+								<td>{{$val->user_region}}</td>
+								<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
+								<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="globaldirec" data-container="approvedglobalcontentcontainer" id="{{$val->user_id}}approveglobaldirec">Approve</button>
+									<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="globaldirec" id="{{$val->user_id}}removeglobaldirec" style="display:none">Remove</button>
+								</td>
+							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -66,15 +66,15 @@
 								@php
 								$count = 1;
 								@endphp
-									@foreach($regional_candidate as $key => $val)
-									<tr>
-										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_region}}</td>
-										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
-										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="regionaldirec" data-container="approvedregionalcontentcontainer" id="{{$val->user_id}}approveregionaldirec">Approve</button>
-           								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="regionaldirec" id="{{$val->user_id}}removeregionaldirec" style="display:none">Remove</button></td>
-									</tr>
+								@foreach($regional_candidate as $key => $val)
+								<tr>
+									<th scope="row">{{$count++}}</th>
+									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+									<td>{{$val->user_region}}</td>
+									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
+									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="regionaldirec" data-container="approvedregionalcontentcontainer" id="{{$val->user_id}}approveregionaldirec">Approve</button>
+									<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="regionaldirec" id="{{$val->user_id}}removeregionaldirec" style="display:none">Remove</button></td>
+								</tr>
 								@endforeach
 							</tr>
 						</tbody>
@@ -96,16 +96,16 @@
 								@php
 								$count = 1;
 								@endphp
-									@foreach($ambassador_candidate as $key => $val)
-									<tr>
-										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_region}}</td>
-										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
-										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="ambass" data-container="approvedambassadorcontentcontainer" id="{{$val->user_id}}approveambass">Approve</button>
-           								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="ambass" id="{{$val->user_id}}removeambass" style="display:none">Remove</button>
-           							</td>
-									</tr>
+								@foreach($ambassador_candidate as $key => $val)
+								<tr>
+									<th scope="row">{{$count++}}</th>
+									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+									<td>{{$val->user_region}}</td>
+									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
+									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="ambass" data-container="approvedambassadorcontentcontainer" id="{{$val->user_id}}approveambass">Approve</button>
+										<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="ambass" id="{{$val->user_id}}removeambass" style="display:none">Remove</button>
+									</td>
+								</tr>
 								@endforeach
 							</tr>
 						</tbody>
@@ -127,16 +127,16 @@
 								@php
 								$count = 1;
 								@endphp
-									@foreach($advisor_candidate as $key => $val)
-									<tr>
-										<th scope="row">{{$count++}}</th>
-										<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-										<td>{{$val->user_region}}</td>
-										<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
-										<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="advis" data-container="approvedadvisercontentcontainer" id="{{$val->user_id}}approveadvis">Approve</button>
-           								<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="advis" id="{{$val->user_id}}removeadvis" style="display:none ">Remove</button>
-										</td>
-									</tr>
+								@foreach($advisor_candidate as $key => $val)
+								<tr>
+									<th scope="row">{{$count++}}</th>
+									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+									<td>{{$val->user_region}}</td>
+									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
+									<td><button type="button" class="btn btn-primary btn-sm approved" data-id="{{$val->user_id}}" data-position="advis" data-container="approvedadvisercontentcontainer" id="{{$val->user_id}}approveadvis">Approve</button>
+										<button type="button" class="btn btn-primary btn-sm removed" data-id="{{$val->user_id}}" data-position="advis" id="{{$val->user_id}}removeadvis" style="display:none ">Remove</button>
+									</td>
+								</tr>
 								@endforeach
 							</tr>
 						</tbody>
@@ -147,50 +147,45 @@
 				</div> --}}
 			</div>
 		</div>
-
 		<div class="col-lg-4">
 			<!--approved-->
-  			<div class="col-lg-12 approvedlist">
-    			<div class="approvedtitle">
-        			Approved List
-    			</div>
-    			<!--GLOBAL VOTES-->
-    		<div class="approvedglobaltitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;BOARD OF TRUSTEES<span class="pull-right globalnumber">0/15</span>
-    </div>
-    <!--GLOBAL CONTENTS-->
-    <div class="approvedglobalcontentcontainer">
-    </div>
-
-    <!--REGIONAL VOTES-->
-    <div class="approvedregionaltitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/30</span>
-    </div>
-    <!--REGIONAL CONTENTS-->
-    <div class="approvedregionalcontentcontainer">
-    </div>
-
-      <!--AMBASSADOR VOTES-->
-    <div class="approvedambassadortitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right ambassadornumber">0/15</span>
-    </div>
-    <!--AMBASSADOR CONTENTS-->
-    <div class="approvedambassadorcontentcontainer">
-    </div>
-
-    <!--ADVISER VOTES-->
-    <div class="approvedadvisertitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/20</span>
-    </div>
-    <!--ADVISER CONTENTS-->
-    <div class="approvedadvisercontentcontainer">
-    </div>
-  </div>
-
-  <div class="col-lg-12 approvediv">
-  <button type="button" id="submit" class="btn btn-primary approvedCandidates">SUBMIT</button>
-  </div>
-    	</div>
+			<div class="col-lg-12 approvedlist">
+				<div class="approvedtitle">
+					Approved List
+				</div>
+				<!--GLOBAL VOTES-->
+				<div class="approvedglobaltitle">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;BOARD OF TRUSTEES<span class="pull-right globalnumber">0/15</span>
+				</div>
+				<!--GLOBAL CONTENTS-->
+				<div class="approvedglobalcontentcontainer">
+				</div>
+				<!--REGIONAL VOTES-->
+				<div class="approvedregionaltitle">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/30</span>
+				</div>
+				<!--REGIONAL CONTENTS-->
+				<div class="approvedregionalcontentcontainer">
+				</div>
+				<!--AMBASSADOR VOTES-->
+				<div class="approvedambassadortitle">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right ambassadornumber">0/15</span>
+				</div>
+				<!--AMBASSADOR CONTENTS-->
+				<div class="approvedambassadorcontentcontainer">
+				</div>
+				<!--ADVISER VOTES-->
+				<div class="approvedadvisertitle">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/20</span>
+				</div>
+				<!--ADVISER CONTENTS-->
+				<div class="approvedadvisercontentcontainer">
+				</div>
+			</div>
+			<div class="col-lg-12 approvediv">
+				<button type="button" id="submit" class="btn btn-primary approvedCandidates">SUBMIT</button>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

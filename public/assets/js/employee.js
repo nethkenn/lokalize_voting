@@ -36,7 +36,7 @@ function employee()
 			var regionaldirectors 	  = $("input[name='regionaldirec[]']").map(function(){return $(this).val();}).get();
 			var ambassadors      	  = $("input[name='ambass[]']").map(function(){return $(this).val();}).get();
 			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
-			var user_id          	  = $('.statis_user_id').val();
+			var user_id          	  = $('.user_id').val();
 			var approved_candidate_id = $('.approved_candidate_id').val();
 
 			if(hasDuplicates(globaldirectors) == true)

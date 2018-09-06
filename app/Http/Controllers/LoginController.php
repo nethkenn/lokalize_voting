@@ -15,6 +15,7 @@ use App\Globals\Login;
 use Carbon\Carbon;
 
 use App\Models\Tbl_voting_user;
+use App\Models\Tbl_user_voting_status;
 
 class LoginController extends Controller
 {
@@ -24,9 +25,7 @@ class LoginController extends Controller
 
     	return view('login');
 
-    	# code...
-
-		// if(Request::isMethod("post")) 
+   		// if(Request::isMethod("post")) 
 		// {
 		// 	$email 		= Request::input('UserNameInput');
 		// 	$password 	= Request::input('PasswordNameInput');
@@ -61,7 +60,7 @@ class LoginController extends Controller
     public function logout()
     {
    		
-    	return view('index');
+    	return view('/index');
     }
     public function login_submit()
     {
@@ -70,12 +69,12 @@ class LoginController extends Controller
     	$email 		= Request::input('UserNameInput');
     	$username   = Request::input('UserNameInput');
 		$password 	= Request::input('PasswordNameInput');
-		
 
 		$user       = Tbl_voting_user::where('user_email',$email)->where('user_password',$password)->first();
 		$user       = Tbl_voting_user::where('user_name',$username)->where('user_password',$password)->first();
-			
-		if($user) 
+		$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
+
+		if($user && $status == 'Pending') 
 		{	
 		
 			Session::put('session',$user->user_id);
@@ -88,12 +87,24 @@ class LoginController extends Controller
 			{
 				return Redirect::to("/admin");
 			}
+			else
+			{
+				return Redirect::to("/login");
+			}
 			
 			
 		}
 		else
 		{
-			return Redirect::back()->withErrors(['Error Credentials', 'The Message']);
+			if($status == 'Pending')
+			{
+				return Redirect::back()->withErrors(['Error Credentials', 'The Message']);
+			}
+			else
+			{
+				return Redirect::back()->withErrors(['GAGO NAKA BOTO KA NA', 'The Message']);
+			}
+			
 		}
 
     	}
