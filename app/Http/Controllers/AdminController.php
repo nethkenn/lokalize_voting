@@ -19,6 +19,7 @@ use App\Models\Tbl_voting_user;
 use App\Models\Tbl_applied_position;
 use App\Globals\Login;
 use Excel;
+use Alert;
 class AdminController extends Controller
 {
 //

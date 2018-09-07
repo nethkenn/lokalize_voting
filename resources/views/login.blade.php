@@ -1,3 +1,4 @@
+@include('sweetalert::alert')
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,7 +36,7 @@
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log-in</button>
                 <br>
                @if($errors->any())
-                <div class="col-md-12 bg-danger" style="border-radius: 15px 50px 30px;height: 50px">
+                <div class="alert alert-danger" style="border-radius: 15px 50px 30px;height: 50px">
                   <center><h4>{{$errors->first()}}</h4></center>
                 </div>
                 @endif
@@ -53,6 +54,7 @@
     
     <script src="/assets/js/loginjquery.min.js"></script>
     <script src="/assets/js/loginbootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     <script type="text/javascript">
     history.pushState(null, null, location.href);
     window.onpopstate = function () {

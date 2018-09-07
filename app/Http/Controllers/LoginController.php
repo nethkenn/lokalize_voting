@@ -11,6 +11,8 @@ use Session;
 use Redirect;
 use Validator;
 use Crypt;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Facade;
 use App\Globals\Login;
 use Carbon\Carbon;
 
@@ -59,60 +61,70 @@ class LoginController extends Controller
     }	
     public function logout()
     {
-   		
-    	return view('/index');
+    	Session::start('session');
+   		Session::flush('session');
+		return Redirect::to('/');
+    	
     }
     public function login_submit()
     {
-    	Session::start('session');
-    	if(Request::isMethod("post")) {
+    Session::start('session');
+    if(Request::isMethod("post")) 
+    {
     	$email 		= Request::input('UserNameInput');
     	$username   = Request::input('UserNameInput');
 		$password 	= Request::input('PasswordNameInput');
 
-		$user       = Tbl_voting_user::where('user_email',$email)->where('user_password',$password)->first();
-		$user       = Tbl_voting_user::where('user_name',$username)->where('user_password',$password)->first();
-		$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
-
-		if($user && $status == 'Pending') 
+		$user       = Tbl_voting_user::where('user_password', $password)
+									   ->where(function ($query) use ($email, $username) {
+											$query->where('user_email',$email)
+												  ->orwhere('user_name',$username);
+										})
+									   ->first();
+		if($user) 
 		{	
-		
+			$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
 			Session::put('session',$user->user_id);
-
-			if($user->user_type == 0)
+			if($status == 'Pending')
 			{
-				return Redirect::to("/voters");
+				
+				if($user->user_type == 0)
+				{
+					Alert::success('Login Successfully', $user->user_first_name);
+					return Redirect::to("/voters");
+				}
+				
 			}
 			else if($user->user_type == 1)
+				{
+					// dd($user);
+					Alert::success('Login Successfully', $user->user_first_name);
+					return Redirect::to("/admin");
+
+				}
+
+			elseif(isset($status) && $status == "Completed")
 			{
-				return Redirect::to("/admin");
+				
+				return Redirect::back()->withErrors(['You already done to Vote!', 'The Message']);
 			}
 			else
 			{
-				return Redirect::to("/login");
+				
+				return Redirect::back()->withErrors(['Error Credential', 'The Message']);
 			}
-			
-			
 		}
 		else
 		{
-			if($status == 'Pending')
-			{
-				return Redirect::back()->withErrors(['Error Credentials', 'The Message']);
-			}
-			else
-			{
-				return Redirect::back()->withErrors(['GAGO NAKA BOTO KA NA', 'The Message']);
-			}
 			
+			return Redirect::back()->withErrors(['Error Credential', 'The Message']);
 		}
-
-    	}
-
-    }
+	}
+	}
 
     public function index()
     {
     	return view('index');
     }
+	
 }

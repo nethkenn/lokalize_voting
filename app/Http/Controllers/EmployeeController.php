@@ -11,6 +11,7 @@ use DateTime;
 use Session;
 use Carbon\Carbon;
 use Redirect;
+use Alert;
 
 use App\Models\Tbl_advisor_votes;
 use App\Models\Tbl_ambassador_votes;
@@ -22,6 +23,7 @@ use App\Models\Tbl_user_voting_status;
 use App\Models\Tbl_voting_user;
 use App\Models\Tbl_user_votes;
 use App\Models\Tbl_applied_position;
+
 
 use App\Globals\Login;
 

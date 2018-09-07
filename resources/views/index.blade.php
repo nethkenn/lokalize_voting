@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,6 +102,8 @@
     <script src="/assets/js/jquery/jquery.min.js"></script>
     <script src="/assets/js/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Custom scripts for this template -->
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    @include('sweetalert::alert')
     <script src="/assets/js/clean-blog.min.js"></script>
     <script type="text/javascript">
     history.pushState(null, null, location.href);
