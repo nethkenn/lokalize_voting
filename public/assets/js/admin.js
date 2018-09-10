@@ -70,7 +70,8 @@ function admin()
 				alert("Please Choose 195 Candidate for Ambassadors.");
 			}
 			else
-			{
+			{	
+
 
 
 				$.ajax({

@@ -14,6 +14,7 @@ function employee()
 			totalpersonvotes();
 			cancelonvote();
 			submit_vote();
+			modal_submit_vote();
 		})
 	}
 
@@ -73,30 +74,47 @@ function employee()
 			}
 			else
 			{
+				$("#modalvotes").modal();
 
-
-				$.ajax({
-				headers: {
-			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			    },
-				type: 'POST',
-				url: '/voters/submit_votes',
-				dataType: 'text',
-				data: {globaldirectors:globaldirectors,
-					   regionaldirectors:regionaldirectors,
-					   ambassadors:ambassadors,
-					   advisors:advisors,
-					   //name : value
-					   user_id:user_id,
-					   approved_candidate_id:approved_candidate_id
-						},
-				success: function(data)
-				{
-			
-				}
-				});
 			}
 
+		});
+	}
+
+	function modal_submit_vote()
+	{
+		$("#submitbeybeh").on( "click", function() 
+		{
+			$("#modalvotes").modal("hide");
+
+
+			var globaldirectors   	  = $("input[name='globaldirec[]']").map(function(){return $(this).val();}).get();
+			var regionaldirectors 	  = $("input[name='regionaldirec[]']").map(function(){return $(this).val();}).get();
+			var ambassadors      	  = $("input[name='ambass[]']").map(function(){return $(this).val();}).get();
+			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
+			var user_id          	  = $('.user_id').val();
+			var approved_candidate_id = $('.approved_candidate_id').val();
+
+			$.ajax({
+			headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    },
+			type: 'POST',
+			url: '/voters/submit_votes',
+			dataType: 'text',
+			data: {globaldirectors:globaldirectors,
+				   regionaldirectors:regionaldirectors,
+				   ambassadors:ambassadors,
+				   advisors:advisors,
+				   //name : value
+				   user_id:user_id,
+				   approved_candidate_id:approved_candidate_id
+					},
+			success: function(data)
+			{
+				 window.location.href = "/logout";
+			}
+			});
 		});
 	}
 

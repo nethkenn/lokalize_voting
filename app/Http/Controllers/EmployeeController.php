@@ -136,8 +136,10 @@ class EmployeeController extends Controller
            $advisorlist['user_id'] = Request::Input('user_id');
            Tbl_advisor_votes::insert($advisorlist);
         }
-
-          
+        
+        Session::start('session');
+        Session::flush('session');
+        return Redirect::to('/');
     }
 
 }

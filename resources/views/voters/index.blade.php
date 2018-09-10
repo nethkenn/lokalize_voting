@@ -1,6 +1,25 @@
 @extends('layout')
 @section('content')
 <!--BUTTON-->
+<div class="modal fade" id="modalvotes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to submit your vote?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="submitbeybeh" class="btn btn-primary">Submit Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <ul class="nav nav-tabs col-lg-8" id="myTab" role="tablist">
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
