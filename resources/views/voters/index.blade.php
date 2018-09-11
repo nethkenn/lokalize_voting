@@ -15,7 +15,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="submitbeybeh" class="btn btn-primary">Submit Vote</button>
+        <button type="button" id="submitVotes" class="btn btn-primary">Submit Vote</button>
       </div>
     </div>
   </div>

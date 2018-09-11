@@ -102,41 +102,41 @@ function admin()
 			case "globaldirec":
 				if($('div.globaldirec').length == 10)
 				{
-					$(".approvedglobaltitle").css("box-shadow","0 0px 20px green");
+					$(".approvedglobaltitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".approvedglobaltitle").css("box-shadow","0 0px 20px red");
+					$(".approvedglobaltitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "regionaldirec":
 				if($('div.regionaldirec').length == 15)
 				{
-					$(".approvedregionaltitle").css("box-shadow","0 0px 20px green");
+					$(".approvedregionaltitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".approveedregionaltitle").css("box-shadow","0 0px 20px red");
+					$(".approveedregionaltitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "ambass":
 				if($('div.ambass').length == 15)
 				{
-					$(".approvedambassadortitle").css("box-shadow","0 0px 20px green");
+					$(".approvedambassadortitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".approvedambassadortitle").css("box-shadow","0 0px 20px red");
+					$(".approvedambassadortitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "advis":
 				if($('div.advis').length == 10)
 				{
-					$(".approvedadvisertitle").css("box-shadow","0 0px 20px green");
+					$(".approvedadvisertitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".approvedadvisertitle").css("box-shadow","0 0px 20px red");
+					$(".approvedadvisertitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 		}

@@ -83,7 +83,7 @@ function employee()
 
 	function modal_submit_vote()
 	{
-		$("#submitbeybeh").on( "click", function() 
+		$("#submitVotes").on( "click", function() 
 		{
 			$("#modalvotes").modal("hide");
 
@@ -125,41 +125,41 @@ function employee()
 			case "globaldirec":
 				if($('div.globaldirec').length == 1)
 				{
-					$(".votedglobaltitle").css("box-shadow","0 0px 20px green");
+					$(".votedglobaltitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".votedglobaltitle").css("box-shadow","0 0px 20px red");
+					$(".votedglobaltitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "regionaldirec":
 				if($('div.regionaldirec').length == 3)
 				{
-					$(".votedregionaltitle").css("box-shadow","0 0px 20px green");
+					$(".votedregionaltitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".votedregionaltitle").css("box-shadow","0 0px 20px red");
+					$(".votedregionaltitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "ambass":
 				if($('div.ambass').length == 3)
 				{
-					$(".votedambassadortitle").css("box-shadow","0 0px 20px green");
+					$(".votedambassadortitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".votedambassadortitle").css("box-shadow","0 0px 20px red");
+					$(".votedambassadortitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 			case "advis":
 				if($('div.advis').length == 4)
 				{
-					$(".votedadvisertitle").css("box-shadow","0 0px 20px green");
+					$(".votedadvisertitle").css("box-shadow","0 0px 1px green");
 				}
 				else
 				{
-					$(".votedadvisertitle").css("box-shadow","0 0px 20px red");
+					$(".votedadvisertitle").css("box-shadow","0 0px 1px red");
 				}
 				break;
 		}

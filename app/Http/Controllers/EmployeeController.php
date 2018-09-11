@@ -140,6 +140,7 @@ class EmployeeController extends Controller
         Session::start('session');
         Session::flush('session');
         return Redirect::to('/');
+        
     }
 
 }
