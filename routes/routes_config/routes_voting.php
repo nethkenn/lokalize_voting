@@ -1,5 +1,6 @@
 <?php
 Route::any('/',"LoginController@index");
+Route::any('/results',"LoginController@results");
 Route::any('/layout',"AdminController@");
 
 Route::any('/voters', "EmployeeController@index");
@@ -14,6 +15,11 @@ Route::any('/admin/import', "AdminController@import_template");
 Route::any('/login',"LoginController@login");
 Route::any('/login_submit',"LoginController@login_submit");
 Route::any('/logout',"LoginController@logout");
+
+// Route::any('/logout', function () {
+//     Toastr::info('Successfuly Logout!', 'Thank You!');
+//     return view('index');
+// });
 
 
 

@@ -27,104 +27,89 @@ class LoginController extends Controller
 
     	return view('login');
 
-   		// if(Request::isMethod("post")) 
-		// {
-		// 	$email 		= Request::input('UserNameInput');
-		// 	$password 	= Request::input('PasswordNameInput');
-
-		// 	$user       = Tbl_voting_user::where('user_email',$email)->where('user_password',$password)->first();
-			
-		// 	if ($user) 
-		// 	{	
-			
-		// 		if($user['user_type']==0)
-		// 		{
-		// 			$login = Login::login($email,$password);
-		// 			$redirect = $login ? Redirect::to("/employee") : Redirect::to("/login");
-		// 			return $redirect;
-		// 		}
-		// 		else
-		// 		{
-		// 			return Redirect::to("/admin");
-		// 		}
-				
-		// 	}
-		// 	else
-		// 		{
-		// 		return Redirect::to("/login")->with('message', "The E-Mail / Password is incorrect.")->withInput();
-		// 		}
-		// }
-		// else
-		// {	
-		// 	return view('login');
-		// }
     }	
     public function logout()
     {
-    	Session::start('session');
-   		Session::flush('session');
-		return Redirect::to('/');
+    	
+    	// Session::start('session');
+   		// Session::flush();
+   		
+   		Session::forget('is_login');
+   		return view('index');
+   		// header("Refresh:0; url=index.php");
+		// return Redirect::to('/');
+
     	
     }
     public function login_submit()
     {
-    Session::start('session');
-    if(Request::isMethod("post")) 
-    {
-    	$email 		= Request::input('UserNameInput');
-    	$username   = Request::input('UserNameInput');
-		$password 	= Request::input('PasswordNameInput');
+    	
+	    if(Request::isMethod("post")) 
+	    {
+	    	$email 		= Request::input('UserNameInput');
+	    	$username   = Request::input('UserNameInput');
+			$password 	= Request::input('PasswordNameInput');
 
-		$user       = Tbl_voting_user::where('user_password', $password)
-									   ->where(function ($query) use ($email, $username) {
-											$query->where('user_email',$email)
-												  ->orwhere('user_name',$username);
-										})
-									   ->first();
-		if($user) 
-		{	
-			$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
-			Session::put('session',$user->user_id);
-			if($status == 'Pending')
-			{
-				
-				if($user->user_type == 0)
+			$user       = Tbl_voting_user::where('user_password', $password)
+										   ->where(function ($query) use ($email, $username) {
+												$query->where('user_email',$email)
+													  ->orwhere('user_name',$username);
+											})
+										   ->first();
+			if($user) 
+			{	
+				$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
+				Session::put('session',$user->user_id);
+				if($status == 'Pending')
 				{
-					Alert::success('Login Successfully', $user->user_first_name);
-					return Redirect::to("/voters");
+					
+					if($user->user_type == 0)
+					{
+						// Alert::success('Login Successfully', $user->user_first_name);
+						session::put("is_login","voters");
+						return Redirect::to("/voters");
+					}
+					
 				}
-				
-			}
-			else if($user->user_type == 1)
+				else if($user->user_type == 1)
 				{
-					// dd($user);
-					Alert::success('Login Successfully', $user->user_first_name);
+					// Alert::success('Login Successfully', $user->user_first_name);
+					Toastr::success('Wrong Username or Password.', 'Invalid Credential');
+					session::put("is_login","admin");
 					return Redirect::to("/admin");
 
 				}
 
-			elseif(isset($status) && $status == "Completed")
-			{
-				
-				return Redirect::back()->withErrors(['You already done to Vote!', 'The Message']);
+				else if(isset($status) && $status == "Completed")
+				{	
+					Toastr::info('Your vote is Successfully Submitted.', 'Completed!');
+					return view('login');
+				}
+				else
+				{	
+					Toastr::warning('Wrong Username or Password.', 'Invalid Credential!');
+					return view('login');
+				}
 			}
 			else
 			{
-				
-				return Redirect::back()->withErrors(['Error Credential', 'The Message']);
+				Toastr::warning('Wrong Username or Password.', 'Invalid Credential');
+				// return Redirect::to("/login")->send();
+				return view('login');
 			}
 		}
-		else
-		{
-			
-			return Redirect::back()->withErrors(['Error Credential', 'The Message']);
-		}
-	}
 	}
 
     public function index()
+
     {
+    	session::forget('error');
     	return view('index');
+    }
+
+    public function results()
+    {
+    	return view('results');
     }
 	
 }

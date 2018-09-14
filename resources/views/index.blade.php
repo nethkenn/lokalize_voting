@@ -35,7 +35,7 @@
               <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href='/results'>Results</a>
             </li>
             
             <li class="nav-item">
@@ -105,11 +105,14 @@
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     @include('sweetalert::alert')
     <script src="/assets/js/clean-blog.min.js"></script>
-    <script type="text/javascript">
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {!! Toastr::message() !!}
+    {{-- <script type="text/javascript">
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
     history.go(1);
     };
-    </script>
+    </script> --}}
   </body>
 </html>

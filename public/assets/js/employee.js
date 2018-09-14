@@ -60,21 +60,21 @@ function employee()
 			{
 				alert("Please Choose 1 Candidate for Board of Trustees.");
 			}
-			else if(regionaldirectors.length < 3)
+			else if(regionaldirectors.length < 1)
 			{
-				alert("Please Choose 3 Candidate for Global Board of Directors.");
+				alert("Please Choose 1 Candidate for Global Board of Directors.");
 			}
-			else if(ambassadors.length < 3)
+			else if(ambassadors.length < 1)
 			{
-				alert("Please Choose 3 Candidate for Regional Board of Directors.");
+				alert("Please Choose 1 Candidate for Regional Board of Directors.");
 			}
-			else if(advisors < 4)
+			else if(advisors < 1)
 			{
-				alert("Please Choose 4 Candidate for Ambassadors.");
+				alert("Please Choose 1 Candidate for Ambassadors.");
 			}
 			else
 			{
-				$("#modalvotes").modal();
+				$("#modalvotes").modal("show");
 
 			}
 
@@ -133,7 +133,7 @@ function employee()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 3)
+				if($('div.regionaldirec').length == 1)
 				{
 					$(".votedregionaltitle").css("box-shadow","0 0px 1px green");
 				}
@@ -143,7 +143,7 @@ function employee()
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 3)
+				if($('div.ambass').length == 1)
 				{
 					$(".votedambassadortitle").css("box-shadow","0 0px 1px green");
 				}
@@ -153,7 +153,7 @@ function employee()
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 4)
+				if($('div.advis').length == 1)
 				{
 					$(".votedadvisertitle").css("box-shadow","0 0px 1px green");
 				}
@@ -220,19 +220,19 @@ function employee()
 				}
 				break;
 			case "regionaldirec":
-				if($('div.regionaldirec').length == 3)
+				if($('div.regionaldirec').length == 1)
 				{
 					maxed = true;
 				}
 				break;
 			case "ambass":
-				if($('div.ambass').length == 3)
+				if($('div.ambass').length == 1)
 				{
 					maxed = true;
 				}
 				break;
 			case "advis":
-				if($('div.advis').length == 4)
+				if($('div.advis').length == 1)
 				{
 					maxed = true;
 				}
@@ -265,13 +265,13 @@ function employee()
 				$(".globalnumber").text($('div.globaldirec').length+"/1");
 				break;
 			case "regionaldirec":
-				$(".regionalnumber").text($('div.regionaldirec').length+"/3");
+				$(".regionalnumber").text($('div.regionaldirec').length+"/1");
 				break;
 			case "ambass":
-				$(".ambassadornumber").text($('div.ambass').length+"/3");
+				$(".ambassadornumber").text($('div.ambass').length+"/1");
 				break;
 			case "advis":
-				$(".advisernumber").text($('div.advis').length+"/4");
+				$(".advisernumber").text($('div.advis').length+"/1");
 				break;
 		}
 	}

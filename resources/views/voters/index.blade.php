@@ -64,7 +64,7 @@
   <div class="tab-pane fade" id="regional" role="tabpanel" aria-labelledby="profile-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Global Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 10 candidate for this position. Vote Wisely!</span>
+      Global Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -86,7 +86,7 @@
   <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 5 candidate for this position. Vote Wisely!</span>
+      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
 
@@ -108,7 +108,7 @@
   <div class="tab-pane fade" id="advisor" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 195 candidate for this position. Vote Wisely!</span>
+      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -146,7 +146,7 @@
 
     <!--REGIONAL VOTES-->
     <div class="votedregionaltitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/10</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;GLOBAL BOARD OF DIRECTORS<span class="pull-right regionalnumber">0/1</span>
     </div>
     <!--REGIONAL CONTENTS-->
     <div class="votedregionalcontentcontainer">
@@ -154,7 +154,7 @@
 
       <!--AMBASSADOR VOTES-->
     <div class="votedambassadortitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right ambassadornumber">0/5</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;REGIONAL BOARD OF DIRECTORS<span class="pull-right ambassadornumber">0/1</span>
     </div>
     <!--AMBASSADOR CONTENTS-->
     <div class="votedambassadorcontentcontainer">
@@ -162,7 +162,7 @@
 
     <!--ADVISER VOTES-->
     <div class="votedadvisertitle">
-      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/20</span>
+      <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/1</span>
     </div>
     <!--ADVISER CONTENTS-->
     <div class="votedadvisercontentcontainer">
@@ -176,5 +176,7 @@
 </div>
 
 @endsection
-<script src="/assets/js/jquery.min.js"></script>
+
+@section("script")
 <script type="text/javascript" src="/assets/js/employee.js"></script>
+@endsection

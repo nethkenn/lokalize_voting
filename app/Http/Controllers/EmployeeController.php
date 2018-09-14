@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\AuthVotersController;
 use Request;
 use stdClass;
 use Input;
@@ -11,7 +11,8 @@ use DateTime;
 use Session;
 use Carbon\Carbon;
 use Redirect;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Facade;
 
 use App\Models\Tbl_advisor_votes;
 use App\Models\Tbl_ambassador_votes;
@@ -29,8 +30,9 @@ use App\Globals\Login;
 
 
 
-class EmployeeController extends Controller
+class EmployeeController extends AuthVotersController
 {
+
     
     // public static function active($sess)
     // {

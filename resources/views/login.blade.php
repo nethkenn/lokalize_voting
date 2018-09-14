@@ -5,6 +5,7 @@
     <link href="/assets/css/login-style.css" rel="stylesheet">
     <link href="/assets/css/loginbootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   </head>
   <body class="body">
     <div class="container">
@@ -35,11 +36,17 @@
                 
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log-in</button>
                 <br>
-               @if($errors->any())
+                
+                 @if($errors->any())
                 <div class="alert alert-danger" style="border-radius: 15px 50px 30px;height: 50px">
                   <center><h4>{{$errors->first()}}</h4></center>
                 </div>
                 @endif
+              {{--  @if(session::has('error'))
+                <div class="alert alert-danger" style="border-radius: 15px 50px 30px;height: 50px">
+                  <center><h4>{{session::get('error')}}</h4></center>
+                </div>
+                @endif --}}
                 <hr class="my-4">
                 <a class="d-block text-left mt-3 small" href="#">&nbsp;&nbsp;&nbsp;Not yet a member?</a>
                 
@@ -55,10 +62,13 @@
     <script src="/assets/js/loginjquery.min.js"></script>
     <script src="/assets/js/loginbootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-    <script type="text/javascript">
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+  {{--   <script type="text/javascript">
     history.pushState(null, null, location.href);
     window.onpopstate = function () {
     history.go(1);
     };
-    </script>
+    </script> --}}
   </body>

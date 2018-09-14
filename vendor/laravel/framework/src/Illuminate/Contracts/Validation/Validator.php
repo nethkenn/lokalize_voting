@@ -44,4 +44,5 @@ interface Validator extends MessageProvider
      * @return \Illuminate\Support\MessageBag
      */
     public function errors();
+
 }

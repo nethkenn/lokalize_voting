@@ -17,4 +17,5 @@ return array(
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '6b34c85f7b1ad6faa15aa12109e030f2' => $vendorDir . '/realrashid/sweet-alert/src/functions.php',
+    'caf23243e9cb3afd48d0414815ebf07e' => $vendorDir . '/brian2694/laravel-toastr/src/helper.php',
 );

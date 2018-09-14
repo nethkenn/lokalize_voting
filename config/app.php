@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Brian2694\Toastr\ToastrServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Alert' => RealRashid\SweetAlert\Alert::class,
+        'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
     ],
 
 ];

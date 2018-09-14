@@ -37,7 +37,7 @@
           <div class="dropdown-menu dropdown-menu-right dropdownlinav" aria-labelledby="navbarDropdown">
             @if($usertype == 0)
             <div class="dropdown-divider"></div>
-            <a class="button" href='/login'>Logout</a>
+            <a class="button" href='/logout'>Logout</a>
             @else
             <a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter">Import Data</a>
             {{--  <a class="dropdown-item" href="#">Another action</a> --}}
@@ -52,11 +52,11 @@
       </ul>
     </div>
   </nav>
-  <div class="container">
+<div class="container">
     <div class="row main_button_positions">
-      @yield('content')
+        @yield('content')
     </div>
-  </div>
+</div>
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <form method="POST" action="/admin/import" enctype="multipart/form-data">
@@ -80,8 +80,12 @@
       </form>
     </div>
   </div>
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="/assets/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-  @include('sweetalert::alert')
+  {{-- <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> --}}
+  {{-- @include('sweetalert::alert') --}}
+  {{-- {!! Toastr::message() !!} --}}
+  @yield("script")
 </body>
 </html>
