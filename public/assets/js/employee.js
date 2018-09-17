@@ -111,8 +111,12 @@ function employee()
 				   approved_candidate_id:approved_candidate_id
 					},
 			success: function(data)
-			{
-				 window.location.href = "/logout";
+			{	
+				toastr.success('Successfully Submitted','Logging out!');
+				setTimeout(function(){
+					window.location.href = "/logout";
+				},2000
+				);
 			}
 			});
 		});
@@ -254,6 +258,7 @@ function employee()
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
+
 		});
 	}
 
@@ -322,7 +327,4 @@ function employee()
 			changecolor(position);
 		});
 	}
-
-
-
 }

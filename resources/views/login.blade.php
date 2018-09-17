@@ -15,8 +15,7 @@
             <div class="card-img-left d-none d-md-flex">
               <!-- Background image for card set in CSS! -->
             </div>
-            
-            
+                    
             <div class="card-body">
               <h5 class="card-title text-center">LOGIN</h5>
               <form class="form-signin" method="post" action='/login_submit'>

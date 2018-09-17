@@ -49,6 +49,7 @@
       </div>
     </nav>
     <!-- Page Header -->
+    
     <header class="masthead" style="background-image: url('/assets/images/chain.jpg')">
       <div class="overlay"></div>
       <div class="container">
@@ -62,6 +63,7 @@
         </div>
       </div>
     </header>
+    
     <!-- Footer -->
     <footer>
       <div class="container">
