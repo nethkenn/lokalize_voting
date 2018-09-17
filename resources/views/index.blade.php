@@ -99,12 +99,12 @@
       </div>
     </footer>
     <!-- Bootstrap core JavaScript -->
-    <script src="/assets/js/jquery/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+   {{--  <script src="/assets/js/jquery/jquery.min.js"></script> --}}
+   {{--  <script src="/assets/js/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
     <!-- Custom scripts for this template -->
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
     @include('sweetalert::alert')
-    <script src="/assets/js/clean-blog.min.js"></script>
+    {{-- <script src="/assets/js/clean-blog.min.js"></script> --}}
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
   {!! Toastr::message() !!}

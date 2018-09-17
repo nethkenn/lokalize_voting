@@ -36,8 +36,7 @@ class AdminController extends AuthController
 				return Redirect::to('/login')->send();
 			}
 			else
-			{
-				// Alert::success('Login Successfully', $user->user_first_name);	
+			{	
 				$data['global_candidate']     = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",1)->get();
 				$data['regional_candidate']   = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",2)->get();
 				$data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_region','ASC')->get();

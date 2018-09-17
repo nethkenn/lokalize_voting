@@ -80,9 +80,8 @@
       </form>
     </div>
   </div>
-  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+ {{--  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> --}}
   <script src="/assets/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
   {{-- <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> --}}
   {{-- @include('sweetalert::alert') --}}
   {{-- {!! Toastr::message() !!} --}}

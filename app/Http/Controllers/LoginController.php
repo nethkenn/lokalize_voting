@@ -36,9 +36,9 @@ class LoginController extends Controller
    		// Session::flush();
    		
    		Session::forget('is_login');
-   		return view('index');
+   		// return view('/index');
    		// header("Refresh:0; url=index.php");
-		// return Redirect::to('/');
+		return Redirect::to('/');
 
     	
     }
@@ -85,7 +85,7 @@ class LoginController extends Controller
 				else if(isset($status) && $status == "Completed")
 				{	
 					Toastr::info('Your vote is Successfully Submitted.', 'Completed!');
-					return view('login');
+					return view('/login');
 				}
 				else
 				{	
@@ -94,10 +94,16 @@ class LoginController extends Controller
 				}
 			}
 			else
-			{
+			{	
 				Toastr::warning('Wrong Username or Password.', 'Invalid Credential');
 				return view('/login');
+				// return Redirect::to('/login');
+				
 			}
+		}
+		else
+		{
+			return view('/login');
 		}
 	}
 
