@@ -259,8 +259,8 @@ function admin()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"approve").css("display","");
-			$("#"+user_id+"remove").css("display","none");
+			$("#"+user_id+"approve"+position).css("display","");
+			$("#"+user_id+"remove"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
@@ -270,8 +270,8 @@ function admin()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"approve").css("display","");
-			$("#"+user_id+"remove").css("display","none");
+			$("#"+user_id+"approve"+position).css("display","");
+			$("#"+user_id+"remove"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
@@ -281,8 +281,8 @@ function admin()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"approve").css("display","");
-			$("#"+user_id+"remove").css("display","none");
+			$("#"+user_id+"approve"+position).css("display","");
+			$("#"+user_id+"remove"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});
@@ -292,8 +292,8 @@ function admin()
 			var user_id      = $(this).attr("data-id");
 
 			$("#"+user_id).remove();
-			$("#"+user_id+"approve").css("display","");
-			$("#"+user_id+"remove").css("display","none");
+			$("#"+user_id+"approve"+position).css("display","");
+			$("#"+user_id+"remove"+position).css("display","none");
 			totalpersonvotes(position);
 			changecolor(position);
 		});

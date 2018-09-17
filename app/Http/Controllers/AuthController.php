@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Facade;
+
 use Request;
 
 use Session;
@@ -19,7 +22,7 @@ class AuthController extends Controller
         // dd(session("is_login"));
         if(session("is_login")=="admin")
         {
-
+            Toastr::success('Login Successfully', 'Invalid Credential');
         }
         else
         {

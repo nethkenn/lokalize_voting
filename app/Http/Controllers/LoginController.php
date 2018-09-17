@@ -12,6 +12,7 @@ use Redirect;
 use Validator;
 use Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Facade;
 use App\Globals\Login;
 use Carbon\Carbon;
@@ -25,7 +26,7 @@ class LoginController extends Controller
     {
     	Session::forget('session');
 
-    	return view('login');
+    	return view('/login');
 
     }	
     public function logout()
@@ -43,6 +44,7 @@ class LoginController extends Controller
     }
     public function login_submit()
     {
+
     	
 	    if(Request::isMethod("post")) 
 	    {
@@ -74,7 +76,7 @@ class LoginController extends Controller
 				else if($user->user_type == 1)
 				{
 					// Alert::success('Login Successfully', $user->user_first_name);
-					Toastr::success('Wrong Username or Password.', 'Invalid Credential');
+					
 					session::put("is_login","admin");
 					return Redirect::to("/admin");
 
@@ -88,14 +90,13 @@ class LoginController extends Controller
 				else
 				{	
 					Toastr::warning('Wrong Username or Password.', 'Invalid Credential!');
-					return view('login');
+					return view('/login');
 				}
 			}
 			else
 			{
 				Toastr::warning('Wrong Username or Password.', 'Invalid Credential');
-				// return Redirect::to("/login")->send();
-				return view('login');
+				return view('/login');
 			}
 		}
 	}
