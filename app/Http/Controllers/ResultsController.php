@@ -29,35 +29,20 @@ class ResultsController extends Controller
     //
     public function results()
     {
-  				$ambassador = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
-  				$ambassador = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
-  				$ambassador = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
-                 $ambassador = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
+  				$data["board"] = DB::table('tbl_global_board_of_directors_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'),'user_first_name')->leftjoin('tbl_voting_user','tbl_global_board_of_directors_votes.approved_candidate_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->get();
 
-   				  $data['ambassador_winner'] = Self::getHighestVotes($ambassador);
-                  // dd($data);
+  				dd($data);
+
+
+
+  				// $data["global"] = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
+  				// $data["regional"] = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
+      //            $data["ambassador"] = DB::table('tbl_ambassador_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'))->groupBy('approved_candidate_id')->get();
+
+ 
+                  
 				  return view('results',$data);
     }
 
-    public static function getHighestVotes($votes)
-    {
-    	$winner = array();
-
-    	foreach($votes as $vote)
-    	{
-    		if(count($winner) == 0)
-    		{
-    			$winner = $vote;
-    		}
-    		else
-    		{
-    			if($winner->votes < $vote->votes)
-    			{
-    				$winner = $vote;
-    			}
-    		}
-    	}
-
-    	return $winner;
-    }
+ 
 }

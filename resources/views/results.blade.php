@@ -47,7 +47,7 @@
         <table id="example" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>Top</th>
+              <th>#</th>
               <th>Name</th>
               <th>Positions</th>
               <th>Region</th>
@@ -59,33 +59,16 @@
             @php
               $count = 1;
               @endphp
-             @foreach($global_candidate as $key => $val)
+             @foreach($board as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
-                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>{{$val->user_first_name}}</td>
                 <td>
-                  @php
-                  switch ($val->position_id) 
-                  {
-                    case 1:
-                      echo "Board of Trustees";
-                      break;
-                    case 2:
-                      echo "Global Board of Directors";
-                      break;
-                    case 3:
-                      echo "Regional Board of Directors";
-                      break;
-                    case 4:
-                      echo "Ambassadors";
-                      break;
-                  }
-                  @endphp
 
                 </td>
-                <td>{{$val->user_region}}</td>
                 <td></td>
-                <td>{{$global_candidate_votes}}</td>
+                <td></td>
+                <td>{{$val->votes}}</td>
               </tr>
               @endforeach
           </tbody>
