@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel ="icon" href="logo.png" size="40x40" >
+    <link rel ="icon" href="logo.png" size="40x40">
     <title>Global Associations of Blockchains and Cryptocurrency</title>
     
     <!-- Bootstrap core CSS -->

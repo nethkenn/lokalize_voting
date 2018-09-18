@@ -64,10 +64,4 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
-  {{--   <script type="text/javascript">
-    history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-    history.go(1);
-    };
-    </script> --}}
   </body>
