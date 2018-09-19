@@ -31,7 +31,9 @@ class SweetAlertServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'RealRashid\SweetAlert\Storage\SessionStore',
-            'RealRashid\SweetAlert\Storage\AlertSessionStore'
+            'RealRashid\SweetAlert\Storage\AlertSessionStore',
+            'RealRashid\SweetAlert\Storage\Facades'
+
         );
         $this->app->singleton('alert', function ($app) {
             return $this->app->make('RealRashid\SweetAlert\Toaster');

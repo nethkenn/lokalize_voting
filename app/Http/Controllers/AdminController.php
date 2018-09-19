@@ -22,6 +22,7 @@ use App\Globals\Login;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Facade;
 use Excel;
+
 class AdminController extends AuthController
 {
 //
@@ -37,7 +38,7 @@ class AdminController extends AuthController
 			}
 			else
 			{
-				// Alert::success('Login Successfully', $user->user_first_name);	
+				Alert::success('Login Successfully.', $user->user_first_name);
 				$data['global_candidate']     = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",1)->get();
 				$data['regional_candidate']   = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",2)->get();
 				$data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_region','ASC')->get();

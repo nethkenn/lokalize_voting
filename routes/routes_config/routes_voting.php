@@ -1,6 +1,8 @@
 <?php
 Route::any('/',"LoginController@index");
-Route::any('/results',"LoginController@results");
+Route::any('/plane',"LoginController@plane");
+Route::any('/results',"ResultsController@results");
+
 Route::any('/layout',"AdminController@");
 
 Route::any('/voters', "EmployeeController@index");

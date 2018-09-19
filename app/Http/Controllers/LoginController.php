@@ -108,9 +108,7 @@ class LoginController extends Controller
     	return view('index');
     }
 
-    public function results()
-    {
-    	return view('results');
-    }
+ 
 	
 }
+

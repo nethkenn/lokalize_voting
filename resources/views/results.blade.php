@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,22 +7,11 @@
     <meta name="author" content="">
     <link rel ="icon" href="logo.png" size="40x40" >
     <title>Global Associations of Blockchains and Cryptocurrency</title>
-    
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template -->
-    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <!-- Custom styles for this template -->
-    <link href="/assets/css/stylish-portfolio.min.css" rel="stylesheet">
-    <link href="/assets/css/clean-blog.min.css" rel="stylesheet">
-    <link href="/assets/css/all.css" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <body style="">
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.php"><img src="/assets/images/header.png" alt="Global" width = "250"  ></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +24,7 @@
               <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/results">Results</a>
+              <a class="nav-link" href='/results'>Results</a>
             </li>
             
             <li class="nav-item">
@@ -49,28 +37,72 @@
         </div>
       </div>
     </nav>
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('/assets/images/chain.jpg')">
-      <div class="container-fluid">
-       
-     </div>
-    </header>
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-           
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
-          </div>
-        </div>
+    <br>
+    <br>
+   
+    <br>
+    <div class="container">
+      
+      <div class="tab-content" id="pills-tabContent">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+            <tr>
+              <th>Top</th>
+              <th>Name</th>
+              <th>Positions</th>
+              <th>Region</th>
+              <th>Percentage</th>
+              <th>Vote Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            @php
+              $count = 1;
+              @endphp
+             @foreach($global_candidate as $key => $val)
+              <tr>
+                <th scope="row">{{$count++}}</th>
+                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>
+                  @php
+                  switch ($val->position_id) 
+                  {
+                    case 1:
+                      echo "Board of Trustees";
+                      break;
+                    case 2:
+                      echo "Global Board of Directors";
+                      break;
+                    case 3:
+                      echo "Regional Board of Directors";
+                      break;
+                    case 4:
+                      echo "Ambassadors";
+                      break;
+                  }
+                  @endphp
+
+                </td>
+                <td>{{$val->user_region}}</td>
+                <td></td>
+                {{-- <td>{{$global_candidate_votes}}</td> --}}
+              </tr>
+              @endforeach
+          </tbody>
+        </table>
       </div>
-    </footer>
-    <!-- Bootstrap core JavaScript -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom scripts for this template -->
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-    <script src="/assets/js/clean-blog.min.js"></script>
+      
+      
+    </div>
   </body>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+  $(document).ready(function() {
+  $('#example').DataTable();
+  } );
+  
+  </script>
+  </script>
 </html>
