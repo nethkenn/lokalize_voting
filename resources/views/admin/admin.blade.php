@@ -1,6 +1,27 @@
 @extends('layout')
 @section('content')
 <div class="container">
+
+<div class="modal fade" id="modalvotes" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to submit your vote?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="submitVotes" class="btn btn-primary">Submit Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 		<li class="nav-item">
 			<a class="nav-link active" id="pills-BoardTrutees-tab" data-toggle="pill" href="#pills-boardtrustees" role="tab" aria-controls="pills-boardtrustees" aria-selected="true">Manage Board of Trustees</a>
@@ -177,6 +198,7 @@
 				<!--ADVISER VOTES-->
 				<div class="approvedadvisertitle">
 					<i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;AMBASSADORS<span class="pull-right advisernumber">0/20</span>
+
 				</div>
 				<!--ADVISER CONTENTS-->
 				<div class="approvedadvisercontentcontainer">
@@ -184,11 +206,21 @@
 			</div>
 			<div class="col-lg-12 approvediv">
 				<button type="button" id="submit" class="btn btn-primary approvedCandidates">SUBMIT</button>
+				{{--  @if($errors->any())
+                <div class="alert alert-danger" style="border-radius: 15px 50px 30px;height: 50px">
+                  <center><h4>{{$errors->first()}}</h4></center>
+                </div>
+                @endif --}}
 			</div>
 		</div>
 	</div>
 </div>
 @endsection
-<script src="/assets/js/jquery.min.js"></script>
-{{-- <script src="/assets/js/admin.js"></script> --}}
+@section("script")
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="/assets/js/admin.js"></script>
+@endsection
+
+{{-- <script src="/assets/js/admin.js"></script> --}}
+

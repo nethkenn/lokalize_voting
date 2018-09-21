@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
   </head>
-  <body style="background-color: violet;">
+  <body style="background-color:;">
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="index.php"><img src="/assets/images/header.png" alt="Global" width = "250"  ></a>
@@ -37,6 +37,7 @@
         </div>
       </div>
     </nav>
+    <h1 align="center">  Global Board Of Director Results  </h1>
     <br>
     <br>
     <br>
@@ -49,7 +50,6 @@
             <tr>
               <th>#</th>
               <th>Name</th>
-              <th>Positions</th>
               <th>Region</th>
               <th>Percentage</th>
               <th>Vote Count</th>
@@ -63,12 +63,10 @@
               <tr>
                 <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}}</td>
-                <td>
-
-                </td>
+                {{-- <td>{{$val->position_id}}</td> --}}
+                <td>{{$val->user_region}}</td>
                 <td></td>
-                <td></td>
-                <td>{{$val->votes}}</td>
+                <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
           </tbody>

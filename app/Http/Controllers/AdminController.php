@@ -21,6 +21,7 @@ use App\Models\Tbl_applied_position;
 use App\Globals\Login;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Facade;
+use Toastr;
 use Excel;
 class AdminController extends AuthController
 {
@@ -74,32 +75,33 @@ class AdminController extends AuthController
 		//
 		foreach ($globaldirectors as $global)
 		{
-			$insert['user_id'] = $global;
+			$insert['user_id']     = $global;
 			$insert['position_id'] = 1;
 			Tbl_approved_candidates::insert($insert);
 		}
 
 		foreach ($regionaldirectors as $regional)
 		{
-			$insert['user_id'] = $regional;
+			$insert['user_id']     = $regional;
 			$insert['position_id'] = 2;
 			Tbl_approved_candidates::insert($insert);
 		}
 
 		foreach ($ambassadors as $ambass)
 		{
-			$insert['user_id'] = $ambass;
+			$insert['user_id'] 	   = $ambass;
 			$insert['position_id'] = 3;
 			Tbl_approved_candidates::insert($insert);
 		}
 
 		foreach ($advisors as $advisors)
 		{
-			$insert['user_id'] = $advisors;
+			$insert['user_id']     = $advisors;
 			$insert['position_id'] = 4;
 			Tbl_approved_candidates::insert($insert);
 		}
 
+		Toastr::success("approved");
 		return "sucess";
 	}
 
@@ -144,4 +146,5 @@ class AdminController extends AuthController
 
 		return Redirect::to("/admin");
 	}
+	
 }

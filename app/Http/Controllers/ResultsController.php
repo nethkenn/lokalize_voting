@@ -23,15 +23,27 @@ use App\Models\Tbl_global_board_of_directors_votes;
 use App\Globals\Login;
 use Excel;
 use DB;
+use Model;
 
 class ResultsController extends Controller
 {
     //
     public function results()
     {
-  				$data["board"] = DB::table('tbl_global_board_of_directors_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'),'user_first_name')->leftjoin('tbl_voting_user','tbl_global_board_of_directors_votes.approved_candidate_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->get();
+  				 // $data["board"] = DB::table('tbl_global_board_of_directors_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'),'user_first_name')->leftjoin('tbl_voting_user','tbl_global_board_of_directors_votes.approved_candidate_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->get();
+       //     dd($data);
 
-  				dd($data);
+
+ 
+$data["board"] = DB::table('tbl_global_board_of_directors_votes')
+    ->select('tbl_global_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_region')
+    ->leftjoin('tbl_approved_candidates', 'tbl_global_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
+    ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
+    ->get();
+
+
+
+  				
 
 
 

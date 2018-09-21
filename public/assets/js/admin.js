@@ -86,7 +86,8 @@ function admin()
 						},
 				success: function(data)
 				{
-					toastr.success('All Candidates are ready for election!','Approved!');				
+					toastr.success('All Candidates are ready for election!','Approved!');	
+					location.reload('admin');		
 				}
 
 				});
