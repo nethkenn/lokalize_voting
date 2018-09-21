@@ -50,16 +50,15 @@
     <br>
     <br>
     <h1 align="center">  Poll Results </h1>
-    <br>
+  </div>
+
+    <div class="container">
       <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'BOT')">Board of Trustees</button>
         <button class="tablinks" onclick="openCity(event, 'GBD')">Global Board of Directors</button>
         <button class="tablinks" onclick="openCity(event, 'RBD')">Regional Board of Directors</button>
         <button class="tablinks" onclick="openCity(event, 'AMB')">Ambassadors</button>
       </div>
-  </div>
-
-    <div class="container">
       {{-- Board of Trustees --}}
       <div id="BOT" class="tabcontent">
         <div class="tab-content" id="pills-tabContent">
@@ -80,10 +79,10 @@
              @foreach($board as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
-                <td>{{$val->user_first_name}}</td>
+                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
                 {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
-                <td></td>
+                <td>{{ number_format(($val->votes_count / $total_board_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -111,10 +110,10 @@
              @foreach($global as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
-                <td>{{$val->user_first_name}}</td>
+                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
                 {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
-                <td></td>
+                <td>{{ number_format(($val->votes_count / $total_global_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -142,10 +141,10 @@
              @foreach($regional as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
-                <td>{{$val->user_first_name}}</td>
+                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
                 {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
-                <td></td>
+                <td>{{ number_format(($val->votes_count / $total_regional_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -173,10 +172,10 @@
              @foreach($board as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
-                <td>{{$val->user_first_name}}</td>
+                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
                 {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
-                <td></td>
+                <td>{{ number_format(($val->votes_count / $total_ambas_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach

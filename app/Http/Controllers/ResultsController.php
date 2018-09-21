@@ -28,6 +28,18 @@ use Model;
 class ResultsController extends Controller
 {
     //
+    public static function total_vote_count($data)
+    {
+          $rowboard = array();
+          foreach($data as $board)
+          {
+            $rowboard[] = $board->votes_count;
+          }
+
+          $total = array_sum($rowboard);
+
+         return $total;
+    }
     public function results()
     {
   				 // $data["board"] = DB::table('tbl_global_board_of_directors_votes')->select('approved_candidate_id',DB::raw('count(*) as votes'),'user_first_name')->leftjoin('tbl_voting_user','tbl_global_board_of_directors_votes.approved_candidate_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->get();
@@ -36,29 +48,37 @@ class ResultsController extends Controller
 
  
           $data["board"] = DB::table('tbl_global_board_of_directors_votes')
-          ->select('tbl_global_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_region')
+          ->select('tbl_global_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_global_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
           ->get();
 
+          $data["total_board_vote_count"] = Self::total_vote_count($data["board"]);
+
           $data["global"] = DB::table('tbl_regional_board_of_directors_votes')
-          ->select('tbl_regional_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_region')
+          ->select('tbl_regional_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_regional_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
           ->get();
 
+          $data["total_global_vote_count"] = Self::total_vote_count($data["global"]);
+
            $data["regional"] = DB::table('tbl_ambassador_votes')
-          ->select('tbl_ambassador_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_region')
+          ->select('tbl_ambassador_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_ambassador_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
-          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
+          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
           ->get();
 
+
+          $data["total_regional_vote_count"] = Self::total_vote_count($data["regional"]);
+
           $data["ambas"] = DB::table('tbl_advisor_votes')
-          ->select('tbl_advisor_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_region')
+          ->select('tbl_advisor_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_advisor_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
           ->get();
 
+          $data["total_ambas_vote_count"] = Self::total_vote_count($data["ambas"]);
 
 
   				
