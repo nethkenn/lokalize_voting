@@ -20,6 +20,26 @@
     </div>
   </div>
 </div>
+<!--view info-->
+<div class="modal fade" id="modalViewInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to submit your vote?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="submitVotes" class="btn btn-primary">Submit Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <ul class="nav nav-tabs col-lg-8" id="myTab" role="tablist">
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
@@ -54,7 +74,7 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>           
         </div>
-        <center><button type="button" class="btn btn-outline-info btn-sm">View more Info</button></center>
+        <center><button type="button" class="btn btn-outline-info btn-sm viewinfo">View more Info</button></center>
       </div>
     @endforeach
     </div>
@@ -77,6 +97,7 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}voteregionaldirec">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$regional->user_id}}cancelregionaldirec" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
         </div>
+        <center><button type="button" class="btn btn-outline-info btn-sm viewinfo">View more Info</button></center>
       </div>
     @endforeach
     </div>
@@ -100,6 +121,7 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$ambassador->user_id}}cancelambass" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
         </div>
+        <center><button type="button" class="btn btn-outline-info btn-sm viewinfo">View more Info</button></center>
       </div>
     @endforeach
     </div>
@@ -121,6 +143,7 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
+        <center><button type="button" class="btn btn-outline-info btn-sm viewinfo">View more Info</button></center>
       </div>
     @endforeach
     </div>
