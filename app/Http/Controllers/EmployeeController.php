@@ -76,6 +76,7 @@ class EmployeeController extends AuthVotersController
                   $data["usertype"]= $user->user_type;
                   $data["user_id"] = $user->user_id;
                   return view('voters.index',$data);
+
               }
         }
         else
@@ -107,36 +108,41 @@ class EmployeeController extends AuthVotersController
         //dahil array ang kinukuha mo kailngan mong iloop
         //
         //---///
-        $insert_user_id['user_id'] = Request::Input('user_id');
+        $insert_user_id['user_id']                 = Request::Input('user_id');
+
         Tbl_user_votes::insert($insert_user_id);
   
-        $update['voting_status'] = "Completed"; 
+        $update['voting_status']                   = "Completed"; 
         Tbl_user_voting_status::where('user_id',$insert_user_id['user_id'])->update($update);
 
 
         foreach ($globaldirectors as $global) 
         {
-           $director['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $global)->value('approved_candidate_id');
-           $director['user_id'] = Request::Input('user_id');
+           $director['approved_candidate_id']      = Tbl_approved_candidates::where('user_id', $global)->value('approved_candidate_id');
+           $director['user_id']                    = Request::Input('user_id');
            Tbl_global_board_of_directors_votes::insert($director);
+          
         }
         foreach ($regionaldirectors as $regional) 
         {
            $regionalBoards['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $regional)->value('approved_candidate_id');
            $regionalBoards['user_id'] = Request::Input('user_id');
            Tbl_regional_board_of_directors_votes::insert($regionalBoards);
+          
         }
         foreach ($ambassadors as $ambass) 
         {
            $ambassadorsList['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $ambass)->value('approved_candidate_id');
-           $ambassadorsList['user_id'] = Request::Input('user_id');
+           $ambassadorsList['user_id']               = Request::Input('user_id');
            Tbl_ambassador_votes::insert($ambassadorsList);
+          
         }
-        foreach ($advisors as $advsor) 
+        foreach ($advisors as $advisor) 
         {
-           $advisorlist['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $advsor)->value('approved_candidate_id');
-           $advisorlist['user_id'] = Request::Input('user_id');
+           $advisorlist['approved_candidate_id']     = Tbl_approved_candidates::where('user_id', $advisor)->value('approved_candidate_id');
+           $advisorlist['user_id']                   = Request::Input('user_id');
            Tbl_advisor_votes::insert($advisorlist);
+           
         }
         
         Session::start('session');

@@ -169,7 +169,7 @@
             @php
               $count = 1;
               @endphp
-             @foreach($board as $key => $val)
+             @foreach($ambas as $key => $val)
               <tr>
                 <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
@@ -211,5 +211,12 @@
   $('#example3').DataTable();
   } );
   </script>
+ {{--  <script type="text/javascript">
+      $(document).ready(function()
+      {
+          $('#BOT').show();
+      });
+
+  </script> --}}
   <script src="assets/js/results.js"></script>
 </html>

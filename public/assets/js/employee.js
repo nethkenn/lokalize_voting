@@ -94,7 +94,6 @@ function employee()
 			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
 			var user_id          	  = $('.user_id').val();
 			var approved_candidate_id = $('.approved_candidate_id').val();
-
 			$.ajax({
 			headers: {
 		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -131,6 +130,8 @@ function employee()
 				{
 					$(".votedglobaltitle").css("box-shadow","0 0px 1px green");
 				}
+
+
 				else
 				{
 					$(".votedglobaltitle").css("box-shadow","0 0px 1px red");
@@ -195,7 +196,7 @@ function employee()
 						$("."+container).append(data);
 					}
 					
-					$("#"+candidate_id+"cancel"+position).css("display","");
+					$("#myModal"+candidate_id+"cancel"+position).css("display","");
 					$("#"+candidate_id+"vote"+position).css("display","none");
 
 					changecolor(position);
@@ -211,6 +212,8 @@ function employee()
 		});
 
 	}
+
+
 
 	function chectotalvotes(position)
 	{

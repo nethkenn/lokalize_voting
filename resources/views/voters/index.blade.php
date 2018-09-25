@@ -21,6 +21,9 @@
   </div>
 </div>
 
+
+
+
 <ul class="nav nav-tabs col-lg-8" id="myTab" role="tablist">
   <li class="nav-item col-md-4 col-lg-3 col-sm-4">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#global" role="tab" aria-controls="home" aria-selected="true">Board of Trustees</a>
@@ -54,8 +57,38 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>           
         </div>
-        <center><button type="button" class="btn btn-outline-info btn-sm">View more Info</button></center>
+        <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$global->approved_candidate_id}}">
+  View info
+</button></center>
+
       </div>
+      {{-- modal start view more info --}}
+<!-- Modal -->
+<div class="modal fade" id="modal{{$global->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{$global->user_first_name}} {{$global->user_last_name}}</h5>
+
+         
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>LinkedIn:</b> <a href="{{$global->user_linked_in}}">{{$global->user_linked_in}}</a><br>
+        <b>Media Link:</b> <a href="{{$global->user_media_linked}}">{{$global->user_media_linked}}</a>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{-- modal end view more info --}}
     @endforeach
     </div>
   </div>
@@ -76,8 +109,36 @@
           <center>{{$regional->user_country}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}voteregionaldirec">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$regional->user_id}}cancelregionaldirec" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
+
         </div>
+        <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$regional->approved_candidate_id}}">
+  View info
+</button></center>
       </div>
+
+      <div class="modal fade" id="modal{{$regional->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{$regional->user_first_name}} {{$regional->user_last_name}}</h5>
+
+         
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>LinkedIn:</b> <a href="{{$regional->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
+        <b>Media Link:</b> <a href="{{$regional->user_media_linked}}">{{$regional->user_media_linked}}</a>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     @endforeach
     </div>
   </div>
@@ -100,7 +161,33 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$ambassador->user_id}}cancelambass" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
         </div>
+         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$ambassador->approved_candidate_id}}">
+  View info
+</button></center>
       </div>
+        <div class="modal fade" id="modal{{$ambassador->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{$ambassador->user_first_name}} {{$ambassador->user_last_name}}</h5>
+
+         
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>LinkedIn:</b> <a href="{{$ambassador->user_linked_in}}">{{$ambassador->user_linked_in}}</a><br>
+        <b>Media Link:</b> <a href="{{$ambassador->user_media_linked}}">{{$ambassador->user_media_linked}}</a>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     @endforeach
     </div>
   </div>
@@ -121,7 +208,33 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
+         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$advisor->approved_candidate_id}}">
+  View info
+</button></center>
       </div>
+        <div class="modal fade" id="modal{{$advisor->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{$advisor->user_first_name}} {{$advisor->user_last_name}}</h5>
+
+         
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>LinkedIn:</b> <a href="{{$advisor->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
+        <b>Media Link:</b> <a href="{{$advisor->user_media_linked}}">{{$regional->user_media_linked}}</a>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     @endforeach
     </div>
   </div>
@@ -170,7 +283,7 @@
   </div>
 
   <div class="col-lg-12 submitdiv">
-  <button type="button" id="submit" class="btn btn-primary">SUBMIT</button>
+  <button type="button" id="submit"  class="btn btn-primary">SUBMIT</button>
   </div>
 
 </div>
@@ -182,3 +295,6 @@
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="/assets/js/employee.js"></script>
 @endsection
+
+
+

@@ -50,7 +50,7 @@ class ResultsController extends Controller
           $data["board"] = DB::table('tbl_global_board_of_directors_votes')
           ->select('tbl_global_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_global_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
-          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
+          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
           ->get();
 
           $data["total_board_vote_count"] = Self::total_vote_count($data["board"]);
@@ -58,7 +58,7 @@ class ResultsController extends Controller
           $data["global"] = DB::table('tbl_regional_board_of_directors_votes')
           ->select('tbl_regional_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_regional_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
-          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
+          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
           ->get();
 
           $data["total_global_vote_count"] = Self::total_vote_count($data["global"]);
@@ -75,7 +75,7 @@ class ResultsController extends Controller
           $data["ambas"] = DB::table('tbl_advisor_votes')
           ->select('tbl_advisor_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_advisor_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
-          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 1)
+          ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
           ->get();
 
           $data["total_ambas_vote_count"] = Self::total_vote_count($data["ambas"]);
