@@ -17,18 +17,18 @@
             </div>
                     
             <div class="card-body">
-              <h5 class="card-title text-center">LOGIN</h5>
+              <b><h5 class="card-title text-center">LOGIN</h5></b>
               <form class="form-signin" method="post" action='/login_submit'>
                 {{ csrf_field() }}
                 <div class="form-label-group">
                   USERNAME
-                  <input type="text" id="inputUserame" class="form-control" name="UserNameInput" placeholder="Username" required autofocus>
+                  <input type="text" id="inputUserame" autocomplete="off" class="form-control" name="UserNameInput" placeholder="" required autofocus>
                   <label for="inputUserame"></label>
                 </div>
                 
                 <div class="form-label-group">
                   PASSWORD
-                  <input type="password" id="inputPassword" name="PasswordNameInput" class="form-control" placeholder="Password" required>
+                  <input type="password" id="inputPassword" autocomplete="off" name="PasswordNameInput" class="form-control" placeholder="Password" required>
                   <label for="inputPassword"></label>
                 </div>
                 
@@ -47,7 +47,8 @@
                 </div>
                 @endif --}}
                 <hr class="my-4">
-                <a class="d-block text-left mt-3 small" href="#">&nbsp;&nbsp;&nbsp;Not yet a member?</a>
+                <center><a class="d-block text-left mt-3 small" href="#">&nbsp;&nbsp;&nbsp;Not yet a member?</a></center>
+                
                 
                 <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><a style = "color:white;" href="https://www.gmail.com"> Sign up with Google Form</button></a>
                 
