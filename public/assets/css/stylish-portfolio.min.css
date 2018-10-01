@@ -412,3 +412,42 @@ a:hover {
 	padding: 5% 0px;
 	opacity: 0.9;
 }
+
+.foot {
+	margin: 10px;
+	background: #f0f7fb;
+}
+
+.offooter {
+    margin: 0% 8%;
+    padding: 10px;
+    background: white;
+    opacity: .8;
+    height: 40px;
+    font-size: initial;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+#labelhost {
+  font: 25px bold;
+  font-family: fantasy;
+}
+
+.sublabel {
+  font: 250% bold;
+}
+
+#labeldata {
+  font-size: 15px;
+}
+
+#slabel {
+  color: #0099cc;
+  text-shadow: 5px 2px black;
+}

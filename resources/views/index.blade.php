@@ -19,33 +19,6 @@
     <!-- Custom styles for this template -->
     <link href="/assets/css/stylish-portfolio.min.css" rel="stylesheet">
     <link href="/assets/css/clean-blog.min.css" rel="stylesheet">
-    
-    <style type="text/css">
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-#labelhost {
-  font: 25px bold;
-  font-family: fantasy;
-}
-
-.sublabel {
-  font: 250% bold;
-}
-
-#labeldata {
-  font-size: 15px;
-}
-
-#slabel {
-  color: #0099cc;
-  text-shadow: 5px 2px black;
-}
-    </style>
 
   </head>
   <body>
@@ -72,7 +45,7 @@
               <a class="nav-link" href='/results'>Results</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href='/login'>Vote now!</a>
+              <a href='/login' class="btn btn-info"> Vote now!</a>
             </li>
           </ul>
         </div>
@@ -84,7 +57,7 @@
       <div class="container">
         <div class="row">
           <div id="headerholder" class="col-lg-12 mx-auto site-heading">
-            <h1><a id="slabel">G</a>lobal <a id="slabel">A</a>ssociations of <a id="slabel">B</a>lockchains and <a id="slabel">C</a>ryptocurrency</h1>
+            <h1><a id="slabel">G</a>lobal <a id="slabel">A</a>ssociation of <a id="slabel">B</a>lockchain and <a id="slabel">C</a>ryptocurrency</h1>
           </div>
         </div>
       </div>
@@ -94,13 +67,13 @@
       <div class="container">
         <div class="row">
           <div id="headerholder" class="col-lg-12 mx-auto site-heading">
-            
-            <p class="sublabel"><u>MISSION</u></p>
+              
+            <h2 class="sublabel"><u>MISSION</u></h2>
             <p class="col-md-10 mx-auto">To build a strong community of experts and professionals on related emerging Blockchain Technology and Cryptocurrency, sharing news and knowledge, organizing events and promoting blockchain based solutions for start-ups, investors, organizations, public and private sector with collaborative participation of regulatory bodies.</p>
 
             <br>
             
-            <p class="sublabel"><u>VISION</u></p>
+            <h2 class="sublabel"><u>VISION</u></h2>
             <p class="col-md-10 mx-auto">To be the front-runner Blockchain and Crypto Association that helps the society on adaptaing widely used of blockchain and cryptocurreny, forming alliances with  various industries and regulatory institutions.</p>
             
           </div>
@@ -109,48 +82,53 @@
     </div>
 
     <div class="masthead" style="background-image: url('/assets/images/apartment.jpg')">
-      <div class="container">
-          <div id="rower" class="row col-lg-12 mx-auto site-heading">
+      <div class="container marketing">
+        <div id="rower" class="row">
 
-            <div class="row">
-              <div class="column">
-                <div class="card">
-                  <img src="../assets/images/david lim.png" alt="david lim" class="col-md-12" width="100" height="150">
-                  <p id="labelhost">David S. Lim</p>
-                  <p id="labeldata" class="mx-auto">Senior VP/Pres & CEO:MY Solid Tech, Solid Group Inc.</p>
-                  <p>Philippines</p>
-                </div>
-              </div>
-
-              <div class="column">
-                <div class="card">
-                  <img src="../assets/images/mark landicho.png" alt="david lim" class="col-md-12" width="100" height="150">
-                  <p id="labelhost">Mark "Karl" Landicho</p>
-                  <p id="labeldata" class="mx-auto">CEO of 2 Companies Blockchain Speaker ICO Advisor | DLT</p>
-                  <p>Philippines</p>
-                </div>
-              </div>
-
-              <div class="column">
-                <div class="card">
-                  <img src="../assets/images/jayarr.png" alt="david lim" class="col-md-12" width="100" height="150">
-                  <p id="labelhost">Guillermo Tabligan</p>
-                  <p id="labeldata" class="mx-auto">Chief Information Officer at Digima Web Solutions, Inc</p>
-                  <p>Philippines</p>
-                </div>
-              </div>
-
-              <div class="column">
-                <div class="card">
-                  <img src="../assets/images/kanji.png" alt="david lim" class="col-md-12" width="100" height="150">
-                  <p id="labelhost">Kanji Sakae</p>
-                  <p id="lebaldata" class="mx-auto">Founder, SnowBall Capital</p>
-                  <p>JAPAN</p>
-                </div>
-              </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="media col-lg-3 col-md-3 col-sm-3">
+              <a href="https://www.bloomberg.com/research/stocks/people/person.asp?...">
+                <img class="mr-3" src="../assets/images/david lim.png" alt="david lim" width = "100">
+              </a>
             </div>
-
+            <div class="media-body col-lg-9 col-md-9 col-sm-12">
+              <h5 class="mt-0">David S. Lim</h5>
+              <p class="mt-0">Philippines</p>
+              <p>Senior VP/Pres & CEO:MY Solid Tech, Solid Group Inc.</p>
+            </div>
           </div>
+
+          <div class="media col-lg-3 col-md-3 col-sm-3">
+            <a href="index.php"><img class="mr-3" src="../assets/images/david lim.png" alt="david lim" width = "100"  ></a>
+            <div class="media-body col-lg-9 col-md-9 col-sm-12">
+              <h5 class="mt-0">David S. Lim</h5>
+              <p>Philippines</p>
+              <p>Senior VP/Pres & CEO:MY Solid Tech, Solid Group Inc.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <img class="rounded-circle" src="../assets/images/mark landicho.png" alt="david lim" width="100" height="100">
+            <h5>Mark "Karl" Landicho</h5>
+            <p>CEO of 2 Companies Blockchain Speaker ICO Advisor | DLT</p>
+            <p><a class="btn btn-info" href="https://www.linkedin.com/in/mark-karl-landicho-b593a048/" role="button">View details »</a></p>
+          </div>
+
+          <div class="col-lg-3">
+            <img class="rounded-circle" src="../assets/images/jayarr.png" alt="david lim" width="100" height="100">
+            <h4>Guillermo Tabligan</h4>
+            <p>Chief Information Officer at Digima Web Solutions, Inc</p>
+            <p><a class="btn btn-info" href="https://www.linkedin.com/in/guillermo-tabligan-54323960/" role="button">View details »</a></p>
+          </div>
+
+          <div class="col-lg-3">
+            <img class="rounded-circle" src="../assets/images/kanji.png" alt="david lim" width="100" height="100">
+            <h2>Kanji Sakae</h2>
+            <p>Founder, SnowBall Capital</p>
+            <p><a class="btn btn-info" href="https://www.linkedin.com/in/kanji-sakae-347a761/" role="button">View details »</a></p>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -178,117 +156,126 @@
     
     <!-- Footer -->
     <footer>
-          <div class="masthead" style="background-image: url('/assets/images/apartment.jpg')">
-      <div class="container">
+      <div class="masthead" style="background-image: url('/assets/images/arch.jpg')">
+        <div class="container">
           <div class="row">
-            <div class="column">
-              <div class="card">
-                <p id="labelhost">Documents</p>
-                <ul>
-                  <li><a href="#">White Paper</a></li>
-                  <li><a href="#">Light Paper</a></li>
-                  <li><a href="#">Rival Paper</a></li>
-                  <li><a href="#">Financial Paper</a></li>
-                </ul>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <h4 class="text-white mb-4">
+                    Documents
+                  </h4>
+                  <ul class="text-white">
+                    <li><a href="#">White Paper</a></li>
+                    <li><a href="#">Light Paper</a></li>
+                    <li><a href="#">Rival Paper</a></li>
+                    <li><a href="#">Financial Paper</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <h4 class="text-white mb-4">
+                    Follow Us
+                  </h4>
+                  <ul>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-behance-square"></a>
+                    </li>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-facebook-square"></a>
+                    </li>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-twitter-square"></a>
+                    </li>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-youtube-square"></a>
+                    </li>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-linkedin-square"></a>
+                    </li>
+                    <li>
+                      <a href="#" class="fa fa-2x fa-google-plus-square"></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-3">
+                  <h5 class="text-white mb-4">
+                    Get In Touch With Us
+                  </h5>
+                  <form action="" novalidate="" class="ng-untouched ng-pristine ng-valid">
+                    <input class="px-3 py-1 w-100" placeholder="Your Name" type="text">
+                    <input class="px-3 py-1 w-100 my-2" placeholder="Email" type="text">
+                    <textarea class="px-3 py-1 w-100" id="" name="" placeholder="Message" rows="5"></textarea>
+                    <button class="btn-v btn-glow-3 py-1 px-4">
+                      Send
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
-
-            <div class="column">
-              <div class="card">
-                <p id="labelhost">Follow Us</p>
-                <ul class="list-inline-item">
-                  <li>
-                    <a href="#">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-send fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="#">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="#">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="#">
-                      <span class="fa-stack fa-lg">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="card">
-                <p id="labelhost">Get in touch with Us</p>
-                <p id="labeldata" class="mx-auto">Chief Information Officer at Digima Web Solutions, Inc</p>
-                <p>Philippines</p>
-              </div>
-            </div>
-
-            <div class="column">
-              <div class="card">
-                <p id="labelhost">or Contact us directly</p>
-                <p id="lebaldata" class="mx-auto">Founder, SnowBall Capital</p>
-                <p>JAPAN</p>
+              <div class="col-xl-3 col-sm-12">
+                <h4 class="mb-5 text-white" style="font-size: 1rem;">
+                  Contact us directly
+                </h4>
+                <div class="media mb-4">
+                  <img alt="" class="align-self-center mr-3" src="/assets/img/svg/location.svg" width="21">
+                  <div class="media-body">
+                    <h6 class="mt-0 text-muted">
+                      MALTA
+                    </h6>
+                  </div>
+                </div>
+                <div class="media mb-4">
+                  <img alt="" class="align-self-center mr-3" src="/assets/img/svg/envelope.svg" width="23">
+                  <div class="media-body">
+                    <h6 class="mt-0 text-muted">
+                      support@lokalize.io
+                    </h6>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-    </div>
-    </div>
+          </div>
+        </div>
 
-        <br>
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+        <div class="container offooter">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="left-holder">
+                <div class="copy-right">
+                  Copyright © 2018
+                </div>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="right-holder d-flex w-100">
+                <div class="links ml-auto">
+                  <a href="#">
+                    Terms of Use
+                  </a>
+                  <a href="#">
+                    Privacy Policy
+                  </a>
+                  <a href="#">
+                    Token Sale Policy
+                  </a>
+                  <a href="#">
+                    KYC-AML-CTF Policy
+                  </a>
+                  <a href="#">
+                    Disclaimers
+                  </a>
+                  <a href="#">
+                    Risk Factor
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      
     </footer>
+
     <!-- Bootstrap core JavaScript -->
    {{--  <script src="/assets/js/jquery/jquery.min.js"></script> --}}
    {{--  <script src="/assets/js/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
