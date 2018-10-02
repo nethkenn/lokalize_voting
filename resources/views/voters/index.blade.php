@@ -20,6 +20,26 @@
     </div>
   </div>
 </div>
+<!--view info-->
+<div class="modal fade" id="modalViewInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to submit your vote?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="submitVotes" class="btn btn-primary">Submit Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -57,9 +77,13 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>           
         </div>
+
         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$global->approved_candidate_id}}">
   View info
 </button></center>
+
+
+       
 
       </div>
       {{-- modal start view more info --}}
@@ -78,7 +102,8 @@
       </div>
       <div class="modal-body">
         <b>LinkedIn:</b> <a href="{{$global->user_linked_in}}">{{$global->user_linked_in}}</a><br>
-        <b>Media Link:</b> <a href="{{$global->user_media_linked}}">{{$global->user_media_linked}}</a>
+        <b>Media Link:</b> <a href="{{$global->user_media_linked}}">{{$global->user_media_linked}}</a><br>
+        <li> <a href="{{url('admin/pdf')}}">Resume</a></li>
         
       </div>
       <div class="modal-footer">
@@ -111,6 +136,7 @@
            <center><button type="button" class="btn btn-primary cancelled {{$regional->user_id}}cancelregionaldirec" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
 
         </div>
+
         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$regional->approved_candidate_id}}">
   View info
 </button></center>
@@ -127,10 +153,13 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+       
+
       </div>
       <div class="modal-body">
         <b>LinkedIn:</b> <a href="{{$regional->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
-        <b>Media Link:</b> <a href="{{$regional->user_media_linked}}">{{$regional->user_media_linked}}</a>
+        <b>Media Link:</b> <a href="{{$regional->user_media_linked}}">{{$regional->user_media_linked}}</a><br>
+         <b>Resume Link:</b><a href=""></a>
         
       </div>
       <div class="modal-footer">
@@ -179,7 +208,8 @@
       </div>
       <div class="modal-body">
         <b>LinkedIn:</b> <a href="{{$ambassador->user_linked_in}}">{{$ambassador->user_linked_in}}</a><br>
-        <b>Media Link:</b> <a href="{{$ambassador->user_media_linked}}">{{$ambassador->user_media_linked}}</a>
+        <b>Media Link:</b> <a href="{{$ambassador->user_media_linked}}">{{$ambassador->user_media_linked}}</a><br>
+         <b>Resume Link:</b><a href=""></a>
         
       </div>
       <div class="modal-footer">
@@ -226,7 +256,9 @@
       </div>
       <div class="modal-body">
         <b>LinkedIn:</b> <a href="{{$advisor->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
-        <b>Media Link:</b> <a href="{{$advisor->user_media_linked}}">{{$regional->user_media_linked}}</a>
+        <b>Media Link:</b> <a href="{{$advisor->user_media_linked}}">{{$regional->user_media_linked}}</a><br>
+         <b>Resume Link:</b><a href=""></a>
+
         
       </div>
       <div class="modal-footer">
