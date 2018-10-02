@@ -197,9 +197,7 @@
   View info
 </button></center>
 
-         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$ambassador->approved_candidate_id}}">
-  View info
-</button></center>
+     
 
 
       </div>
@@ -247,11 +245,6 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
-
-         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$advisor->approved_candidate_id}}">
-  View info
-</button></center>
-=======
 
          <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$advisor->approved_candidate_id}}">
   View info
@@ -341,7 +334,7 @@
 
 @section("script")
 <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script type="text/javascript" src="/assets/js/employee.js"></script>
 @endsection
 
