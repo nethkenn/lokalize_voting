@@ -25,6 +25,7 @@ use Toastr;
 use Excel;
 class AdminController extends AuthController
 {
+	
 //
 	public function admin()
 	{

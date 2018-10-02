@@ -59,6 +59,7 @@ class LoginController extends Controller
 											})
 										   ->first();
 			if($user) 
+				
 			{	
 				$status     = Tbl_user_voting_status::where('user_id',$user->user_id)->value('voting_status');
 				Session::put('session',$user->user_id);

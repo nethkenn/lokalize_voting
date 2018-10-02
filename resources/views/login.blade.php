@@ -1,4 +1,9 @@
-@include('sweetalert::alert')
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,7 +34,7 @@
 
             <hr>
 
-            <form class="form-signin" method="post" action="/login_submit">
+            <form class="form-signin" method="post" action='/login_submit'>
               <input type="hidden" name="_token" value="wuwMrrOxdruSe7lK18eAcFx95i2DcnL7QI8ltYDS">
               <div class="form-label-group">
                 USERNAME
