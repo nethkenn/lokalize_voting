@@ -26,6 +26,10 @@ use Excel;
 class AdminController extends AuthController
 {
 //
+
+
+
+	
 	public function admin()
 	{
 		$user = Tbl_voting_user::where("user_id", Session::get('session'))->first();
