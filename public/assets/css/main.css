@@ -12,7 +12,7 @@
 	border-color: transparent !important;
 }
 .ulcontent li {
-	padding: 0 10px; 
+	padding: 0 10px;
 }
 .whitefa {
 	color: white !important;
@@ -270,4 +270,8 @@
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+ul li {
+	list-style-type: none;
 }

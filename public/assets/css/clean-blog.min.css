@@ -27,7 +27,8 @@ a {
     color: #212529;
     -webkit-transition: all .2s;
     -moz-transition: all .2s;
-    transition: all .2s
+    transition: all .2s;
+    margin-right: 10px;
 }
 
 a:focus,

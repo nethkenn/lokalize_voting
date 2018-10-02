@@ -4,12 +4,7 @@
 }
 
 .body {
-  background: #9CECFB;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffffff, #654dff, #654dff);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #007bff;
 }
 
 .card-signin {
@@ -23,14 +18,6 @@
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-}
-
-.card-signin .card-img-left {
-  width: 45%;
-  /* Link to your background image using in the property below! */
-  background: scroll center url("/assets/images/logo.png");
-  background-size: cover;
-
 }
 
 .card-signin .card-body {
@@ -109,11 +96,6 @@
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
-}
-
-.btn-google {
-  color: white;
-  background-color: #ea4335;
 }
 
 .btn-facebook {
