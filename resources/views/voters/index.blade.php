@@ -78,12 +78,14 @@
            <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>           
         </div>
 
+
+
         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$global->approved_candidate_id}}">
   View info
 </button></center>
 
 
-       
+
 
       </div>
       {{-- modal start view more info --}}
@@ -153,8 +155,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-       
 
+      
       </div>
       <div class="modal-body">
         <b>LinkedIn:</b> <a href="{{$regional->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
@@ -190,9 +192,16 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$ambassador->user_id}}cancelambass" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
         </div>
+
          <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$ambassador->approved_candidate_id}}">
   View info
 </button></center>
+
+         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$ambassador->approved_candidate_id}}">
+  View info
+</button></center>
+
+
       </div>
         <div class="modal fade" id="modal{{$ambassador->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -238,9 +247,17 @@
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
            <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
+
          <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$advisor->approved_candidate_id}}">
   View info
 </button></center>
+=======
+
+         <center><button type="button "   class="btn-sm btn-info " data-toggle="modal" data-target="#modal{{$advisor->approved_candidate_id}}">
+  View info
+</button></center>
+
+
       </div>
         <div class="modal fade" id="modal{{$advisor->approved_candidate_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

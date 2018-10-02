@@ -82,17 +82,6 @@ function employee()
 	}
 
 
-	function viewinfo()
-	{
-
-		$("#viewinfo").on("click", function()
-			{
-				$("#modalViewInfo").modal("hide");
-
-
-			});
-	}
-
 	function modal_submit_vote()
 	{
 		$("#submitVotes").on( "click", function() 
