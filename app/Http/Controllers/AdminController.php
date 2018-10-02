@@ -147,4 +147,6 @@ class AdminController extends AuthController
 		return Redirect::to("/admin");
 	}
 	
+
+	
 }
