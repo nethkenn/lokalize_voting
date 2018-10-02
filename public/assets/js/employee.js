@@ -197,7 +197,7 @@ function employee()
 						$("."+container).append(data);
 					}
 					
-					$("#myModal"+candidate_id+"cancel"+position).css("display","");
+					$("#"+candidate_id+"cancel"+position).css("display","");
 					$("#"+candidate_id+"vote"+position).css("display","none");
 
 					changecolor(position);

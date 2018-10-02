@@ -218,7 +218,7 @@
 @endsection
 @section("script")
 <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script type="text/javascript" src="/assets/js/admin.js"></script>
 @endsection
 

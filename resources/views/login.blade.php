@@ -1,11 +1,11 @@
-@include('sweetalert::alert')
+
 <!DOCTYPE html>
 <html>
   <head>
     <link href="/assets/css/login-style.css" rel="stylesheet">
     <link href="/assets/css/loginbootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   </head>
   <body class="body">
     <div class="container">
@@ -60,8 +60,8 @@
     
     <script src="/assets/js/loginjquery.min.js"></script>
     <script src="/assets/js/loginbootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     {!! Toastr::message() !!}
   </body>
