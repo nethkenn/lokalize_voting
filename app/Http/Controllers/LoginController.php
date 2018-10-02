@@ -84,18 +84,18 @@ class LoginController extends Controller
 
 				else if(isset($status) && $status == "Completed")
 				{	
-					toastr::info('Your vote is Successfully Submitted.', 'Completed!');
+					Toastr::info('Your vote is Successfully Submitted.', 'Completed!');
 					return view('/login');
 				}
 				else
 				{	
-					toastr::warning('Wrong Username or Password.', 'Invalid Credential!');
+					Toastr::warning('Wrong Username or Password.', 'Invalid Credential!');
 					return view('/login');
 				}
 			}
 			else
 			{	
-				toastr::warning('Wrong Username or Password.', 'Invalid Credential');
+				Toastr::warning('Wrong Username or Password.', 'Invalid Credential');
 				return view('/login');
 				// return Redirect::to('/login');
 				
