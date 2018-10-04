@@ -11,7 +11,8 @@
         </button>
       </div>
       <div class="modal-body">
-        Are you sure you want to submit your vote?
+        Are you sure you want to submit your vote?<br>
+        You will automatically logged out.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -67,8 +68,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$global->user_picture}}">
         <div class="textvote">
-          <center>{{$global->user_first_name}} {{$global->user_last_name}}</center>
-          <center>{{$global->user_country}}</center>
+          <center><b>Name:</b>{{$global->user_first_name}} {{$global->user_last_name}}</center>
+          <center><b>Country:</b>{{$global->user_country}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>
         </div>
@@ -88,8 +89,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <b>LinkedIn:</b> <a href="{{$global->user_linked_in}}">{{$global->user_linked_in}}</a><br>
-              <b>Media Link:</b> <a href="{{$global->user_media_linked}}">{{$global->user_media_linked}}</a>
+              <b>LinkedIn:</b> <a target="_blank" href="{{$global->user_linked_in}}">{{$global->user_linked_in}}</a><br>
+              <b>Media Link:</b> <a target="_blank" href="{{$global->user_media_linked}}">{{$global->user_media_linked}}</a>
               
             </div>
             <div class="modal-footer">
@@ -114,8 +115,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$regional->user_picture}}">
         <div class="textvote">
-          <center>{{$regional->user_first_name}} {{$regional->user_last_name}}</center>
-          <center>{{$regional->user_country}}</center>
+          <center><b>Name:</b>{{$regional->user_first_name}} {{$regional->user_last_name}}</center>
+          <center><b>Country:</b>{{$regional->user_country}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}voteregionaldirec">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$regional->user_id}}cancelregionaldirec" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
         </div>
@@ -134,8 +135,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <b>LinkedIn:</b> <a href="{{$regional->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
-              <b>Media Link:</b> <a href="{{$regional->user_media_linked}}">{{$regional->user_media_linked}}</a>
+              <b>LinkedIn:</b> <a target="_blank" href="{{$regional->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
+              <b>Media Link:</b> <a target="_blank" href="{{$regional->user_media_linked}}">{{$regional->user_media_linked}}</a>
               
             </div>
             <div class="modal-footer">
@@ -151,7 +152,7 @@
   <div class="tab-pane fade" id="ambassador" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Regional Board of Directors    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
+      Regional Board of Directors ({{$user_region}})    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -159,8 +160,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$ambassador->user_picture}}">
         <div class="textvote">
-          <center>{{$ambassador->user_first_name}} {{$ambassador->user_last_name}}</center>
-          <center>{{$ambassador->user_country}}</center>
+          <center><b>Name:</b> {{$ambassador->user_first_name}} {{$ambassador->user_last_name}}</center>
+          <center><b>Country:</b> {{$ambassador->user_country}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$ambassador->user_id}}cancelambass" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
         </div>
@@ -179,8 +180,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <b>LinkedIn:</b> <a href="{{$ambassador->user_linked_in}}">{{$ambassador->user_linked_in}}</a><br>
-              <b>Media Link:</b> <a href="{{$ambassador->user_media_linked}}">{{$ambassador->user_media_linked}}</a>
+              <b>LinkedIn:</b> <a target="_blank" href="{{$ambassador->user_linked_in}}">{{$ambassador->user_linked_in}}</a><br>
+              <b>Media Link:</b> <a target="_blank" href="{{$ambassador->user_media_linked}}">{{$ambassador->user_media_linked}}</a>
               
             </div>
             <div class="modal-footer">
@@ -196,7 +197,7 @@
   <div class="tab-pane fade" id="advisor" role="tabpanel" aria-labelledby="contact-tab">
     <div class="col-lg-12 globaltitle">
       <h5>
-      Ambassador    <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
+      Ambassador ({{$user_region}})   <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely! </span>
       </h5>
     </div>
     <div class="col-lg-12 globalcontent">
@@ -204,8 +205,8 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$advisor->user_picture}}">
         <div class="textvote">
-          <center>{{$advisor->user_first_name}} {{$advisor->user_last_name}}</center>
-          <center>{{$advisor->user_country}}</center>
+          <center><b>Name:</b>{{$advisor->user_first_name}} {{$advisor->user_last_name}}</center>
+          <center><b>Country:</b>{{$advisor->user_country}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
         </div>
@@ -224,8 +225,8 @@
               </button>
             </div>
             <div class="modal-body">
-              <b>LinkedIn:</b> <a href="{{$advisor->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
-              <b>Media Link:</b> <a href="{{$advisor->user_media_linked}}">{{$regional->user_media_linked}}</a>
+              <b>LinkedIn:</b> <a target="_blank" href="{{$advisor->user_linked_in}}">{{$regional->user_linked_in}}</a><br>
+              <b>Media Link:</b> <a target="_blank" href="{{$advisor->user_media_linked}}">{{$regional->user_media_linked}}</a>
               
             </div>
             <div class="modal-footer">

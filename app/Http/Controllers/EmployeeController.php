@@ -75,6 +75,7 @@ class EmployeeController extends AuthVotersController
                   $data["pic"] = $user->user_picture;
                   $data["usertype"]= $user->user_type;
                   $data["user_id"] = $user->user_id;
+                  $data["user_region"] = $user->user_region;
                   return view('voters.index',$data);
 
               }
