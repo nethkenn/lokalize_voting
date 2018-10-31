@@ -33,7 +33,7 @@
                 </div>
                 
                 
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log-in</button>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase btn-violet" type="submit">Log-in</button>
                 <br>
                 
                  @if($errors->any())
@@ -47,9 +47,9 @@
                 </div>
                 @endif --}}
                 <hr class="my-4">
-                <a class="d-block text-left mt-3 small" href="#">&nbsp;&nbsp;&nbsp;Not yet a member?</a>
+{{--                 <a class="d-block text-left mt-3 small" href="#">&nbsp;&nbsp;&nbsp;Not yet a member?</a>
                 
-                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><a style = "color:white;" href="https://www.gmail.com"> Sign up with Google Form</button></a>
+                <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><a style = "color:white;" href="https://www.gmail.com"> Sign up with Google Form</button></a> --}}
                 
               </form>
             </div>

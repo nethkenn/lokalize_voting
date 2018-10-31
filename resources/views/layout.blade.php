@@ -27,7 +27,7 @@
           <span class="verticalline"></span>
         </li>
         <li class="nav-item active">
-          <a class="nav-link whitefa" href="#">{{$fname}} {{$lname}}</a>
+          <a class="nav-link whitefa" href="#">{{ucfirst($fname)}} {{ucfirst($lname)}}</a>
         </li>
         
         <li class="nav-item dropdown dropdownli">
@@ -38,15 +38,19 @@
           <div class="dropdown-menu dropdown-menu-right dropdownlinav" aria-labelledby="navbarDropdown">
             @if($usertype == 0)
             <div class="dropdown-divider"></div>
-            <a class="button" href='/logout'>Logout</a>
+            <center><a class="button" href='/logout' style="text-decoration: none;"><i class="fa fa-share" aria-hidden="true"></i> Logout</a></center>
             @else
-            <a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter">Import Data</a>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data</a></center>
+            <div class="dropdown-divider"></div>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
+            <div class="dropdown-divider"></div>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center>
+            <div class="dropdown-divider"></div>
             {{--  <a class="dropdown-item" href="#">Another action</a> --}}
             <!-- Button trigger modal -->
             <!-- Button trigger modal -->
             <!-- Modal -->
-            <div class="dropdown-divider"></div>
-            <a class="button" href='/logout'>Logout</a>
+            <center><a class="button" href='/logout' style="text-decoration: none;"><i class="fa fa-share" aria-hidden="true"></i> Logout</a></center>
             @endif
           </div>
         </li>
@@ -76,6 +80,52 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary" name="uploadfile">Upload</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  
+
+    <div class="modal fade" id="exampleModalSend" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/send_password" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Send Accounts</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to send their accounts?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="send">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  
+
+      <div class="modal fade" id="exampleModalSendUpdates" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/send_updates" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Send Updates</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to send their updates?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="send">Send</button>
           </div>
         </div>
       </form>

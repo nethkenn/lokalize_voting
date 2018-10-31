@@ -67,8 +67,8 @@ class EmployeeController extends AuthVotersController
               {   
                   $data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("position_id",1)->get();
                   $data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("position_id",2)->get();
-                  $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("position_id",3)->where("user_region",$user->user_region)->get();
-                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->get();
+                  $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("position_id",3)->get();
+                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->where("user_region",$user->user_region)->get();
                     // dd($data);
                   $data["fname"] = $user->user_first_name;
                   $data["lname"] = $user->user_last_name;
@@ -76,6 +76,7 @@ class EmployeeController extends AuthVotersController
                   $data["usertype"]= $user->user_type;
                   $data["user_id"] = $user->user_id;
                   $data["user_region"] = $user->user_region;
+
                   return view('voters.index',$data);
 
               }

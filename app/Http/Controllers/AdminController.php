@@ -22,7 +22,9 @@ use App\Globals\Login;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Facade;
 use Toastr;
+use Illuminate\Support\Facades\Mail;
 use Excel;
+use Config;
 class AdminController extends AuthController
 {
 //
@@ -54,6 +56,66 @@ class AdminController extends AuthController
 		{
 			return Redirect::to('/login')->send();
 		}
+	}
+
+	public function send_updates()
+	{
+		 $voters = Tbl_voting_user::where('user_type',0)->get();
+
+		 foreach($voters as $voter)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = $voter->user_email;
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC Status Update";
+			 $data["first_name"]    = $voter->user_first_name;
+
+		 	 Mail::send('update_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@yahoo.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+		Toastr::success("approved");
+		return Redirect::to("/admin");
+	}
+
+	public function send_password()
+	{	
+
+		 $voters = Tbl_voting_user::where('user_type',0)->get();
+
+		 foreach($voters as $voter)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = $voter->user_email;
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC Online Voting Log-In Account";
+			 $data["first_name"]    = $voter->user_first_name;
+			 $data["username"]      = $voter->user_name;
+			 $data["password"]      = Self::generateRandomString();
+
+		 	 Mail::send('password_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@yahoo.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+
+	         $updatepass["user_password"] = $data["password"];
+	         Tbl_voting_user::where('user_id',$voter->user_id)->update($updatepass);
+		 }
+
+		 
+		Toastr::success("approved");
+		return Redirect::to("/admin");
+
+	}
+
+	public static function generateRandomString($length = 25) 
+	{
+
+  	  return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 	}
 
 	public function getcandidateinfo()
@@ -105,6 +167,38 @@ class AdminController extends AuthController
 		return "sucess";
 	}
 
+	public static function getCountryByRegion($region)
+	{
+		switch ($region) 
+		{
+			case 'European Union':
+				$region = "european_union";
+				break;
+			case 'Middle East':
+				$region = "middle_east";
+			break;
+			case 'North America':
+				$region = "north_america";
+			break;
+			case 'Africa':
+				$region = "africa";
+			break;
+			case 'Asia':
+				$region = "asia";
+			break;
+			case 'Oceania':
+				$region = "oceania";
+			break;
+			case 'South America':
+				$region = "south_america";
+			break;
+			case 'Eastern Europe':
+				$region = "eastern_europe";
+			break;
+		}
+
+		return $region;
+	}
 	public function import_template()
 	{
 		$file = Request::file('file');
@@ -112,7 +206,7 @@ class AdminController extends AuthController
 
 		foreach($_data as $data)
 		{
-			$positions = explode("/", $data["what_positions_are_you_applying_for"]);
+			$positions = explode(",", $data["what_positions_are_you_applying_for"]);
 			$insert["user_name"] = $data["preferred_username"];
 			$insert["user_email"] = $data["email_address"];
 			$insert["user_password"] = $data["last_name"];
@@ -120,7 +214,7 @@ class AdminController extends AuthController
 			$insert["user_linked_in"] = $data["linkedin_profile_link"];
 			$insert["user_media_linked"] = $data["media_links_that_youre_featured_in"];
 			$insert["user_resume"] = $data["upload_resume_or_biography"];
-			$insert["user_country"] = $data["choose_your_country"];
+			$insert["user_country"] = $data[Self::getCountryByRegion($data["region"])];
 			$insert["user_region"] = $data["region"];
 			$insert["user_first_name"] = $data["first_name"];
 			$insert["user_middle_name"] = $data['middle_name'];
@@ -136,6 +230,10 @@ class AdminController extends AuthController
 				$insert_pos["user_id"] = $user_id;
 				$insert_pos["position_id"] = $position_id;
 				Tbl_applied_position::insert($insert_pos);
+
+				$insert_approve['user_id']     = $user_id;
+				$insert_approve['position_id'] = $position_id;
+				Tbl_approved_candidates::insert($insert_approve);
 				$count++;
 			}
 
@@ -143,7 +241,7 @@ class AdminController extends AuthController
 			$insert_status["voting_status"] = "Pending";
 			Tbl_user_voting_status::insert($insert_status);
 		}
-
+		Toastr::success("approved");
 		return Redirect::to("/admin");
 	}
 	

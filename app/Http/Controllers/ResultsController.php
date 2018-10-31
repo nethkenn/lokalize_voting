@@ -51,6 +51,7 @@ class ResultsController extends Controller
           ->select('tbl_global_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_global_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
+          ->limit(5)
           ->get();
 
           $data["total_board_vote_count"] = Self::total_vote_count($data["board"]);
@@ -59,6 +60,7 @@ class ResultsController extends Controller
           ->select('tbl_regional_board_of_directors_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_regional_board_of_directors_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
+          ->limit(10)
           ->get();
 
           $data["total_global_vote_count"] = Self::total_vote_count($data["global"]);
@@ -67,17 +69,19 @@ class ResultsController extends Controller
           ->select('tbl_ambassador_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
           ->leftjoin('tbl_approved_candidates', 'tbl_ambassador_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
+          ->limit(5)
           ->get();
 
 
           $data["total_regional_vote_count"] = Self::total_vote_count($data["regional"]);
 
           $data["ambas"] = DB::table('tbl_advisor_votes')
-          ->select('tbl_advisor_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region')
+          ->select('tbl_advisor_votes.approved_candidate_id', DB::raw('COUNT(*) as votes_count'), 'user_first_name','user_last_name','user_region','user_country')
           ->leftjoin('tbl_approved_candidates', 'tbl_advisor_votes.approved_candidate_id', '=', 'tbl_approved_candidates.approved_candidate_id')
           ->leftjoin('tbl_voting_user','tbl_approved_candidates.user_id','=','tbl_voting_user.user_id')->groupBy('approved_candidate_id')->having('votes_count', '>' , 0)
           ->get();
 
+          $data["ambas"] = Self::getAmbassadorVotes($data["ambas"]);
           $data["total_ambas_vote_count"] = Self::total_vote_count($data["ambas"]);
 
 
@@ -92,6 +96,36 @@ class ResultsController extends Controller
  
                   
 				  return view('results',$data);
+    }
+
+    public static function RemoveDuplicatePosition()
+    {
+      
+    }
+    
+    public static function getAmbassadorVotes($data)
+    {
+      $country = array();
+
+      foreach($data as $key => $ambas)
+      { 
+          if(!isset($country[$ambas->user_country]))
+          {
+              $country[$ambas->user_country] = $ambas;
+          }
+          else
+          {
+              if($country[$ambas->user_country]->votes_count < $ambas->user_country)
+              {
+                  unset($country[$ambas->user_country]);
+                  $country[$ambas->user_country] = $ambas;
+              }
+             
+          }
+      } 
+
+      return $country;
+
     }
 
  

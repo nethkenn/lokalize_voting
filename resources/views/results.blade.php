@@ -18,8 +18,8 @@
   <body>
 
     <div class="container row">
-      <nav class="col-md-8 navbar navbar-expand-lg navbar-light fixed-top" style="margin-left: 13%;" id="mainNav">
-        <a class="navbar-brand" href="index.php"><img src="/assets/images/header.png" alt="Global" width = "250"></a>
+      <nav class="col-md-8 navbar navbar-expand-lg navbar-light" style="margin-left: 13%;" id="mainNav">
+        <a class="navbar-brand" href="index.php"><img src="/assets/images/logo.png" alt="Global" width = "120"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fa fa-bars"></i>
@@ -44,23 +44,21 @@
       </nav>
     </div>
     <br>
-    <br>
-
   <div class="container col-md-10">
     <br>
     <br>
-    <h1 align="center">  Poll Results </h1>
+    <h1 align="center" style="font-family: serif;">  Poll Results </h1>
   </div>
 
     <div class="container">
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'BOT')">Board of Trustees</button>
+        <button class="tablinks active" onclick="openCity(event, 'BOT')">Board of Trustees</button>
         <button class="tablinks" onclick="openCity(event, 'GBD')">Global Board of Directors</button>
         <button class="tablinks" onclick="openCity(event, 'RBD')">Regional Board of Directors</button>
         <button class="tablinks" onclick="openCity(event, 'AMB')">Ambassadors</button>
       </div>
       {{-- Board of Trustees --}}
-      <div id="BOT" class="tabcontent">
+      <div id="BOT" class="tabcontent" style="display:block">
         <div class="tab-content" id="pills-tabContent">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
           <thead>
@@ -162,6 +160,7 @@
               <th>Name</th>
               <th>Region</th>
               <th>Percentage</th>
+              <th>Country</th>
               <th>Vote Count</th>
             </tr>
           </thead>
@@ -176,6 +175,7 @@
                 {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_ambas_vote_count) * 100,2) }} % </td>
+                <td>{{ $val->user_country }}</td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -190,25 +190,33 @@
   </body>
   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>+
   <script>
   $(document).ready(function() {
-  $('#example').DataTable();
+      $('#example').DataTable( {
+        "order": [[ 4, "desc" ]]
+    });
+  });
+  </script>
+  <script>
+  $(document).ready(function() {
+  $('#example1').DataTable({
+    "order": [[ 4, "desc" ]]
+  });
   } );
   </script>
   <script>
   $(document).ready(function() {
-  $('#example1').DataTable();
+  $('#example2').DataTable({
+    "order": [[ 4, "desc" ]]
+  });
   } );
   </script>
   <script>
   $(document).ready(function() {
-  $('#example2').DataTable();
-  } );
-  </script>
-  <script>
-  $(document).ready(function() {
-  $('#example3').DataTable();
+  $('#example3').DataTable({
+    "order": [[ 4, "desc" ]]
+  });
   } );
   </script>
  {{--  <script type="text/javascript">
