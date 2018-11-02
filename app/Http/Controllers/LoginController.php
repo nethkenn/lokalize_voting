@@ -38,7 +38,7 @@ class LoginController extends Controller
    		Session::forget('is_login');
    		// return view('/index');
    		// header("Refresh:0; url=index.php");
-		return Redirect::to('/');
+		return Redirect::to('/login');
 
     	
     }

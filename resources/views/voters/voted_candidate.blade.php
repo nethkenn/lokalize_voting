@@ -1,5 +1,5 @@
 @if(isset($candidate))
-    <div class="votedcontent {{$divname}}" id="{{$candidate->user_id}}">
+    <div class="votedcontent {{$divname}}" id="{{$candidate->user_id}}{{$divname}}con">
        <img src="{{$candidate->user_picture}}">
        <p>{{$candidate->user_first_name}} {{$candidate->user_last_name}}</p>
        <input type="hidden" name="{{$divname}}[]" value="{{$candidate->user_id}}" name="">

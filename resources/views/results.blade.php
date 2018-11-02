@@ -9,7 +9,7 @@
     <title>Global Associations of Blockchains and Cryptocurrency</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/results.css">
     <!-- Bootstrap core CSS -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -17,9 +17,8 @@
   </head>
   <body>
 
-    <div class="container row">
-      <nav class="col-md-8 navbar navbar-expand-lg navbar-light" style="margin-left: 13%;" id="mainNav">
-        <a class="navbar-brand" href="index.php"><img src="/assets/images/logo.png" alt="Global" width = "120"></a>
+      <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" style="padding: 0px 300px;background-color: #1b2d90;">
+        <a class="navbar-brand" href="index.php"><img src="/assets/images/header-logo.svg" alt="Global" width = "150"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fa fa-bars"></i>
@@ -27,14 +26,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto" >
             <li class="nav-item">
-              <a class="nav-link" href="index.php">Home</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href='/results'>Results</a>
             </li>
-            
+              
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
+              <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href='/login'>Log-in</a>
@@ -42,12 +41,13 @@
           </ul>
         </div>
       </nav>
-    </div>
+
     <br>
   <div class="container col-md-10">
     <br>
     <br>
-    <h1 align="center" style="font-family: serif;">  Poll Results </h1>
+    <h3 align="center">  Poll Results </h3>
+    <br>
   </div>
 
     <div class="container">
@@ -63,7 +63,6 @@
         <table id="example" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Region</th>
               <th>Percentage</th>
@@ -71,14 +70,9 @@
             </tr>
           </thead>
           <tbody>
-            @php
-              $count = 1;
-              @endphp
              @foreach($board as $key => $val)
               <tr>
-                <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-                {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_board_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -94,7 +88,6 @@
         <table id="example1" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Region</th>
               <th>Percentage</th>
@@ -102,14 +95,9 @@
             </tr>
           </thead>
           <tbody>
-            @php
-              $count = 1;
-              @endphp
              @foreach($global as $key => $val)
               <tr>
-                <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-                {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_global_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -125,7 +113,6 @@
         <table id="example2" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Region</th>
               <th>Percentage</th>
@@ -133,14 +120,9 @@
             </tr>
           </thead>
           <tbody>
-            @php
-              $count = 1;
-              @endphp
              @foreach($regional as $key => $val)
               <tr>
-                <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-                {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_regional_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -156,26 +138,20 @@
         <table id="example3" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr>
-              <th>#</th>
               <th>Name</th>
               <th>Region</th>
-              <th>Percentage</th>
               <th>Country</th>
+              <th>Percentage</th>
               <th>Vote Count</th>
             </tr>
           </thead>
           <tbody>
-            @php
-              $count = 1;
-              @endphp
              @foreach($ambas as $key => $val)
               <tr>
-                <th scope="row">{{$count++}}</th>
                 <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
-                {{-- <td>{{$val->position_id}}</td> --}}
                 <td>{{$val->user_region}}</td>
-                <td>{{ number_format(($val->votes_count / $total_ambas_vote_count) * 100,2) }} % </td>
-                <td>{{ $val->user_country }}</td>
+                <td>{{ $val->user_country }}</td> 
+                <td>{{ number_format(($val->votes_count / $total_ambas_vote_count[$val->user_country]["totalvotes"]) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -194,21 +170,21 @@
   <script>
   $(document).ready(function() {
       $('#example').DataTable( {
-        "order": [[ 4, "desc" ]]
+        "order": [[ 3, "desc" ]]
     });
   });
   </script>
   <script>
   $(document).ready(function() {
   $('#example1').DataTable({
-    "order": [[ 4, "desc" ]]
+    "order": [[ 3, "desc" ]]
   });
   } );
   </script>
   <script>
   $(document).ready(function() {
   $('#example2').DataTable({
-    "order": [[ 4, "desc" ]]
+    "order": [[ 3, "desc" ]]
   });
   } );
   </script>
@@ -219,12 +195,5 @@
   });
   } );
   </script>
- {{--  <script type="text/javascript">
-      $(document).ready(function()
-      {
-          $('#BOT').show();
-      });
-
-  </script> --}}
   <script src="assets/js/results.js"></script>
 </html>

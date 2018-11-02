@@ -155,7 +155,7 @@
       Regional Board of Directors ({{$user_region}})    <span style="color:white;margin-left: 20px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely!</span>
       </h5>
     </div>
-    <div class="col-lg-12 globalcontent">
+    <div class="col-lg-12 globalcontent ambassadordiv">
       @foreach($ambassador_candidate as $key => $ambassador)
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$ambassador->user_picture}}">
@@ -200,7 +200,7 @@
       Ambassador ({{$user_region}})   <span style="color:white;margin-left: 30px;font-size: 11px;">You can only choose 1 candidate for this position. Vote Wisely! </span>
       </h5>
     </div>
-    <div class="col-lg-12 globalcontent">
+    <div class="col-lg-12 globalcontent advisordiv">
       @foreach($advisor_candidate as $key => $advisor)
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$advisor->user_picture}}">

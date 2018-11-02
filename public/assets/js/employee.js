@@ -38,7 +38,7 @@ function employee()
 			var ambassadors      	  = $("input[name='ambass[]']").map(function(){return $(this).val();}).get();
 			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
 			var user_id          	  = $('.user_id').val();
-			var approved_candidate_id = $('.approved_candidate_id').val();
+			var approved_candidate_id = $('.approv	ed_candidate_id').val();
 
 			if(hasDuplicates(globaldirectors) == true)
 			{
@@ -68,7 +68,7 @@ function employee()
 			{
 				alert("Please Choose 1 Candidate for Regional Board of Directors.");
 			}
-			else if(advisors < 1)
+			else if(advisors < 1 && $('.advisordiv').children().length > 0)
 			{
 				alert("Please Choose 1 Candidate for Ambassadors.");
 			}
@@ -95,6 +95,7 @@ function employee()
 			var advisors          	  = $("input[name='advis[]']").map(function(){return $(this).val();}).get();
 			var user_id          	  = $('.user_id').val();
 			var approved_candidate_id = $('.approved_candidate_id').val();
+					
 			$.ajax({
 			headers: {
 		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -257,7 +258,7 @@ function employee()
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
-			$("#"+user_id).remove();
+			$("#"+user_id+position+"con").remove();
 			$("#"+user_id+"vote"+position).css("display","");
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
@@ -291,7 +292,7 @@ function employee()
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
-			$("#"+user_id).remove();
+			$("#"+user_id+position+"con").remove();
 			$("#"+user_id+"vote"+position).css("display","");
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
@@ -302,7 +303,7 @@ function employee()
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
-			$("#"+user_id).remove();
+			$("#"+user_id+position+"con").remove();
 			$("#"+user_id+"vote"+position).css("display","");
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
@@ -313,7 +314,7 @@ function employee()
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
-			$("#"+user_id).remove();
+			$("#"+user_id+position+"con").remove();
 			$("#"+user_id+"vote"+position).css("display","");
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);
@@ -324,7 +325,7 @@ function employee()
 			var position     = $(this).attr("data-position");
 			var user_id      = $(this).attr("data-id");
 
-			$("#"+user_id).remove();
+			$("#"+user_id+position+"con").remove();
 			$("#"+user_id+"vote"+position).css("display","");
 			$("#"+user_id+"cancel"+position).css("display","none");
 			totalpersonvotes(position);

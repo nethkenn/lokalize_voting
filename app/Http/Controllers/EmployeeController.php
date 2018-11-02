@@ -117,39 +117,54 @@ class EmployeeController extends AuthVotersController
         $update['voting_status']                   = "Completed"; 
         Tbl_user_voting_status::where('user_id',$insert_user_id['user_id'])->update($update);
 
+        if(count($globaldirectors) != 0)
+        {
+            foreach ($globaldirectors as $global) 
+            {
+               $director['approved_candidate_id']      = Tbl_approved_candidates::where('user_id', $global)->value('approved_candidate_id');
+               $director['user_id']                    = Request::Input('user_id');
+               Tbl_global_board_of_directors_votes::insert($director);
+              
+            }
+        }
 
-        foreach ($globaldirectors as $global) 
+        if(count($regionaldirectors) != 0)
         {
-           $director['approved_candidate_id']      = Tbl_approved_candidates::where('user_id', $global)->value('approved_candidate_id');
-           $director['user_id']                    = Request::Input('user_id');
-           Tbl_global_board_of_directors_votes::insert($director);
-          
+          foreach ($regionaldirectors as $regional) 
+          {
+             $regionalBoards['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $regional)->value('approved_candidate_id');
+             $regionalBoards['user_id'] = Request::Input('user_id');
+             Tbl_regional_board_of_directors_votes::insert($regionalBoards);
+            
+          }
         }
-        foreach ($regionaldirectors as $regional) 
+    
+
+        if(count($ambassadors) != 0)
         {
-           $regionalBoards['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $regional)->value('approved_candidate_id');
-           $regionalBoards['user_id'] = Request::Input('user_id');
-           Tbl_regional_board_of_directors_votes::insert($regionalBoards);
-          
+          foreach ($ambassadors as $ambass) 
+          {
+             $ambassadorsList['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $ambass)->value('approved_candidate_id');
+             $ambassadorsList['user_id']               = Request::Input('user_id');
+             Tbl_ambassador_votes::insert($ambassadorsList);
+            
+          }
         }
-        foreach ($ambassadors as $ambass) 
+
+        if(count($advisors) != 0)
         {
-           $ambassadorsList['approved_candidate_id'] = Tbl_approved_candidates::where('user_id', $ambass)->value('approved_candidate_id');
-           $ambassadorsList['user_id']               = Request::Input('user_id');
-           Tbl_ambassador_votes::insert($ambassadorsList);
-          
+            foreach ($advisors as $advisor) 
+            {
+               $advisorlist['approved_candidate_id']     = Tbl_approved_candidates::where('user_id', $advisor)->value('approved_candidate_id');
+               $advisorlist['user_id']                   = Request::Input('user_id');
+               Tbl_advisor_votes::insert($advisorlist);
+               
+            }
         }
-        foreach ($advisors as $advisor) 
-        {
-           $advisorlist['approved_candidate_id']     = Tbl_approved_candidates::where('user_id', $advisor)->value('approved_candidate_id');
-           $advisorlist['user_id']                   = Request::Input('user_id');
-           Tbl_advisor_votes::insert($advisorlist);
-           
-        }
-        
+   
         Session::start('session');
         Session::flush('session');
-        return Redirect::to('/');
+        return Redirect::to('/login');
         
     }
 
