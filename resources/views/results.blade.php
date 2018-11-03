@@ -66,7 +66,7 @@
               <tr>
                 <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
-                <td>{{ number_format(($val->votes_count / $total_board_vote_count) * 100,2) }} % </td>
+                <td>{{ number_format(($val->votes_count / $total_board_vote_count) * 100,3) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -91,7 +91,7 @@
               <tr>
                 <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
-                <td>{{ number_format(($val->votes_count / $total_global_vote_count) * 100,2) }} % </td>
+                <td>{{ number_format(($val->votes_count / $total_global_vote_count) * 100,3) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -116,7 +116,7 @@
               <tr>
                 <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
-                <td>{{ number_format(($val->votes_count / $total_regional_vote_count) * 100,2) }} % </td>
+                <td>{{ number_format(($val->votes_count / $total_regional_vote_count) * 100,3) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
@@ -143,7 +143,7 @@
                 <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
                 <td>{{ $val->user_country }}</td> 
-                <td>{{ number_format(($val->votes_count / $total_ambas_vote_count[$val->user_country]["totalvotes"]) * 100,2) }} % </td>
+                <td>{{ number_format(($val->votes_count / $total_ambas_vote_count[$val->user_country]["totalvotes"]) * 100,3) }} % </td>
                 <td>{{$val->votes_count}}</td>
               </tr>
               @endforeach
