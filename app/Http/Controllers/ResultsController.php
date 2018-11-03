@@ -88,18 +88,17 @@ class ResultsController extends Controller
           ->orderBy('votes_count','DESC')
           ->get();
 
-          $data["total_ambas_vote_count"]    = Self::getAmbassadorVotes($data["ambas"],true);
           $data["ambas"]                     = Self::getAmbassadorVotes($data["ambas"]); 
-
-          $data["total_board_vote_count"]    = Self::total_vote_count($data["board"]);
-          $data["total_global_vote_count"]   = Self::total_vote_count($data["global"]);
-          $data["total_regional_vote_count"] = Self::total_vote_count($data["regional"]);
-          $data = Self::RemoveDuplicatePosition($data);
+          $final_data = Self::RemoveDuplicatePosition($data);
 
 
+          $final_data["total_board_vote_count"]    = Self::total_vote_count($final_data["board"]);
+          $final_data["total_global_vote_count"]   = Self::total_vote_count($final_data["global"]);
+          $final_data["total_regional_vote_count"] = Self::total_vote_count($final_data["regional"]);
+          $final_data["total_ambas_vote_count"]    = Self::getAmbassadorVotes($final_data["ambas"],true);
+          
 
-
-				  return view('results',$data);
+				  return view('results',$final_data);
     }
 
     public function RemoveDuplicatePosition($data)
@@ -216,7 +215,6 @@ class ResultsController extends Controller
           $globalsub = Self::getGlobalSubWinner($existing_candidate_global,$limit2);
           $data["global"] = $data["global"]->merge($globalsub);
         }
-
 
         return $data;
 

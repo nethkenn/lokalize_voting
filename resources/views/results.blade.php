@@ -25,16 +25,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto" >
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='/results'>Results</a>
-            </li>
-              
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
+        
+            
             <li class="nav-item">
               <a class="nav-link" href='/login'>Log-in</a>
             </li>
@@ -72,7 +64,7 @@
           <tbody>
              @foreach($board as $key => $val)
               <tr>
-                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_board_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -97,7 +89,7 @@
           <tbody>
              @foreach($global as $key => $val)
               <tr>
-                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_global_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -122,7 +114,7 @@
           <tbody>
              @foreach($regional as $key => $val)
               <tr>
-                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
                 <td>{{ number_format(($val->votes_count / $total_regional_vote_count) * 100,2) }} % </td>
                 <td>{{$val->votes_count}}</td>
@@ -148,7 +140,7 @@
           <tbody>
              @foreach($ambas as $key => $val)
               <tr>
-                <td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
+                <td>{{ucfirst(strtolower($val->user_first_name))}} {{ucfirst(strtolower($val->user_last_name))}}</td>
                 <td>{{$val->user_region}}</td>
                 <td>{{ $val->user_country }}</td> 
                 <td>{{ number_format(($val->votes_count / $total_ambas_vote_count[$val->user_country]["totalvotes"]) * 100,2) }} % </td>

@@ -68,7 +68,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$global->user_picture}}">
         <div class="textvote">
-          <center><b></b>{{ucfirst($global->user_first_name)}} {{ucfirst($global->user_last_name)}}</center>
+          <center><b></b>{{ucfirst(strtolower($global->user_first_name))}} {{ucfirst(strtolower($global->user_last_name))}}</center>
           <center><b></b>{{ucfirst($global->user_country)}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$global->user_id}}" data-position="globaldirec" data-container="votedglobalcontentcontainer" id="{{$global->user_id}}voteglobaldirec">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$global->user_id}}cancelglobaldirec" data-id="{{$global->user_id}}" data-position="globaldirec" id="{{$global->user_id}}cancelglobaldirec" style="display:none">CANCEL VOTE</button></center>
@@ -115,7 +115,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$regional->user_picture}}">
         <div class="textvote">
-          <center><b></b>{{ucfirst($regional->user_first_name)}} {{ucfirst($regional->user_last_name)}}</center>
+          <center><b></b>{{ucfirst(strtolower($regional->user_first_name))}} {{ucfirst(strtolower($regional->user_last_name))}}</center>
           <center><b></b>{{ucfirst($regional->user_country)}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$regional->user_id}}" data-position="regionaldirec" data-container="votedregionalcontentcontainer" id="{{$regional->user_id}}voteregionaldirec">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$regional->user_id}}cancelregionaldirec" data-id="{{$regional->user_id}}" data-position="regionaldirec" id="{{$regional->user_id}}cancelregionaldirec" style="display:none">CANCEL VOTE</button></center>
@@ -160,7 +160,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$ambassador->user_picture}}">
         <div class="textvote">
-          <center><b></b> {{ucfirst($ambassador->user_first_name)}} {{ucfirst($ambassador->user_last_name)}}</center>
+          <center><b></b> {{ucfirst(strtolower($ambassador->user_first_name))}} {{ucfirst(strtolower($ambassador->user_last_name))}}</center>
           <center><b></b> {{ucfirst($ambassador->user_country)}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$ambassador->user_id}}" data-position="ambass" data-container="votedambassadorcontentcontainer" id="{{$ambassador->user_id}}voteambass">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$ambassador->user_id}}cancelambass" data-id="{{$ambassador->user_id}}" data-position="ambass" id="{{$ambassador->user_id}}cancelambass" style="display:none">CANCEL VOTE</button></center>
@@ -205,7 +205,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4 globalpicture">
         <img class="img-responsive" src="{{$advisor->user_picture}}">
         <div class="textvote">
-          <center><b></b>{{ucfirst($advisor->user_first_name)}} {{ucfirst($advisor->user_last_name)}}</center>
+          <center><b></b>{{ucfirst(strtolower($advisor->user_first_name))}} {{ucfirst(strtolower($advisor->user_last_name))}}</center>
           <center><b></b>{{ucfirst($advisor->user_country)}}</center>
           <center><button type="button" class="btn btn-primary voted" data-id="{{$advisor->user_id}}" data-position="advis" data-container="votedadvisercontentcontainer" id="{{$advisor->user_id}}voteadvis">VOTE NOW!</button></center>
           <center><button type="button" class="btn btn-primary cancelled {{$advisor->user_id}}canceladvis" data-id="{{$advisor->user_id}}" data-position="advis" id="{{$advisor->user_id}}canceladvis" style="display:none">CANCEL VOTE</button></center>
