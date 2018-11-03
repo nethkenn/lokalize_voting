@@ -208,7 +208,7 @@ function employee()
 			}
 			else
 			{
-				alert("You already voted a maxximum candidate for the position!");
+				alert("You already voted a maximum candidate for the position!");
 			}
 
 		});

@@ -38,7 +38,6 @@
           
           <div class="dropdown-menu dropdown-menu-right dropdownlinav" aria-labelledby="navbarDropdown">
             @if($usertype == 0)
-            <div class="dropdown-divider"></div>
             <center><a class="button" href='/logout' style="text-decoration: none;"><i class="fa fa-share" aria-hidden="true"></i> Logout</a></center>
             @else
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data</a></center>
