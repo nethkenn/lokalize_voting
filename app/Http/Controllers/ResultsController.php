@@ -75,7 +75,7 @@ class ResultsController extends Controller
           ->groupBy('approved_candidate_id')
           ->having('votes_count', '>' , 0)
           ->orderBy('votes_count','DESC')
-          ->limit(5)
+          ->limit(10)
           ->get();
 
 
