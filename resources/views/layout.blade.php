@@ -42,9 +42,9 @@
             @else
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data</a></center>
             <div class="dropdown-divider"></div>
-            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
+{{--             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
             <div class="dropdown-divider"></div>
-            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center> --}}
             <div class="dropdown-divider"></div>
             {{--  <a class="dropdown-item" href="#">Another action</a> --}}
             <!-- Button trigger modal -->

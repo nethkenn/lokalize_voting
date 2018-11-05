@@ -23,7 +23,7 @@
       <li>Ambassador</li>
     </ul>
     <br>
-    To have access on the Voting System, here is your username and password, then login your account on this link : <a href="http://votingsystem.test/login_submit">http://votingsystem.test/login_submit</a>
+    To have access on the Voting System, here is your username and password, then login your account on this link : <a href="http://gabc-election.digimahouse.com/login_submit">http://gabc-election.digimahouse.com/login_submit</a>
     <br>
     <ul>
       <li>Username: <b>{{$username}}</b></li>

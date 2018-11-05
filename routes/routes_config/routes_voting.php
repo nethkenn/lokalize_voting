@@ -13,6 +13,7 @@ Route::any('/admin/submit_votes', "AdminController@submit_votes");
 Route::any('/admin/import', "AdminController@import_template");
 Route::any('/admin/send_password', "AdminController@send_password");
 Route::any('/admin/send_updates', "AdminController@send_updates");
+Route::any('/admin/send_test_email', "AdminController@send_test_email");
 
 Route::any('/login',"LoginController@login");
 Route::any('/login_submit',"LoginController@login_submit");

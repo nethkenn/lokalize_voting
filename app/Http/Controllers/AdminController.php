@@ -58,6 +58,21 @@ class AdminController extends AuthController
 		}
 	}
 
+	public function send_test_email()
+	{
+		 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+		 $data['mail_username'] = Config::get('mail.username');
+		 $data["subject"]       = "Testing testing";
+		 $data["first_name"]    = "Digima B. House";
+		 $data["from"]          = env('MAIL_USERNAME');
+
+	 	 Mail::send('password_template', $data, function ($m) use ($data) 
+         {
+                $m->from($data["from"]);
+                $m->to($data["mail_to"])->subject($data["subject"]);
+         });
+	}
+
 	public function send_updates()
 	{
 		 $voters = Tbl_voting_user::where('user_type',0)->get();
@@ -69,10 +84,11 @@ class AdminController extends AuthController
 			 $data['mail_username'] = Config::get('mail.username');
 			 $data["subject"]       = "GABC Status Update";
 			 $data["first_name"]    = $voter->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
 
 		 	 Mail::send('update_template', $data, function ($m) use ($data) 
 	         {
-	                $m->from("johnkenneth.delara@yahoo.com");
+	                $m->from($data["from"]);
 	                $m->to($data["mail_to"])->subject($data["subject"]);
 	         });
 		 }
@@ -95,10 +111,11 @@ class AdminController extends AuthController
 			 $data["first_name"]    = $voter->user_first_name;
 			 $data["username"]      = $voter->user_name;
 			 $data["password"]      = Self::generateRandomString();
+			 $data["from"]          = env('MAIL_USERNAME');
 
 		 	 Mail::send('password_template', $data, function ($m) use ($data) 
 	         {
-	                $m->from("johnkenneth.delara@yahoo.com");
+	                $m->from($data["from"]);
 	                $m->to($data["mail_to"])->subject($data["subject"]);
 	         });
 
