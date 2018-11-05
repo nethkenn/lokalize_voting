@@ -30,9 +30,11 @@
       <li>Password: <b>{{$password}}</b></li>
     </ul>
     <br>
-    Results will be announced on the 4th week of November 2018. 
+    Results will be announced on the 4th week of November 2018 on our GABC Website. 
+    <br>
     <br>
     Congratulations to all!
+    <br>
     <br>
     Thank you!
     <br>

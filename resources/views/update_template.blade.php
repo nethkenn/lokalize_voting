@@ -13,13 +13,13 @@
     This is Erika, Staff Member from Global Association for Blockchain and Cryptocurrency. We would like to give you our deepest gratitude for participating our GABC-Online Filing of Candidacy. 
     <br>
     <br>
-    <br>
     GABC’s Mission, Vision and Purpose, it will help us build a community of experts and professionals promoting Blockchain Technology and Cryptocurrency around the globe. 
     <br>
     <br>
-    The Online Voting will be on the 3rd week of November 2018, so stay tuned for more updates!
+    The Online Voting will be on November 12-16 2018! Your accounts will be sent on November 11, 2018. So, always check your email for updates.
     <br>
-    You can visit our website: <a href="http://gabc.digimahouse.com/">http://gabc.digimahouse.com/</a> for more details.
+    <br>
+     Our website is already live. You can visit our website on this link for more details: <br><a href="http://gabc.digimahouse.com/">http://gabc.digimahouse.com/</a>
     <br>
     <br>
     <Br>
