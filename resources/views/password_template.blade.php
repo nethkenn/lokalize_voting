@@ -23,14 +23,17 @@
       <li>Ambassador</li>
     </ul>
     <br>
-    To have access on the Voting System, here is your username and password, click the link to login <a href="http://votingsystem.test/login_submit">http://votingsystem.test/login_submit</a>
+    To have access on the Voting System, here is your username and password, then login your account on this link : <a href="http://votingsystem.test/login_submit">http://votingsystem.test/login_submit</a>
     <br>
     <ul>
       <li>Username: <b>{{$username}}</b></li>
       <li>Password: <b>{{$password}}</b></li>
     </ul>
     <br>
-    Results will be announced on the 4th week of November 2018 on our GABC Website. 
+    You can see the results on the log-in page once you’re done voting. 
+    <br>
+    <br>
+    The voting is until November 16, 2018 only, then on the 4th week of November, we will be posting the winning candidates on the GABC Website.
     <br>
     <br>
     Congratulations to all!

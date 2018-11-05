@@ -52,6 +52,7 @@
                 <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><a style = "color:white;" href="https://www.gmail.com"> Sign up with Google Form</button></a> --}}
                 
               </form>
+              <a href="/results" target="_blank" class="btn btn-lg btn-primary btn-block text-uppercase btn-violet resultss" style="border-radius: 5rem;font-size: 80%;letter-spacing: .1rem;font-weight: bold;padding: 1rem;transition: all 0.2s;">View Results</a>
             </div>
           </div>
         </div>

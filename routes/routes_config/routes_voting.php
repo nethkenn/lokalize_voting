@@ -1,4 +1,4 @@
-<?php
+    <?php
 Route::any('/',"LoginController@index");
 Route::any('/layout',"AdminController@");
 Route::any('/results',"ResultsController@results");
