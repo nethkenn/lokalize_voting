@@ -66,7 +66,7 @@ class AdminController extends AuthController
 		 $data["first_name"]    = "Digima B. House";
 		 $data["from"]          = env('MAIL_USERNAME');
 
-	 	 Mail::send('password_template', $data, function ($m) use ($data) 
+	 	 Mail::send('update_template', $data, function ($m) use ($data) 
          {
                 $m->from($data["from"]);
                 $m->to($data["mail_to"])->subject($data["subject"]);
