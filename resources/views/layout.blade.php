@@ -16,14 +16,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto ulcontent">
-          <li class="nav-item active">
+{{--           <li class="nav-item active">
             <a class="nav-link" href="#"><i class="fa fa-crosshairs whitefa" aria-hidden="true"></i></a>
           </li>
           <a class="nav-link" href="#"><i class="fa fa-comments whitefa" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#"><i class="fa fa-bell whitefa" aria-hidden="true"></i></a>
-        </li>
+        </li> --}}
         <li class="nav-item active livertical">
           <span class="verticalline"></span>
         </li>
@@ -42,9 +42,9 @@
             @else
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data</a></center>
             <div class="dropdown-divider"></div>
-{{--             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
             <div class="dropdown-divider"></div>
-            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center> --}}
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center>
             <div class="dropdown-divider"></div>
             {{--  <a class="dropdown-item" href="#">Another action</a> --}}
             <!-- Button trigger modal -->
