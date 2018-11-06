@@ -60,7 +60,7 @@ class AdminController extends AuthController
 
 	public function send_test_email()
 	{
-		 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+		 $data["mail_to"]       = "jesgonzales8@gmail.com";
 		 $data['mail_username'] = Config::get('mail.username');
 		 $data["subject"]       = "Testing testing";
 		 $data["first_name"]    = "Digima B. House";
