@@ -16,14 +16,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto ulcontent">
-         {{--  <li class="nav-item active">
+          <li class="nav-item active">
             <a class="nav-link" href="#"><i class="fa fa-crosshairs whitefa" aria-hidden="true"></i></a>
           </li>
           <a class="nav-link" href="#"><i class="fa fa-comments whitefa" aria-hidden="true"></i></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#"><i class="fa fa-bell whitefa" aria-hidden="true"></i></a>
-        </li> --}}
+        </li>
         <li class="nav-item active livertical">
           <span class="verticalline"></span>
         </li>
