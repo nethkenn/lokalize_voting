@@ -37,14 +37,20 @@
           </a>
           
           <div class="dropdown-menu dropdown-menu-right dropdownlinav" aria-labelledby="navbarDropdown">
-            @if($usertype == 0)
+            @if($usertype == 0 || $usertype == 3)
             <center><a class="button" href='/logout' style="text-decoration: none;"><i class="fa fa-share" aria-hidden="true"></i> Logout</a></center>
             @else
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenter" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data</a></center>
             <div class="dropdown-divider"></div>
+              <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalCenterv2" style="text-decoration: none;"><i class="fa fa-upload" aria-hidden="true"></i> Import Data V2</a></center>
+            <div class="dropdown-divider"></div>
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSend" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts</a></center>
             <div class="dropdown-divider"></div>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendv2" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts V2</a></center>
+            <div class="dropdown-divider"></div>
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center>
+            <div class="dropdown-divider"></div>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdatesv2" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates V2</a></center>
             <div class="dropdown-divider"></div>
             {{--  <a class="dropdown-item" href="#">Another action</a> --}}
             <!-- Button trigger modal -->
@@ -62,6 +68,30 @@
         @yield('content')
     </div>
 </div>
+  <div class="modal fade" id="exampleModalCenterv2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/import_v2" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Import Data V2</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{--upload file--}}
+            <input type="file" class="choosefile" name="file">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="uploadfile">Upload</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  
+
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <form method="POST" action="/admin/import" enctype="multipart/form-data">
@@ -85,6 +115,30 @@
       </form>
     </div>
   </div>  
+
+    <div class="modal fade" id="exampleModalSendv2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/send_password_v2" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Send Accounts V2</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to send their accounts?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="send">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  
+
 
     <div class="modal fade" id="exampleModalSend" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -116,6 +170,29 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Send Updates</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to send their updates?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" name="send">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>  
+
+        <div class="modal fade" id="exampleModalSendUpdatesv2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <form method="POST" action="/admin/send_updates_v2" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Send Updates V2</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>

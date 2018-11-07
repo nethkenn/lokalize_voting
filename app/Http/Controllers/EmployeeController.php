@@ -59,7 +59,7 @@ class EmployeeController extends AuthVotersController
 
         if(isset($user))
         {
-              if($user->user_type != 0)
+              if($user->user_type != 0 && $user->user_type != 3)
               {
                   return Redirect::to('/login')->send();
               }
@@ -68,7 +68,18 @@ class EmployeeController extends AuthVotersController
                   $data['global_candidate']     = Tbl_approved_candidates::JoinUser()->where("position_id",1)->get();
                   $data['regional_candidate']   = Tbl_approved_candidates::JoinUser()->where("position_id",2)->get();
                   $data['ambassador_candidate'] = Tbl_approved_candidates::JoinUser()->where("position_id",3)->get();
-                  $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->where("user_country",$user->user_country)->get();
+
+                  if($user->user_type == 0)
+                  {
+                       $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->where("user_country",$user->user_country)->get();
+                  }
+                  else
+                  {
+                       $data['advisor_candidate']    = Tbl_approved_candidates::JoinUser()->where("position_id",4)->get();
+                  }
+       
+
+
                     // dd($data);
                   $data["fname"] = $user->user_first_name;
                   $data["lname"] = $user->user_last_name;

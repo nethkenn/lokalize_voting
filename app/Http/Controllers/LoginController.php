@@ -65,7 +65,7 @@ class LoginController extends Controller
 				if($status == 'Pending')
 				{
 					
-					if($user->user_type == 0)
+					if($user->user_type == 0 || $user->user_type == 3)
 					{
 						// Alert::success('Login Successfully', $user->user_first_name);
 						session::put("is_login","voters");

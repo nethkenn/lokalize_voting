@@ -68,9 +68,100 @@ class AdminController extends AuthController
 
 	 	 Mail::send('update_template', $data, function ($m) use ($data) 
          {
-                $m->from($data["from"]);
+                $m->from("johnkenneth.delara@yahoo.com");
                 $m->to($data["mail_to"])->subject($data["subject"]);
          });
+	}
+
+	public function import_v2()
+	{
+		$file = Request::file('file');
+		$_data = Excel::selectSheetsByIndex(0)->load($file, function($reader){})->all();
+
+		foreach($_data as $data)
+		{
+			if($data["email_address"] != "")
+			{
+				$insert["user_email"]        = $data["email_address"];
+				$insert["user_password"]     = $data["first_name"];
+				$insert["user_name"]         = $data["preferred_username"];
+				$insert["user_first_name"]   = $data["first_name"];
+				$insert["user_last_name"]    = $data["last_name"];
+				$insert["user_picture"]      = "assets/images/";
+				$insert["user_linked_in"]    = "";
+				$insert["user_media_linked"] = "";
+				$insert["user_resume"]       = "";
+				$insert["user_country"]      = "";
+				$insert["user_region"]       = "";
+				$insert["user_type"]         = 3;
+
+				$user_id = Tbl_voting_user::insertGetId($insert);
+
+				$insert_status["user_id"]       = $user_id;
+				$insert_status["voting_status"] = "Pending";
+
+				Tbl_user_voting_status::insert($insert_status);
+			}
+
+		}
+
+		Toastr::success("approved");
+		return Redirect::to("/admin");
+	}
+
+	public function send_password_v2()
+	{
+		 $voters = Tbl_voting_user::where('user_type',3)->get();
+
+		 foreach($voters as $voter)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = $voter->user_email;
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC Online Voting Log-In Account";
+			 $data["first_name"]    = $voter->user_first_name;
+			 $data["username"]      = $voter->user_name;
+			 $data["password"]      = Self::generateRandomString();
+			 $data["from"]          = env('MAIL_USERNAME');
+
+		 	 Mail::send('password_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+
+	         $updatepass["user_password"] = $data["password"];
+	         Tbl_voting_user::where('user_id',$voter->user_id)->update($updatepass);
+		 }
+
+		 
+		Toastr::success("approved");
+		return Redirect::to("/admin");
+	}
+
+
+	public function send_updates_v2()
+	{
+		$voters = Tbl_voting_user::where('user_type',3)->get();
+
+		 foreach($voters as $voter)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = $voter->user_email;
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC-ONLINE ELECTION";
+			 $data["first_name"]    = $voter->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+
+		 	 Mail::send('updatev2_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+		Toastr::success("approved");
+		return Redirect::to("/admin");
 	}
 
 	public function send_updates()
