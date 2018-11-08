@@ -126,7 +126,7 @@ class AdminController extends AuthController
 
 		 	 Mail::send('password_template', $data, function ($m) use ($data) 
 	         {
-	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->from($data["from"]);
 	                $m->to($data["mail_to"])->subject($data["subject"]);
 	         });
 
@@ -155,7 +155,7 @@ class AdminController extends AuthController
 
 		 	 Mail::send('updatev2_template', $data, function ($m) use ($data) 
 	         {
-	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->from($data["from"]);
 	                $m->to($data["mail_to"])->subject($data["subject"]);
 	         });
 		 }
