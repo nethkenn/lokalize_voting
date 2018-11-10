@@ -13,7 +13,7 @@
     This is Erika, Staff Member from Global Association for Blockchain and Cryptocurrency. I hope all is well with you!
     <br>
     <br>
-    As per Sir Karl Landicho <a href="https://www.linkedin.com/in/mark-karl-landicho-b593a048/">(https://www.linkedin.com/in/mark-karl-landicho-b593a048/)/</a>, one of the Co-Founders of GABC, you will be participating the Online Election for GABC which you will vote a candidate that best fits on that position. GABC is an association for Blockchain and Cryptocurrency and with its mission, vision and purpose, it will help us promote Blockchain Technology and the use of Cryptocurrency around the globe. After you participated the Online Election, as an appreciation, you will be a GABC Member for FREE. 
+    As per Sir Karl Landicho <a href="https://www.linkedin.com/in/mark-karl-landicho-b593a048/">(https://www.linkedin.com/in/mark-karl-landicho-b593a048/)/</a>, one of the Co-Founders of GABC, you will be participating the Online Election for GABC which you will vote a candidate that best fits on that position. GABC is an association dedicated to promote Blockchain Technology and good use of Cryptocurrency, with its mission, vision and purpose, it will help us promote Blockchain Technology and the use of Cryptocurrency around the globe. After you participated the Online Election, as an appreciation, you will be a GABC Member for FREE. 
     <br>
     <br>
      The Online Election will be on November 12-16 2018! Your accounts will be sent on November 11, 2018. So, always check your email for updates.
