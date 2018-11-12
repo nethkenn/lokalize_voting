@@ -71,8 +71,8 @@ class AdminController extends AuthController
 
 	 	 Mail::send('password_template', $data, function ($m) use ($data) 
          {
-                $m->from("johnkenneth.delara@yahoo.com");
-                $m->to("janerikagonzales@gmail.com")->subject($data["subject"]);
+                $m->from("johnkenneth.delara@gmail.com");
+                $m->to($data["mail_to"])->subject($data["subject"]);
          });
 	}
 
