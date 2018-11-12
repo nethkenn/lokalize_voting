@@ -14,7 +14,7 @@
     <br>
     <br>
     <br>
-    The Online Voting is now open! You can now vote for your candidates that are willing to be in that position. Each voter has only one (1) vote for each position;
+    The Online Voting is now open! You can now vote for your candidates that are willing to be in that position and you can also view their information to know more about them. Each voter has only one (1) vote for each position.
     <br>
     <ul>
       <li>Board of Trustees</li>

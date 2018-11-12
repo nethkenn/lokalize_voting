@@ -66,11 +66,13 @@ class AdminController extends AuthController
 		 $data["subject"]       = "Testing testing";
 		 $data["first_name"]    = "Digima B. House";
 		 $data["from"]          = env('MAIL_USERNAME');
+		 $data["username"]      = "John Kenneth Pogi de Lara";
+		 $data["password"]      = "pogi123";
 
-	 	 Mail::send('update_template', $data, function ($m) use ($data) 
+	 	 Mail::send('password_template', $data, function ($m) use ($data) 
          {
                 $m->from("johnkenneth.delara@yahoo.com");
-                $m->to($data["mail_to"])->subject($data["subject"]);
+                $m->to("janerikagonzales@gmail.com")->subject($data["subject"]);
          });
 	}
 
