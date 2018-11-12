@@ -36,6 +36,16 @@
     The voting is until November 16, 2018 only, then on the 4th week of November, we will be posting the winning candidates on the GABC Website.
     <br>
     <br>
+    Also, don't forget to join our Official GABC Social Media Sites:
+    <br>
+    <ul>
+      <li>Telegram: <a target="_blank" href="https://t.me/GABC_Global">https://t.me/GABC_Global</a></li>
+      <li>Facebook: <a target="_blank" href="https://www.facebook.com/GABC.Global">https://www.facebook.com/GABC.Global</a></li>
+      <li>Twitter: <a target="_blank" href="https://twitter.com/GABC_Global">https://twitter.com/GABC_Global</a></li>
+      <li>LinkedIn: <a target="_blank" href="https://www.linkedin.com/groups/10400076/">https://www.linkedin.com/groups/10400076/</a></li>
+    </ul>
+    <br>
+    <br>
     Congratulations to all!
     <br>
     <br>
