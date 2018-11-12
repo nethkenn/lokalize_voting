@@ -45,7 +45,6 @@
       <li>LinkedIn: <a target="_blank" href="https://www.linkedin.com/groups/10400076/">https://www.linkedin.com/groups/10400076/</a></li>
     </ul>
     <br>
-    <br>
     Congratulations to all!
     <br>
     <br>
