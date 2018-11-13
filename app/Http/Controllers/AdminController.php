@@ -46,10 +46,16 @@ class AdminController extends AuthController
 				$data['ambassador_candidate'] = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",3)->orderBy('user_region','ASC')->get();
 				$data['advisor_candidate']    = Tbl_voting_user::JoinUser()->where("tbl_applied_position.position_id",4)->get();
 				//yung nsa loob ng bracket yan ang variable name na ttwagin mo dun sa html page mo.
+
+				$data["voting_status_pending"]        = Tbl_voting_user::leftjoin('tbl_user_voting_status','tbl_voting_user.user_id','=','tbl_user_voting_status.user_id')->where('tbl_voting_user.user_type','!=',1)->where('tbl_user_voting_status.voting_status',"Pending")->get();
+
+				$data["voting_status_completed"]        = Tbl_voting_user::leftjoin('tbl_user_voting_status','tbl_voting_user.user_id','=','tbl_user_voting_status.user_id')->where('tbl_voting_user.user_type','!=',1)->where('tbl_user_voting_status.voting_status',"Completed")->get();
+
 				$data["usertype"]= $user->user_type;
 				$data["fname"] = $user->user_first_name;
 				$data["lname"] = $user->user_last_name;
 				$data["pic"] = $user->user_picture;
+	
 				return view('admin.admin',$data);
 			}
 		}

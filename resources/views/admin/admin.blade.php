@@ -35,6 +35,12 @@
 		<li class="nav-item">
 			<a class="nav-link" id="pills-Ambassador-tab" data-toggle="pill" href="#pills-ambssador" role="tab" aria-controls="pills-ambssador" aria-selected="false">Manage Ambassador</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-Voters-tab" data-toggle="pill" href="#pills-voters" role="tab" aria-controls="pills-voters" aria-selected="false">Voted Voters</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-VotersPending-tab" data-toggle="pill" href="#pills-voters-pending" role="tab" aria-controls="pills-voters-pending" aria-selected="false">Pending Voters</a>
+		</li>
 		{{-- <li class="nav-item">
 			<a class="nav-link wa" id="pills-PollResult-tab" data-toggle="pill" href="#pills-result" role="tab" aria-controls="pills-result" aria-selected="false">Poll Result</a>
 		</li> --}}
@@ -142,6 +148,54 @@
 									<td>{{$val->user_first_name}} {{$val->user_last_name}}</td>
 									<td>{{$val->user_region}}</td>
 									<td><a target="_blank" href="https://{{$val->user_linked_in}}">{{$val->user_linked_in}}</a></td>
+								</tr>
+								@endforeach
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade" id="pills-voters" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Full Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								@php
+								$count = 1;
+								@endphp
+								@foreach($voting_status_completed as $key => $completed)
+								<tr>
+									<th scope="row">{{$count++}}</th>
+									<td>{{$completed->user_first_name}} {{$completed->user_last_name}}</td>
+								</tr>
+								@endforeach
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade" id="pills-voters-pending" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Full Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								@php
+								$count = 1;
+								@endphp
+								@foreach($voting_status_pending as $key => $pending)
+								<tr>
+									<th scope="row">{{$count++}}</th>
+									<td>{{$pending->user_first_name}} {{$pending->user_last_name}}</td>
 								</tr>
 								@endforeach
 							</tr>
