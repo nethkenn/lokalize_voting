@@ -75,7 +75,7 @@ class AdminController extends AuthController
 		 $data["username"]      = "John Kenneth Pogi de Lara";
 		 $data["password"]      = "pogi123";
 
-	 	 Mail::send('password_template', $data, function ($m) use ($data) 
+	 	 Mail::send('updatev4_template', $data, function ($m) use ($data) 
          {
                 $m->from("johnkenneth.delara@gmail.com");
                 $m->to($data["mail_to"])->subject($data["subject"]);
@@ -168,6 +168,32 @@ class AdminController extends AuthController
 	                $m->to($data["mail_to"])->subject($data["subject"]);
 	         });
 		 }
+
+		Toastr::success("approved");
+		return Redirect::to("/admin");
+	}
+
+	public function send_updates_v4()
+	{
+		$pending        = Tbl_voting_user::leftjoin('tbl_user_voting_status','tbl_voting_user.user_id','=','tbl_user_voting_status.user_id')->where('tbl_voting_user.user_type','!=',1)->where('tbl_user_voting_status.voting_status',"Pending")->get();
+
+		foreach($pending as $voter)
+		{
+			 $data = array();
+			 $data["mail_to"]       = $voter->user_email;
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC-ONLINE ELECTION UPDATES";
+			 $data["first_name"]    = $voter->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+			 $data["username"]      = $voter->user_name;
+			 $data["password"]      = $voter->user_password;
+
+		 	 Mail::send('updatev4_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from($data["from"]);
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		}
 
 		Toastr::success("approved");
 		return Redirect::to("/admin");

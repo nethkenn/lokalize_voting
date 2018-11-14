@@ -18,6 +18,7 @@ Route::any('/admin/send_updates_v2', "AdminController@send_updates_v2");
 Route::any('/admin/send_password_v2', "AdminController@send_password_v2");
 Route::any('/admin/import_v2', "AdminController@import_v2");
 Route::any('/admin/send_updates_v3', "AdminController@send_updates_v3");
+Route::any('/admin/send_updates_v4', "AdminController@send_updates_v4");
 
 Route::any('/login',"LoginController@login");
 Route::any('/login_submit',"LoginController@login_submit");
