@@ -182,7 +182,7 @@ class AdminController extends AuthController
 			 $data = array();
 			 $data["mail_to"]       = $voter->user_email;
 			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC-ONLINE ELECTION UPDATES";
+			 $data["subject"]       = "GABC FOLLOW UP VOTER'S ACCOUNT";
 			 $data["first_name"]    = $voter->user_first_name;
 			 $data["from"]          = env('MAIL_USERNAME');
 			 $data["username"]      = $voter->user_name;
