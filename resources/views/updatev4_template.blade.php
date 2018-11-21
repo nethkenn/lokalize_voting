@@ -34,7 +34,7 @@
     You can see the results on the log-in page once you’re done voting.
     <br>
     <br>
-     The voting is extended until November 21, 2018 ONLY, then on the 4th week of November, we will be posting the winning candidates on the GABC Website.
+     The voting is extended until November 21, 2018 ONLY, then on the 5th week of November, we will be posting the winning candidates on the GABC Website.
     <br>
     <br>
     Thank you!
