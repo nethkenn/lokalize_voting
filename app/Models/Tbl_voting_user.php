@@ -16,5 +16,4 @@ class Tbl_voting_user extends Model
 		$query->leftjoin('tbl_applied_position','tbl_voting_user.user_id','=','tbl_applied_position.user_id');
 		return $query;
 	}
-
 }

@@ -41,6 +41,9 @@
 		<li class="nav-item">
 			<a class="nav-link" id="pills-VotersPending-tab" data-toggle="pill" href="#pills-voters-pending" role="tab" aria-controls="pills-voters-pending" aria-selected="false">Pending Voters</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" id="pills-VotersList-tab" data-toggle="pill" href="#pills-voters-list" role="tab" aria-controls="pills-voters-list" aria-selected="false">List of Votes</a>
+		</li>
 		{{-- <li class="nav-item">
 			<a class="nav-link wa" id="pills-PollResult-tab" data-toggle="pill" href="#pills-result" role="tab" aria-controls="pills-result" aria-selected="false">Poll Result</a>
 		</li> --}}
@@ -196,6 +199,38 @@
 								<tr>
 									<th scope="row">{{$count++}}</th>
 									<td>{{$pending->user_first_name}} {{$pending->user_last_name}}</td>
+								</tr>
+								@endforeach
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="tab-pane fade" id="pills-voters-list" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Full Name</th>
+								<th scope="col">Board of Trustees</th>
+								<th scope="col">Global Board of Directors</th>
+								<th scope="col">Regional Board of Directors</th>
+								<th scope="col">Ambassador</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								@php
+								$count = 1;
+								@endphp
+								@foreach($list_of_votes as $key => $list)
+								<tr>
+									<td>{{$count++}}</th>
+									<td>{{$key}}</td>
+									<td>{{$list["board"]}}</td>
+									<td>{{$list["global"]}}</td>
+									<td>{{$list["regional"]}}</td>
+									<td>{{$list["ambassador"]}}</td>
 								</tr>
 								@endforeach
 							</tr>
