@@ -60,21 +60,19 @@ class AdminController extends AuthController
 
 				foreach ($data["voting_status_completed"] as $value) 
 				{
-					if(!isset($user_votes_list[$value->user_first_name.' '.$value->user_last_name]))
-					{
-						//board
-						$board = Tbl_global_board_of_directors_votes::GetVotesUser($value->user_id)->first();
-						$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["board"] = $board["user_first_name"]." ".$board["user_last_name"];
-						//global
-						$global = Tbl_regional_board_of_directors_votes::GetVotesUser($value->user_id)->first();
-						$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["global"] = $global["user_first_name"]." ".$global["user_last_name"];
-						//regional
-						$regional = Tbl_ambassador_votes::GetVotesUser($value->user_id)->first();
-						$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["regional"] = $regional["user_first_name"]." ".$regional["user_last_name"];
-						//ambassador
-						$ambassador = Tbl_advisor_votes::GetVotesUser($value->user_id)->first();
-						$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["ambassador"] = $ambassador["user_first_name"]." ".$ambassador["user_last_name"];
-					}
+					//board
+					$board = Tbl_global_board_of_directors_votes::GetVotesUser($value->user_id)->first();
+					$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["board"] = $board["user_first_name"]." ".$board["user_last_name"];
+					//global
+					$global = Tbl_regional_board_of_directors_votes::GetVotesUser($value->user_id)->first();
+					$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["global"] = $global["user_first_name"]." ".$global["user_last_name"];
+					//regional
+					$regional = Tbl_ambassador_votes::GetVotesUser($value->user_id)->first();
+					$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["regional"] = $regional["user_first_name"]." ".$regional["user_last_name"];
+					//ambassador
+					$ambassador = Tbl_advisor_votes::GetVotesUser($value->user_id)->first();
+					$user_votes_list[$value->user_first_name.' '.$value->user_last_name]["ambassador"] = $ambassador["user_first_name"]." ".$ambassador["user_last_name"];
+					
 				}
 
 				$data["list_of_votes"] = $user_votes_list;
