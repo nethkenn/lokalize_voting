@@ -89,7 +89,7 @@ class ResultsController extends Controller
           ->get();
 
           $data["ambas"]                     = Self::getAmbassadorVotes($data["ambas"]); 
-          $final_data = Self::RemoveDuplicatePosition($data);
+          $final_data                        = Self::RemoveDuplicatePosition($data);
 
 
           $final_data["total_board_vote_count"]    = Self::total_vote_count($final_data["board"]);
@@ -97,6 +97,7 @@ class ResultsController extends Controller
           $final_data["total_regional_vote_count"] = Self::total_vote_count($final_data["regional"]);
           $final_data["total_ambas_vote_count"]    = Self::getAmbassadorVotes($final_data["ambas"],true);
           
+          $final_data["ambas"]                     = Self::getAmbassadorVotes($final_data["ambas"]); 
 
 				  return view('results',$final_data);
     }
@@ -284,7 +285,7 @@ class ResultsController extends Controller
               $countrytotalvotes[$ambas->user_country]["totalvotes"] = $ambas->votes_count;
           }
           //if candidates tied
-          else if(isset($country[$ambas->user_country]) && $ambas->votes_count == $country[$ambas->user_country]->votes_count)
+          else if(isset($country[$ambas->user_country]) && $ambas->votes_count == $country[$ambas->user_country]->votes_count && $country[$ambas->user_country]->user_first_name != $ambas->user_first_name)
           {
               //push and set a different key for the country
               $country[$ambas->user_country.$key]                    = $ambas;
