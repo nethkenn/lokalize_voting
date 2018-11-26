@@ -84,6 +84,7 @@ class AdminController extends AuthController
 		{
 			return Redirect::to('/login')->send();
 		}
+
 	}
 
 	public function send_test_email()
@@ -95,8 +96,9 @@ class AdminController extends AuthController
 		 $data["from"]          = env('MAIL_USERNAME');
 		 $data["username"]      = "John Kenneth Pogi de Lara";
 		 $data["password"]      = "pogi123";
+		 $data["position"]      = "ambassador";
 
-	 	 Mail::send('updatev4_template', $data, function ($m) use ($data) 
+	 	 Mail::send('winner_template', $data, function ($m) use ($data) 
          {
                 $m->from("johnkenneth.delara@gmail.com");
                 $m->to($data["mail_to"])->subject($data["subject"]);
