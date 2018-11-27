@@ -48,7 +48,7 @@
             <div class="dropdown-divider"></div>
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendv2" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Accounts V2</a></center>
             <div class="dropdown-divider"></div>
-            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates</a></center>
+            <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdates" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Winner Updates</a></center>
             <div class="dropdown-divider"></div>
             <center><a href="#" class="text" data-toggle="modal" data-target="#exampleModalSendUpdatesv2" style="text-decoration: none;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Updates V2</a></center>
             <div class="dropdown-divider"></div>
@@ -173,13 +173,13 @@
         {{ csrf_field() }}
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Send Updates</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Send Winner Updates</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            Are you sure you want to send their updates?
+            Are you sure you want to send their winner updates?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

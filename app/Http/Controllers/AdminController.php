@@ -414,23 +414,101 @@ class AdminController extends AuthController
 
 	public function send_updates()
 	{
-		 $voters = Tbl_voting_user::where('user_type',0)->get();
+		 // $voters = Tbl_voting_user::where('user_type',0)->get();
 
-		 foreach($voters as $voter)
+		 // foreach($voters as $voter)
+		 // {
+		 // 	 $data = array();
+			//  $data["mail_to"]       = $voter->user_email;
+			//  $data['mail_username'] = Config::get('mail.username');
+			//  $data["subject"]       = "GABC Status Update";
+			//  $data["first_name"]    = $voter->user_first_name;
+			//  $data["from"]          = env('MAIL_USERNAME');
+
+		 // 	 Mail::send('update_template', $data, function ($m) use ($data) 
+	  //        {
+	  //               $m->from($data["from"]);
+	  //               $m->to($data["mail_to"])->subject($data["subject"]);
+	  //        });
+		 // }
+		 $data["boardoftrustees"] = ["753","730","779","726","725"];
+		 $data["globalboard"]     = ["729","765","733","742","745","783","760","769"];
+		 $data["regionalboard"]   = ["724","784","735","731","738","740","758","762","755","773","761"];
+		 $data["ambassador"]      = ["770","727","732","751","736","777","746","747","767","780","772","776","766"];
+
+		 $boardoftrustees             = Tbl_voting_user::whereIn("user_id",$data["boardoftrustees"])->get();
+		 $globalboard                 = Tbl_voting_user::whereIn("user_id",$data["globalboard"])->get();
+		 $regionalboard               = Tbl_voting_user::whereIn("user_id",$data["regionalboard"])->get();
+		 $ambassador                  = Tbl_voting_user::whereIn("user_id",$data["ambassador"])->get();
+
+		 foreach($boardoftrustees as $board)
 		 {
-		 	 $data = array();
-			 $data["mail_to"]       = $voter->user_email;
-			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC Status Update";
-			 $data["first_name"]    = $voter->user_first_name;
-			 $data["from"]          = env('MAIL_USERNAME');
+		 	 $databoard = array();
+			 $databoard["mail_to"]       = $board->user_email;
+			 $databoard['mail_username'] = Config::get('mail.username');
+			 $databoard["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $databoard["first_name"]    = $board->user_first_name;
+			 $databoard["from"]          = env('MAIL_USERNAME');
+			 $databoard["position"]      = "Board of Trustees";
 
-		 	 Mail::send('update_template', $data, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $databoard, function ($m) use ($data) 
 	         {
-	                $m->from($data["from"]);
-	                $m->to($data["mail_to"])->subject($data["subject"]);
+	                $m->from($databoard["from"]);
+	                $m->to($databoard["mail_to"])->subject($databoard["subject"]);
 	         });
 		 }
+
+		 foreach($globalboard as $global)
+		 {
+		 	 $dataglobal = array();
+			 $dataglobal["mail_to"]       = $global->user_email;
+			 $dataglobal['mail_username'] = Config::get('mail.username');
+			 $dataglobal["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataglobal["first_name"]    = $global->user_first_name;
+			 $dataglobal["from"]          = env('MAIL_USERNAME');
+			 $dataglobal["position"]      = "Global Board of Directors";
+			 
+		 	 Mail::send('winner_template', $dataglobal, function ($m) use ($data) 
+	         {
+	                $m->from($dataglobal["from"]);
+	                $m->to($dataglobal["mail_to"])->subject($dataglobal["subject"]);
+	         });
+		 }
+
+		 foreach($regionalboard as $regional)
+		 {
+		 	 $dataregional = array();
+			 $dataregional["mail_to"]       = $regional->user_email;
+			 $dataregional['mail_username'] = Config::get('mail.username');
+			 $dataregional["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataregional["first_name"]    = $regional->user_first_name;
+			 $dataregional["from"]          = env('MAIL_USERNAME');
+			 $dataregional["position"]      = "Regional Board of Directors";
+			 
+		 	 Mail::send('winner_template', $dataregional, function ($m) use ($data) 
+	         {
+	                $m->from($dataregional["from"]);
+	                $m->to($dataregional["mail_to"])->subject($dataregional["subject"]);
+	         });
+		 }
+
+		 foreach($ambassador as $ambas)
+		 {
+		 	 $dataambas = array();
+			 $dataambas["mail_to"]       = $ambas->user_email;
+			 $dataambas['mail_username'] = Config::get('mail.username');
+			 $dataambas["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataambas["first_name"]    = $ambas->user_first_name;
+			 $dataambas["from"]          = env('MAIL_USERNAME');
+			 $dataambas["position"]      = "Ambassador";
+			 
+		 	 Mail::send('winner_template', $dataambas, function ($m) use ($data) 
+	         {
+	                $m->from($dataambas["from"]);
+	                $m->to($dataambas["mail_to"])->subject($dataambas["subject"]);
+	         });
+		 }
+
 
 		Toastr::success("approved");
 		return Redirect::to("/admin");
