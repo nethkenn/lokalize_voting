@@ -89,20 +89,85 @@ class AdminController extends AuthController
 
 	public function send_test_email()
 	{
-		 $data["mail_to"]       = "jesgonzales8@gmail.com";
-		 $data['mail_username'] = Config::get('mail.username');
-		 $data["subject"]       = "Testing testing";
-		 $data["first_name"]    = "Digima B. House";
-		 $data["from"]          = env('MAIL_USERNAME');
-		 $data["username"]      = "John Kenneth Pogi de Lara";
-		 $data["password"]      = "pogi123";
-		 $data["position"]      = "ambassador";
+		 $data["boardoftrustees"] = ["753","730","779","726","725"];
+		 $data["globalboard"]     = ["729","765","733","742","745","783","760","769"];
+		 $data["regionalboard"]   = ["724","784","735","731","738","740","758","762","755","773","761"];
+		 $data["ambassador"]      = ["770","727","732","751","736","777","746","747","767","780","772","776","766"];
 
-	 	 Mail::send('winner_template', $data, function ($m) use ($data) 
-         {
-                $m->from("johnkenneth.delara@gmail.com");
-                $m->to($data["mail_to"])->subject($data["subject"]);
-         });
+		 $boardoftrustees             = Tbl_voting_user::whereIn("user_id",$data["boardoftrustees"])->get();
+		 $globalboard                 = Tbl_voting_user::whereIn("user_id",$data["globalboard"])->get();
+		 $regionalboard               = Tbl_voting_user::whereIn("user_id",$data["regionalboard"])->get();
+		 $ambassador                  = Tbl_voting_user::whereIn("user_id",$data["ambassador"])->get();
+
+		 foreach($boardoftrustees as $board)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $data["first_name"]    = $board->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+			 $data["position"]      = "Board of Trustees";
+
+		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+		 foreach($globalboard as $global)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $data["first_name"]    = $global->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+			 $data["position"]      = "Global Board of Directors";
+			 
+		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+		 foreach($regionalboard as $regional)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $data["first_name"]    = $regional->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+			 $data["position"]      = "Regional Board of Directors";
+			 
+		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+		 foreach($ambassador as $ambas)
+		 {
+		 	 $data = array();
+			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $data['mail_username'] = Config::get('mail.username');
+			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $data["first_name"]    = $ambas->user_first_name;
+			 $data["from"]          = env('MAIL_USERNAME');
+			 $data["position"]      = "Ambassador";
+			 
+		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+	         {
+	                $m->from("johnkenneth.delara@gmail.com");
+	                $m->to($data["mail_to"])->subject($data["subject"]);
+	         });
+		 }
+
+
 	}
 
 	public function import_v2()
