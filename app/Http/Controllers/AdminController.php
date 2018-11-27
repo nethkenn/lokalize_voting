@@ -451,7 +451,7 @@ class AdminController extends AuthController
 			 $databoard["from"]          = env('MAIL_USERNAME');
 			 $databoard["position"]      = "Board of Trustees";
 
-		 	 Mail::send('winner_template', $databoard, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $databoard, function ($m) use ($databoard) 
 	         {
 	                $m->from($databoard["from"]);
 	                $m->to($databoard["mail_to"])->subject($databoard["subject"]);
@@ -468,7 +468,7 @@ class AdminController extends AuthController
 			 $dataglobal["from"]          = env('MAIL_USERNAME');
 			 $dataglobal["position"]      = "Global Board of Directors";
 			 
-		 	 Mail::send('winner_template', $dataglobal, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataglobal, function ($m) use ($dataglobal) 
 	         {
 	                $m->from($dataglobal["from"]);
 	                $m->to($dataglobal["mail_to"])->subject($dataglobal["subject"]);
@@ -485,7 +485,7 @@ class AdminController extends AuthController
 			 $dataregional["from"]          = env('MAIL_USERNAME');
 			 $dataregional["position"]      = "Regional Board of Directors";
 			 
-		 	 Mail::send('winner_template', $dataregional, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataregional, function ($m) use ($dataregional) 
 	         {
 	                $m->from($dataregional["from"]);
 	                $m->to($dataregional["mail_to"])->subject($dataregional["subject"]);
@@ -502,7 +502,7 @@ class AdminController extends AuthController
 			 $dataambas["from"]          = env('MAIL_USERNAME');
 			 $dataambas["position"]      = "Ambassador";
 			 
-		 	 Mail::send('winner_template', $dataambas, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataambas, function ($m) use ($dataambas) 
 	         {
 	                $m->from($dataambas["from"]);
 	                $m->to($dataambas["mail_to"])->subject($dataambas["subject"]);
