@@ -101,69 +101,69 @@ class AdminController extends AuthController
 
 		 foreach($boardoftrustees as $board)
 		 {
-		 	 $data = array();
-			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
-			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
-			 $data["first_name"]    = $board->user_first_name;
-			 $data["from"]          = env('MAIL_USERNAME');
-			 $data["position"]      = "Board of Trustees";
+		 	 $databoard = array();
+			 $databoard["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $databoard['mail_username'] = Config::get('mail.username');
+			 $databoard["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $databoard["first_name"]    = $board->user_first_name;
+			 $databoard["from"]          = env('MAIL_USERNAME');
+			 $databoard["position"]      = "Board of Trustees";
 
-		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $databoard, function ($m) use ($data) 
 	         {
 	                $m->from("johnkenneth.delara@gmail.com");
-	                $m->to($data["mail_to"])->subject($data["subject"]);
+	                $m->to($databoard["mail_to"])->subject($databoard["subject"]);
 	         });
 		 }
 
 		 foreach($globalboard as $global)
 		 {
-		 	 $data = array();
-			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
-			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
-			 $data["first_name"]    = $global->user_first_name;
-			 $data["from"]          = env('MAIL_USERNAME');
-			 $data["position"]      = "Global Board of Directors";
+		 	 $dataglobal = array();
+			 $dataglobal["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $dataglobal['mail_username'] = Config::get('mail.username');
+			 $dataglobal["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataglobal["first_name"]    = $global->user_first_name;
+			 $dataglobal["from"]          = env('MAIL_USERNAME');
+			 $dataglobal["position"]      = "Global Board of Directors";
 			 
-		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataglobal, function ($m) use ($data) 
 	         {
 	                $m->from("johnkenneth.delara@gmail.com");
-	                $m->to($data["mail_to"])->subject($data["subject"]);
+	                $m->to($dataglobal["mail_to"])->subject($dataglobal["subject"]);
 	         });
 		 }
 
 		 foreach($regionalboard as $regional)
 		 {
-		 	 $data = array();
-			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
-			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
-			 $data["first_name"]    = $regional->user_first_name;
-			 $data["from"]          = env('MAIL_USERNAME');
-			 $data["position"]      = "Regional Board of Directors";
+		 	 $dataregional = array();
+			 $dataregional["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $dataregional['mail_username'] = Config::get('mail.username');
+			 $dataregional["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataregional["first_name"]    = $regional->user_first_name;
+			 $dataregional["from"]          = env('MAIL_USERNAME');
+			 $dataregional["position"]      = "Regional Board of Directors";
 			 
-		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataregional, function ($m) use ($data) 
 	         {
 	                $m->from("johnkenneth.delara@gmail.com");
-	                $m->to($data["mail_to"])->subject($data["subject"]);
+	                $m->to($dataregional["mail_to"])->subject($dataregional["subject"]);
 	         });
 		 }
 
 		 foreach($ambassador as $ambas)
 		 {
-		 	 $data = array();
-			 $data["mail_to"]       = "johnkenneth.delara@gmail.com";
-			 $data['mail_username'] = Config::get('mail.username');
-			 $data["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
-			 $data["first_name"]    = $ambas->user_first_name;
-			 $data["from"]          = env('MAIL_USERNAME');
-			 $data["position"]      = "Ambassador";
+		 	 $dataambas = array();
+			 $dataambas["mail_to"]       = "johnkenneth.delara@gmail.com";
+			 $dataambas['mail_username'] = Config::get('mail.username');
+			 $dataambas["subject"]       = "GABC NEWLY ELECTED BOARD MEMBER";
+			 $dataambas["first_name"]    = $ambas->user_first_name;
+			 $dataambas["from"]          = env('MAIL_USERNAME');
+			 $dataambas["position"]      = "Ambassador";
 			 
-		 	 Mail::send('winner_template', $data, function ($m) use ($data) 
+		 	 Mail::send('winner_template', $dataambas, function ($m) use ($data) 
 	         {
 	                $m->from("johnkenneth.delara@gmail.com");
-	                $m->to($data["mail_to"])->subject($data["subject"]);
+	                $m->to($dataambas["mail_to"])->subject($dataambas["subject"]);
 	         });
 		 }
 
